@@ -1,0 +1,64 @@
+.section_sizing{
+    height: 400px;
+}
+.section_position{
+    width: 1367px;
+    margin: 0 auto;
+}
+
+header{
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+h1{
+    font-size: 40px;
+}
+
+h2{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.nav_logo{
+    margin-right: 45px;
+}
+
+.nav_size{
+  font-size: 30px;
+}
+
+.button_size{
+    font-size: 25px;
+}
+
+.section_color{
+    background-color: #F3E9F1;
+    width: 100%;
+    height: 531px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.titre{
+    text-align: center;
+    font-size: 70px;
+    margin-bottom: 50px;
+}
+
+.main_size{
+    width: 1024px;
+    margin: 0 auto;
+}
+
+.carousel_size{
+    height: 600px;
+}
