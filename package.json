@@ -11,5 +11,10 @@
   "dependencies": {
     "express": "^4.16.4",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.2.5",
+    "postcss": "^8.2.15",
+    "tailwindcss": "^2.1.2"
   }
 }
