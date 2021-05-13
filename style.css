@@ -104,3 +104,9 @@ h3{
 .slider-pagination .slider-page{
     background: #00c4a7;
 }
+
+.icon-card{
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
