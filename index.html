@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Orinoco</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +16,7 @@
         <nav class="navbar" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item nav_logo" href="https://bulma.io">
-                   <h1>Orinoco</h1>
+                   <h1 class="title is-1">Orinoco</h1>
                 </a>
 
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -27,10 +27,10 @@
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
+                <div class="navbar-start is-justify-content-space-between">
                     <a class="navbar-item nav_size">Accueil</a>
                     <a class="navbar-item nav_size">Produits</a>
-                    <a class="navbar-item nav_size">Panier</a>
+                    <a class="navbar-item nav_size nav_size-panier"><i class="fas fa-shopping-cart mr-4"></i>Panier</a>
                 </div>
 
                 <div class="navbar-end">
@@ -51,75 +51,137 @@
         <h1 class="titre">Bienvenue chez Orinoco</h1>
     </section>
 
-<main class="main_size">
+<main class="">
     <h2 class="title is-1 titre-main">Présentation des produits</h2>
 
-    <h3 class="subtitle is-1">Teddys</h3>
-            <!-- Start Carousel -->
-            <section class="hero is-medium has-carousel section_position">
-                <div id="carousel-teddies" class="hero-carousel">
-                    <div class="item-1" style="width: 150px; height: 150px">
-                        <img src="images/teddy_1.jpg" alt="images 1">
-                    </div>
-                    <div class="item-2" style="width: 150px; height: 150px">
-                        <img src="images/teddy_2.jpg" alt="images 2">
-                    </div>
-                    <div class="item-3"  style="width: 150px; height: 150px">
-                        <img src="images/teddy_3.jpg" alt="images 3">
-                    </div>
-                    <div class="item-4"  style="width: 150px; height: 150px">
-                        <img src="images/teddy_4.jpg" alt="images 3">
-                    </div>
-                    <div class="item-5"  style="width: 150px; height: 150px">
-                        <img src="images/teddy_5.jpg" alt="images 3">
-                    </div>
-                </div>
-                <div class="hero-head"></div>
-                <div class="hero-body"></div>
-                <div class="hero-foot"></div>
-            </section>
-
-    <h3 class="subtitle is-1">Furniture</h3>
-    <section class="hero is-medium has-carousel">
-        <div id="carousel-furnitures" class="hero-carousel">
-            <div class="item-1">
-                <img src="images/oak_1.jpg" alt="images 1">
-            </div>
-            <div class="item-2">
-                <img src="images/oak_2.jpg" alt="images 2">
-            </div>
-            <div class="item-3">
-                <img src="images/oak_3.jpg" alt="images 3">
-            </div>
-            <div class="item-4">
-                <img src="images/oak_4.jpg" alt="images 3">
-            </div>
-            <div class="item-5">
-                <img src="images/oak_5.jpg" alt="images 3">
-            </div>
-        </div>
-        <div class="hero-head"></div>
-        <div class="hero-body"></div>
-        <div class="hero-foot"></div>
-    </section>
-
-    <h3 class="subtitle is-1">Camera</h3>
-    <section class="hero is-medium has-carousel">
+    <h3 class="subtitle is-1">Caméras vintage</h3>
+    <section class="hero is-medium has-carousel section_position">
         <div id="carousel-cameras" class="hero-carousel">
             <div class="item-1">
-                <img src="images/vcam_1.jpg" alt="images 1">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="images/vcam_1.jpg" alt="Zurss 50S">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Zurss 50S</p>
+                                <p class="subtitle is-6">49,90€</p>
+                                <div class="">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button is-primary">Ajouter au panier</button>
+                    </div>
+                </div>
             </div>
             <div class="item-2">
-                <img src="images/vcam_2.jpg" alt="images 2">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="images/vcam_2.jpg" alt="Hirsch 400DTS">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Hirsch 400DTS</p>
+                                <p class="subtitle is-6">309,90€</p>
+                                <div class="">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button is-primary">Ajouter au panier</button>
+                    </div>
+                </div>
             </div>
             <div class="item-3">
-                <img src="images/vcam_3.jpg" alt="images 3">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="images/vcam_3.jpg" alt="Franck JS 105">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Franck JS 105</p>
+                                <p class="subtitle is-6">209,90€</p>
+                                <div class="">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button is-primary">Ajouter au panier</button>
+                    </div>
+                </div>
             </div>
             <div class="item-4">
-                <img src="images/vcam_4.jpg" alt="images 3">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="images/vcam_4.jpg" alt="Kuros TTS">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Kuros TTS</p>
+                                <p class="subtitle is-6">159,90€</p>
+                                <div class="">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button is-primary">Ajouter au panier</button>
+                    </div>
+                </div>
             </div>
             <div class="item-5">
-                <img src="images/vcam_5.jpg" alt="images 3">
+                <div class="card">
+                    <div class="card-image">
+                        <figure class="image is-4by3">
+                            <img src="images/vcam_5.jpg" alt="Karatone">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">Katatone</p>
+                                <p class="subtitle is-6">59,90€</p>
+                                <div class="">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button is-primary">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
         <div class="hero-head"></div>
@@ -129,18 +191,26 @@
 </main>
 
 <footer>
-    <div>
+    <div class="">
         <i class="fab fa-cc-mastercard"></i>
         <i class="fab fa-cc-visa"></i>
         <i class="fab fa-cc-paypal"></i>
     </div>
     <ul>
-        <li>About</li>
+        <li>À propos de nous</li>
         <li>Conctact</li>
-        <li>conditions de livraison</li>
-        <li></li>
+        <li>Conditions de livraison</li>
+        <li>Retour &</li>
+        <li>Help</li>
     </ul>
-
+    <div>
+        <span>
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-twitter"></i>
+        </span>
+        <p><i class="far fa-copyright"></i>Orinoco 2021</p>
+    </div>
 </footer>
 </body>
 
