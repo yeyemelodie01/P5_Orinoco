@@ -1,112 +1,112 @@
-fetch("http://localhost:3000/api/teddies")
-    .then(function (resp) {
-    return resp.json();
-})
-    .then(function (items){
-        console.log(items);
-        for (let toto of items){
-            console.log(toto.price);
-        }
-    })
-    .catch(error => alert("Erreur : " + error));
+window.onload = function() {
+    let items = [
+        'teddies',
+        'cameras',
+        'furniture',
+    ]
+    for (let item of items) {
+        renderItems(item);
+    }
+};
 
-// Initialisation avant chargement du DOM
-window.addEventListener('DOMContentLoaded', (event)  => {
-    // mettre ici le code à exécuter
-    let item = document.createElement("div");
-    item.classList.add("item-1");
-    document.getElementById("carousel-teddies")
+function renderItems(type) {
 
-    let card = document.createElement("div");
-    document.getElementsByClassName("item-1")
-    item.appendChild(div1);
-    card.classList.add("card");
+    let fetchUrl = "";
+    switch (type) {
+        case 'teddies':
+            fetchUrl = "http://localhost:3000/api/teddies";
+            break;
+        case 'furniture':
+            fetchUrl = "http://localhost:3000/api/furniture";
+            break;
+        case 'cameras':
+            fetchUrl = "http://localhost:3000/api/cameras";
+            break;
+        default:
+            fetchUrl = "";
+            break;
+    }
 
-    let cardimg = document.createElement("div");
-    document.getElementsByClassName("card");
-    card.appendChild(cardimg);
-    cardimg.classList.add("card-image");
+    if (fetchUrl !== '') {
+        fetch(fetchUrl)
+            .then(function (resp) {
+                return resp.json();
+            })
+            .then(function (items){
+                let itemPos = 1;
+                for (let itemObject of items){
+                    let item = document.createElement("div");
+                    item.classList.add("item-"+itemPos);
 
-    let figure = document.createElement("figure");
-    document.getElementsByClassName("card-image");
-    div2.appendChild(figure);
-    figure.classList.add("image");
-    figure.classList.add("is-4by3");
+                    let card = document.createElement("div");
+                    card.classList.add("card");
+                    item.appendChild(card);
 
-    let img = document.createElement("img");
-    img.src = "images/teddy_1.jpg";
-    document.getElementsByClassName("image is-4by3");
-    figure.appendChild(img);
+                    let cardImg = document.createElement("div");
+                    cardImg.classList.add("card-image");
+                    card.appendChild(cardImg);
 
-    let cardcontent = document.createElement("div");
-    document.getElementsByClassName("card");
-    cardcontent.classList.add("card-content");
-    cardcontent.classList.add("has-text-centered");
-    div1.appendChild(cardcontent);
+                    let figure = document.createElement("figure");
+                    figure.classList.add("is-4by3");
+                    figure.classList.add("image");
+                    cardImg.appendChild(figure);
 
-    let media = document.createElement("div");
-    document.getElementsByClassName("card-content");
-    media.classList.add("media");
-    cardcontent.appendChild(media);
+                    let img = document.createElement("img");
+                    img.src = itemObject.imageUrl;
+                    figure.appendChild(img);
 
-    let mediacontent = document.createElement("div");
-    document.getElementsByClassName("media");
-    mediacontent.classList.add("media-content");
-    media.appendChild(mediacontent);
+                    let cardContent = document.createElement("div");
+                    cardContent.classList.add("card-content");
+                    cardContent.classList.add("has-text-centered");
+                    card.appendChild(cardContent);
 
-    let norbert = document.createElement("p");
-    document.getElementsByClassName("media-content");
-    norbert.appendChild(document.createTextNode("Norbert"));
-    norbert.classList.add("title");
-    norbert.classList.add("is-4");
-    mediacontent.appendChild(norbert);
+                    let media = document.createElement("div");
+                    media.classList.add("media");
+                    cardContent.appendChild(media);
 
-    let prix = document.createElement("p");
-    document.getElementsByClassName("media-content");
-    prix.appendChild(document.createTextNode("29€"));
-    prix.classList.add("subtitle");
-    prix.classList.add("is-6");
-    mediacontent.appendChild(prix);
+                    let mediaContent = document.createElement("div");
+                    mediaContent.classList.add("media-content");
+                    media.appendChild(mediaContent);
 
-    let iconetoile = document.createElement("div");
-    document.getElementsByClassName("media-content");
-    iconetoile.classList.add("icon-star");
-    mediacontent.appendChild(iconetoile);
+                    let norbert = document.createElement("p");
+                    norbert.classList.add("title");
+                    norbert.classList.add("is-4");
+                    norbert.appendChild(document.createTextNode(itemObject.name));
+                    mediaContent.appendChild(norbert);
 
-    let icon = document.createElement("i");
-    document.getElementsByClassName("icon-star");
-    icon.classList.add("fas");
-    icon.classList.add("fa-star");
-    iconetoile.appendChild(icon);
+                    let price = document.createElement("p");
+                    price.classList.add("subtitle");
+                    price.classList.add("is-6");
+                    let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(itemObject.price/100);
+                    price.appendChild(document.createTextNode(formattedPrice+' €'));
+                    mediaContent.appendChild(price);
 
+                    let starIcon = document.createElement("div");
+                    starIcon.classList.add("icon-star");
+                    mediaContent.appendChild(starIcon);
 
-});
+                    for (let i = 0; i < 5; i++) {
+                        let icon = document.createElement("i");
+                        icon.classList.add("fas");
+                        icon.classList.add("fa-star");
+                        starIcon.appendChild(icon);
+                    }
+                    let button = document.createElement("button");
+                    button.classList.add("button");
+                    button.classList.add("is-primary");
+                    button.appendChild(document.createTextNode("Ajouter au panier"));
+                    cardContent.appendChild(button);
 
+                    let itemsCarousel = document.getElementById("carousel-"+type);
+                    itemsCarousel.appendChild(item);
+                    itemPos++;
+                }
 
-/*
-    <div class="item-1">
-        <div class="card">
-             <div class="card-image">
-                  <figure class="image is-4by3">
-                       <img src="images/teddy_1.jpg" alt="Norbert">
-                  </figure>
-             </div>
-             <div class="card-content has-text-centered">
-                  <div class="media">
-                           <div class="media-content">
-                                <p class="title is-4">Norbert</p>
-                                <p class="subtitle is-6">29€</p>
-                                <div class="">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star-half-alt"></i>
-                                    <i class="far fa-star"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="button is-primary">Ajouter au panier</button>
-                    </div>
-                </div>
-            </div>
-*/
+                bulmaCarousel.attach('#carousel-'+type, {
+                    slidesToScroll: 1,
+                    slidesToShow: 2
+                });
+            })
+            .catch(error => alert("Erreur : " + error));
+    }
+}
