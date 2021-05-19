@@ -10,21 +10,15 @@ window.onload = function() {
 };
 
 function renderItems(type) {
-
     let fetchUrl = "";
-    switch (type) {
-        case 'teddies':
-            fetchUrl = "https://ab-p5-api.herokuapp.com/api/teddies";
-            break;
-        case 'furniture':
-            fetchUrl = "https://ab-p5-api.herokuapp.com/api//furniture";
-            break;
-        case 'cameras':
-            fetchUrl = "https://ab-p5-api.herokuapp.com/api//cameras";
-            break;
-        default:
-            fetchUrl = "";
-            break;
+    let authorizedType = [
+        'teddies',
+        'furniture',
+        'cameras',
+    ];
+    let baseUrl = "https://ab-p5-api.herokuapp.com/api/";
+    if (true === authorizedType.includes(type)) {
+        fetchUrl = baseUrl+type;
     }
 
     if (fetchUrl !== '') {
