@@ -10,22 +10,22 @@ fetch("http://localhost:3000/api/teddies")
     })
     .catch(error => alert("Erreur : " + error));
 
-// Initialisation après chargement du DOM
-document.addEventListener("DOMContentLoaded", function() {
+// Initialisation avant chargement du DOM
+window.addEventListener('DOMContentLoaded', (event)  => {
     // mettre ici le code à exécuter
-    let div = document.createElement("div");
-    div.classList.add("item-1");
-    document.getElementById("carousel-teddies").appendChild(div);
+    let item = document.createElement("div");
+    item.classList.add("item-1");
+    document.getElementById("carousel-teddies")
 
-    let div1 = document.createElement("div");
+    let card = document.createElement("div");
     document.getElementsByClassName("item-1")
-    div.appendChild(div1);
-    div1.classList.add("card");
+    item.appendChild(div1);
+    card.classList.add("card");
 
-    let div2 = document.createElement("div");
+    let cardimg = document.createElement("div");
     document.getElementsByClassName("card");
-    div1.appendChild(div2);
-    div2.classList.add("card-image");
+    card.appendChild(cardimg);
+    cardimg.classList.add("card-image");
 
     let figure = document.createElement("figure");
     document.getElementsByClassName("card-image");
@@ -38,46 +38,47 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementsByClassName("image is-4by3");
     figure.appendChild(img);
 
-    let div3 = document.createElement("div");
+    let cardcontent = document.createElement("div");
     document.getElementsByClassName("card");
-    div3.classList.add("card-content");
-    div3.classList.add("has-text-centered");
-    div1.appendChild(div3);
+    cardcontent.classList.add("card-content");
+    cardcontent.classList.add("has-text-centered");
+    div1.appendChild(cardcontent);
 
-    let div4 = document.createElement("div");
+    let media = document.createElement("div");
     document.getElementsByClassName("card-content");
-    div4.classList.add("media");
-    div3.appendChild(div4);
+    media.classList.add("media");
+    cardcontent.appendChild(media);
 
-    let div5 = document.createElement("div");
+    let mediacontent = document.createElement("div");
     document.getElementsByClassName("media");
-    div5.classList.add("media-content");
-    div4.appendChild(div5);
+    mediacontent.classList.add("media-content");
+    media.appendChild(mediacontent);
 
-    let p = document.createElement("p");
+    let norbert = document.createElement("p");
     document.getElementsByClassName("media-content");
-    p.appendChild(document.createTextNode("Norbert"));
-    p.classList.add("title");
-    p.classList.add("is-4");
-    div5.appendChild(p);
+    norbert.appendChild(document.createTextNode("Norbert"));
+    norbert.classList.add("title");
+    norbert.classList.add("is-4");
+    mediacontent.appendChild(norbert);
 
-    let p1 = document.createElement("p");
+    let prix = document.createElement("p");
     document.getElementsByClassName("media-content");
-    p1.appendChild(document.createTextNode("29€"));
-    p1.classList.add("subtitle");
-    p1.classList.add("is-6");
-    div5.appendChild(p1);
+    prix.appendChild(document.createTextNode("29€"));
+    prix.classList.add("subtitle");
+    prix.classList.add("is-6");
+    mediacontent.appendChild(prix);
 
-    let div6 = document.createElement("div");
+    let iconetoile = document.createElement("div");
     document.getElementsByClassName("media-content");
-    div6.classList.add("icon-star");
-    div5.appendChild(div6);
+    iconetoile.classList.add("icon-star");
+    mediacontent.appendChild(iconetoile);
 
     let icon = document.createElement("i");
     document.getElementsByClassName("icon-star");
     icon.classList.add("fas");
     icon.classList.add("fa-star");
-    div6.appendChild(icon);
+    iconetoile.appendChild(icon);
+
 
 });
 
