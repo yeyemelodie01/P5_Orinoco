@@ -14,13 +14,13 @@ function renderItems(type) {
     let fetchUrl = "";
     switch (type) {
         case 'teddies':
-            fetchUrl = "http://localhost:3000/api/teddies";
+            fetchUrl = "https://ab-p5-api.herokuapp.com/api/teddies";
             break;
         case 'furniture':
-            fetchUrl = "http://localhost:3000/api/furniture";
+            fetchUrl = "https://ab-p5-api.herokuapp.com/api//furniture";
             break;
         case 'cameras':
-            fetchUrl = "http://localhost:3000/api/cameras";
+            fetchUrl = "https://ab-p5-api.herokuapp.com/api//cameras";
             break;
         default:
             fetchUrl = "";
