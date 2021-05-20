@@ -60,7 +60,7 @@ a:hover{
 .section_position{
     width: 1367px;
     margin: 0 auto;
-    height: 580px;
+    height: 610px;
     margin-bottom: 90px;
 }
 
@@ -121,9 +121,13 @@ a:hover{
 .slider-pagination .slider-page{
     background: #00c4a7;
 }
-
+.icon-star i:hover{
+    color: #00c4a7;
+    cursor: pointer;
+}
 .lien-font{
     font-family: 'Dancing Script', cursive;
+    font-size: 22px;
 }
 
 /* MAIN PRODUIT */
