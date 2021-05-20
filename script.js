@@ -52,6 +52,8 @@ function renderItems(type) {
                     let cardContent = document.createElement("div");
                     cardContent.classList.add("card-content");
                     cardContent.classList.add("has-text-centered");
+                    cardContent.classList.add("is-flex");
+                    cardContent.classList.add("is-flex-direction-column");
                     card.appendChild(cardContent);
 
                     let media = document.createElement("div");
@@ -90,6 +92,13 @@ function renderItems(type) {
                     button.classList.add("is-primary");
                     button.appendChild(document.createTextNode("Ajouter au panier"));
                     cardContent.appendChild(button);
+
+                    let a = document.createElement("a");
+                    a.title = "en savoir plus";
+                    a.href = "Produit.html";
+                    a.style = ""
+                    a.appendChild(document.createTextNode("En savoir plus..."));
+                    cardContent.appendChild(a);
 
                     let itemsCarousel = document.getElementById("carousel-"+type);
                     itemsCarousel.appendChild(item);
