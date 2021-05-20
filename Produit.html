@@ -8,7 +8,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
   <link rel="stylesheet" href="style.css">
-  <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
   <!-- HEADER / NAV BAR -->
@@ -47,19 +46,25 @@
 
   <main class="main-produit">
     <section class="section-flex">
-      <div class="is-flex is-flex-direction-column">
-        <h1 class="is-size-1 has-text-centered mb-5">Robert</h1>
+      <div class="">
         <figure class="figure_img">
           <img src="images/teddy_1.jpg" alt="Norbert">
         </figure>
       </div>
       <div class="section_text">
-        <h2 class="title is-2 is-flex is-justify-content-flex-start">29€</h2>
-        <h3 class="title is-3">Description :</h3>
-        <p class="subtitle is-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <h3 class="title is-3">Couleur</h3>
-        <div class="select is-primary">
+        <h1 class="title is-1 mb-5">Robert</h1>
+        <h2 class="title is-2 is-flex is-justify-content-flex-start mb-5">29€</h2>
+        <div class="mb-5">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+        </div>
+        <h3 class="title is-3 mb-5">Couleur</h3>
+        <div class="select is-primary mb-5">
           <select>
+            <option>...</option>
             <option>Tan</option>
             <option>Chocolate</option>
             <option>Black</option>
@@ -67,9 +72,9 @@
           </select>
         </div>
         <h3 class="title is-3">Quantité</h3>
-        <div class="select is-primary">
+        <div class="select is-primary mb-5">
           <select>
-            <option>Quantité</option>
+            <option>0</option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -83,6 +88,8 @@
           </select>
         </div>
         <button class="button is-primary">Ajouter au panier</button>
+        <h3 class="title is-3">Description :</h3>
+        <p class="subtitle is-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
     </section>
   </main>

@@ -1,7 +1,6 @@
 /* GENERAL */
 header{
     margin-top: 20px;
-    margin-bottom: 50px;
 }
 
 h1{
@@ -146,7 +145,6 @@ a:hover{
     height: 771px;
     margin: 0 150px;
     background: #fff;
-    box-shadow: #00c4a7 0 0 8px;
 }
 
 .figure_img{
