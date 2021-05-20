@@ -149,10 +149,16 @@ a:hover{
 
 .figure_img{
     width: 900px;
-    height: 700px;
+    height: 772px;
+}
+
+.figure_img img{
+    height: 772px;
+    object-fit: cover;
 }
 
 .section_text{
+    width: 840px;
     height: 772px;
 }
 
