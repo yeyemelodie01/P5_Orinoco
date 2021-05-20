@@ -14,12 +14,6 @@ h2{
     margin-top: 30px;
 }
 
-h3{
-    display: flex;
-    justify-content: center;
-    padding: 40px 0;
-}
-
 a{
     color: #4a4a4a;
 }
@@ -58,6 +52,10 @@ a:hover{
 
 
 /* MAIN */
+.main-accueil h3{
+    padding: 40px 0;
+}
+
 .section_position{
     width: 1367px;
     height: 610px;
@@ -157,8 +155,14 @@ a:hover{
 }
 
 .section_text{
-    height: 500px;
+    height: 772px;
 }
+
+.section_text h2{
+    font-size: 40px;
+    font-weight: bold;
+}
+
 /* FOOTER */
 
 .icon-card{
