@@ -1,13 +1,4 @@
-.section_sizing{
-    height: 400px;
-}
-.section_position{
-    width: 1367px;
-    margin: 0 auto;
-    height: 560px;
-    margin-bottom: 90px;
-}
-
+/* GENERAL */
 header{
     margin-top: 20px;
     margin-bottom: 50px;
@@ -29,6 +20,33 @@ h3{
     padding: 40px 0;
 }
 
+/* HEADER */
+.nav_logo{
+    margin-right: 80px;
+}
+.navbar-start{
+    width: 500px;
+}
+.nav_size{
+    font-size: 30px;
+}
+
+.nav_size-panier{
+    width: 160px;
+}
+
+/* SECTION PRÉSENTATION */
+.section_sizing{
+    height: 400px;
+}
+.section_position{
+    width: 1367px;
+    margin: 0 auto;
+    height: 560px;
+    margin-bottom: 90px;
+}
+
+/* MAIN */
 .item-1{
     width: 400px;
     height: 400px;
@@ -57,20 +75,6 @@ h3{
 .item-5{
     width: 400px;
     height: 400px;
-}
-
-.nav_logo{
-    margin-right: 80px;
-}
-.navbar-start{
-    width: 500px;
-}
-.nav_size{
-  font-size: 30px;
-}
-
-.nav_size-panier{
-    width: 160px;
 }
 
 .button_size{
