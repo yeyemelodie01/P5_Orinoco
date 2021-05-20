@@ -135,11 +135,14 @@ a:hover{
 /* MAIN PRODUIT */
 .main-produit{
     background: url("images/background-1.jpg");
+    height: 1000px;
 }
 
 .section-flex{
     display: flex;
     justify-content: center;
+    align-items: center;
+    height: 1000px;
 }
 
 .figure_img{
