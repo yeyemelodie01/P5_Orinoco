@@ -67,12 +67,15 @@ function renderItems(type) {
                     let norbert = document.createElement("p");
                     norbert.classList.add("title");
                     norbert.classList.add("is-4");
+                    norbert.classList.add("mb-4");
                     norbert.appendChild(document.createTextNode(itemObject.name));
                     mediaContent.appendChild(norbert);
 
                     let price = document.createElement("p");
                     price.classList.add("subtitle");
                     price.classList.add("is-6");
+                    price.classList.add("mb-4");
+                    price.classList.add("mt-4");
                     let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(itemObject.price/100);
                     price.appendChild(document.createTextNode(formattedPrice+' €'));
                     mediaContent.appendChild(price);
@@ -87,18 +90,21 @@ function renderItems(type) {
                         icon.classList.add("fa-star");
                         starIcon.appendChild(icon);
                     }
+
+                    let a = document.createElement("a");
+                    a.title = "en savoir plus";
+                    a.href = "Produit.html";
+                    a.style = "";
+                    a.classList.add("mb-4");
+                    a.classList.add("lien-font");
+                    a.appendChild(document.createTextNode("En savoir plus..."));
+                    cardContent.appendChild(a);
+
                     let button = document.createElement("button");
                     button.classList.add("button");
                     button.classList.add("is-primary");
                     button.appendChild(document.createTextNode("Ajouter au panier"));
                     cardContent.appendChild(button);
-
-                    let a = document.createElement("a");
-                    a.title = "en savoir plus";
-                    a.href = "Produit.html";
-                    a.style = ""
-                    a.appendChild(document.createTextNode("En savoir plus..."));
-                    cardContent.appendChild(a);
 
                     let itemsCarousel = document.getElementById("carousel-"+type);
                     itemsCarousel.appendChild(item);
