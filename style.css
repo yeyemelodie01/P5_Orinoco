@@ -111,6 +111,10 @@ h3{
     font-size: 30px;
 }
 
+.icon-card i:hover{
+    color: #00c4a7;
+}
+
 .section-flex{
     display: flex;
     justify-content: center;
