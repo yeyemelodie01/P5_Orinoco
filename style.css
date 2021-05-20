@@ -120,10 +120,12 @@ a:hover{
 .slider-pagination .slider-page{
     background: #00c4a7;
 }
+
 .icon-star i:hover{
     color: #00c4a7;
     cursor: pointer;
 }
+
 .lien-font{
     font-family: 'Dancing Script', cursive;
     font-size: 22px;
@@ -147,6 +149,10 @@ a:hover{
     background: #fff;
 }
 
+.section_text-h2{
+    margin-bottom: 12px;
+}
+
 .figure_img{
     width: 900px;
     height: 772px;
@@ -155,6 +161,10 @@ a:hover{
 .figure_img img{
     height: 772px;
     object-fit: cover;
+}
+
+.icon-star-produit{
+    font-size: 26px;
 }
 
 .recommandation{
