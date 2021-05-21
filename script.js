@@ -100,12 +100,6 @@ function renderItems(type) {
                     a.appendChild(document.createTextNode("En savoir plus..."));
                     cardContent.appendChild(a);
 
-                    let button = document.createElement("button");
-                    button.classList.add("button");
-                    button.classList.add("is-primary");
-                    button.appendChild(document.createTextNode("Ajouter au panier"));
-                    cardContent.appendChild(button);
-
                     let itemsCarousel = document.getElementById("carousel-"+type);
                     itemsCarousel.appendChild(item);
                     itemPos++;

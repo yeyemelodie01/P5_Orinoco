@@ -21,13 +21,69 @@ a{
 a:hover{
     color: #00c4a7;
 }
+
+/* ICON-STAR */
+.icon-star i, .icon-star i:hover ~ i {
+    color: #4a4a4a;
+    text-shadow: none;
+    transition: color 200ms,
+    text-shadow 200ms;
+    /* This will remove the delay when
+       moving the cursor left or right
+       within the set of stars. */
+    transition-delay: 0;
+}
+
+/* This is the style that will be
+   applied to all stars and then
+   subsequently removed from the stars
+   to the right of the one being
+   hovered. */
+.icon-star:hover i {
+    color:#00c4a7;
+    text-shadow: #00c4a7 0 0 20px;
+}
+
+/* Make the effect apply one star at a
+   time. Limiting the selector to when
+   .icon-star is hovered removes the effect
+   without delay when cursor leaves
+   the .icon-star area. */
+.icon-star:hover i:nth-child(2) {
+    transition-delay: 30ms;
+}
+
+.icon-star:hover i:nth-child(3) {
+    transition-delay: 60ms;
+}
+
+.icon-star:hover i:nth-child(4) {
+    transition-delay: 90ms;
+}
+
+.icon-star:hover i:nth-child(5) {
+    transition-delay: 120ms;
+}
+
+/* Miscellaneous styles. */
+.icon-star i {
+    cursor: pointer;
+    font-style: normal;
+}
+
 /* HEADER */
 .nav_logo{
     margin-right: 80px;
 }
 .navbar-start{
+    width: 95%;
+    margin: 0;
+}
+
+.navbar-width{
     width: 400px;
 }
+
 .nav_size{
     font-size: 30px;
 }
@@ -119,11 +175,6 @@ a:hover{
 
 .slider-pagination .slider-page{
     background: #00c4a7;
-}
-
-.icon-star i:hover{
-    color: #00c4a7;
-    cursor: pointer;
 }
 
 .lien-font{
