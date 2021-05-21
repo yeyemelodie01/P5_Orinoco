@@ -191,6 +191,27 @@ a:hover{
     font-weight: bold;
 }
 
+/* PANIER */
+.section_panier{
+    width: 60%;
+    margin-left: 80px;
+    height: 600px;
+}
+
+.section_panier img{
+    width: 260px;
+    float: left;
+}
+
+.div_panier-content{
+    background: aquamarine;
+    height: 417px;
+}
+
+.p-float{
+    float: left;
+}
+
 /* FOOTER */
 
 .icon-card{

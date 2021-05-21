@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Panier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- HEADER / NAV BAR -->
@@ -39,7 +44,93 @@
     </header>
     <!-- HEADER / NAV BAR -->
 
+    <main class="is-flex">
+        <section class="section_panier">
+            <div class="div_panier-content">
+                <h1 class="p-5">Mon panier (1 article)</h1>
+                <img class="pl-5 pr-5" src="images/teddy_1.jpg" alt="Robert">
+                <div  class="is-size-4">
+                    <p>Robert</p>
+                    <p class="p-float">Couleur: Chocolate</p>
+                    <label for="quantite"></label>
+                    <select id="quantite">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                    </select>
+                    <p><i class="fas fa-trash-alt"></i>Supprimer</p>
+                    <p>29€</p>
+                </div>
+            </div>
+            <div>
+                <h2>Livraison estimé</h2>
 
+            </div>
+            <div>
+                <h2>Nous acceptons</h2>
+                <div class="icon-card">
+                    <i class="fab fa-cc-mastercard m-5"></i>
+                    <i class="fab fa-cc-visa m-5"></i>
+                    <i class="fab fa-cc-paypal m-5"></i>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div>
+                <h2>Total</h2>
+                <p>Sous-Total</p>
+                <p>Livraison</p>
+                <p>Total (TVA incluse)</p>
+                <button>Commander</button>
+            </div>
+            <div></div>
+        </section>
+    </main>
 
+    <footer>
+        <div class="icon-card">
+            <i class="fab fa-cc-mastercard m-5"></i>
+            <i class="fab fa-cc-visa m-5"></i>
+            <i class="fab fa-cc-paypal m-5"></i>
+        </div>
+        <ul class="is-flex is-flex-direction-column is-align-items-center has-text-centered">
+            <li class="mb-4">
+                <a href="#" title="À propos de nous">À propos de nous</a>
+            </li>
+            <li class="mb-4">
+                <a href="#" title="Conditions de livraison">Conditions de livraison</a>
+            </li>
+            <li class="mb-4">
+                <a href="#" title="Retours">Retours</a>
+            </li>
+            <li class="mb-4">
+                <a href="mailto:orinoco@gmail.com" title="Contact">Contact</a>
+            </li>
+            <li class="mb-4">
+                <a href="#" title="Aide">Aide</a>
+            </li>
+        </ul>
+        <div class="has-text-centered">
+        <span class="icon-card">
+            <a href="https://www.facebook.com" class="has-text-grey" title="facebook">
+               <i class="fab fa-facebook-f m-5"></i>
+            </a>
+            <a href="https://www.instagram.com" class="has-text-grey" title="instagram">
+                <i class="fab fa-instagram m-5"></i>
+            </a>
+            <a href="https://twitter.com" class="has-text-grey" title="twitter">
+                <i class="fab fa-twitter m-5"></i>
+            </a>
+        </span>
+            <p><i class="far fa-copyright mr-4"></i>Orinoco 2021</p>
+        </div>
+    </footer>
 </body>
 </html>
