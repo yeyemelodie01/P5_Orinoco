@@ -69,19 +69,140 @@
                     <p>29€</p>
                 </div>
             </div>
-            <div>
-                <h2>Livraison estimé</h2>
+            <div class="pl-5">
+                <h2 class="title is-2 is-flex is-justify-content-flex-start">Livraison estimé</h2>
 
             </div>
-            <div>
-                <h2>Nous acceptons</h2>
-                <div class="icon-card">
-                    <i class="fab fa-cc-mastercard m-5"></i>
-                    <i class="fab fa-cc-visa m-5"></i>
-                    <i class="fab fa-cc-paypal m-5"></i>
+            <div class="pl-5">
+                <h2 class="title is-2 is-flex is-justify-content-flex-start">Mon adresse</h2>
+                <div class="field">
+                    <label for="name" class="label">Nom</label>
+                    <div class="control">
+                        <input id="name" class="input" type="text" placeholder="Nom">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="username" class="label">Prénom</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="username" class="input is-success" type="text" placeholder="Prénom" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                    <p class="help is-success">This username is available</p>
+                </div>
+                <div class="field">
+                    <label for="telephone" class="label">Téléphone</label>
+                    <div class="control">
+                        <input id="telephone" class="input" type="text" placeholder="Numéro de Téléphone">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="email" class="label">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="email" class="input is-danger" type="email" placeholder="Email input" value="hello@">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </span>
+                    </div>
+                    <p class="help is-danger">This email is invalid</p>
+                </div>
+
+                <div class="field">
+                    <label for="adresse" class="label">Adresse</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="adresse" class="input is-success" type="text" placeholder="Adresse" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="complementadresse" class="label">Complément d'adresse</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="complementadresse" class="input is-success" type="text" placeholder="Complément d'adresse" value="">
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="codepostal" class="label">Code Postal</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="codepostal" class="input is-success" type="text" placeholder="Code Postal" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="ville" class="label">Ville</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input id="ville" class="input is-success" type="text" placeholder="Ville" value="">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </span>
+                        <span class="icon is-small is-right">
+                            <i class="fas fa-check"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="control has-icons-left">
+                    <div class="select">
+                        <select>
+                            <option selected>Pays</option>
+                            <option>France</option>
+                            <option>Allemagne</option>
+                            <option>Allemagne</option>
+                            <option>Allemagne</option>
+                            <option>Allemagne</option>
+                            <option>Allemagne</option>
+                        </select>
+                    </div>
+                    <div class="icon is-small is-left">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                </div>
+
+
+                <div class="field">
+                    <div class="control">
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            I agree to the <a href="#">terms and conditions</a>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
                 </div>
             </div>
+            <div class="pl-5">
+                <h2 class="title is-2 is-flex is-justify-content-flex-start">Procéder au paiement</h2>
+                
+            </div>
         </section>
+
         <section>
             <div>
                 <h2>Total</h2>
