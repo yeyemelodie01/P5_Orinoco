@@ -26,17 +26,10 @@
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start is-justify-content-space-around">
-                    <a class="navbar-item nav_size" href="index.html" title="Accueil">Accueil</a>
-                    <a class="navbar-item nav_size nav_size-panier" title="Panier"><i class="fas fa-shopping-cart mr-4"></i>Panier</a>
-                </div>
-
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <a class="button is-primary button_size"><strong>Sign up</strong></a>
-                            <a class="button is-light button_size">Log in</a>
-                        </div>
+                <div class="navbar-start is-justify-content-flex-end">
+                    <div class="navbar-item navbar-width is-justify-content-space-around">
+                        <a class="navbar-item nav_size" href="index.html" title="Accueil">Accueil</a>
+                        <a class="navbar-item nav_size nav_size-panier" title="Panier"><i class="fas fa-shopping-cart mr-4"></i>Panier</a>
                     </div>
                 </div>
             </div>
@@ -44,29 +37,33 @@
     </header>
     <!-- HEADER / NAV BAR -->
 
-    <main class="is-flex">
+    <main class="">
         <section class="section_panier">
-            <div class="div_panier-content">
-                <h1 class="p-5">Mon panier (1 article)</h1>
-                <img class="pl-5 pr-5" src="images/teddy_1.jpg" alt="Robert">
+            <div class="div_panier-content pl-5">
+                <h1 class="pt-5 pb-5">Mon panier (1 article)</h1>
+                <img class="pr-5" src="images/teddy_1.jpg" alt="Robert">
                 <div  class="is-size-4">
                     <p>Robert</p>
-                    <p class="p-float">Couleur: Chocolate</p>
-                    <label for="quantite"></label>
-                    <select id="quantite">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                    </select>
-                    <p><i class="fas fa-trash-alt"></i>Supprimer</p>
-                    <p>29€</p>
+                    <div class="is-flex">
+                        <p>Couleur: Chocolate</p>
+                        <label for="quantite"></label>
+                        <select id="quantite">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                    </div>
+                    <div class="is-flex">
+                        <p><i class="fas fa-trash-alt"></i>Supprimer</p>
+                        <p>29€</p>
+                    </div>
                     <div>
                         <p>Total</p>
                         <p>Sous-Total</p>

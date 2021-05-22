@@ -244,19 +244,20 @@ a:hover{
 
 /* PANIER */
 .section_panier{
-    width: 60%;
+    margin-right: 80px;
     margin-left: 80px;
     height: 1518px;
 }
 
 .section_panier img{
     width: 260px;
+    height: 160px;
     float: left;
 }
 
 .div_panier-content{
-    background: aquamarine;
-    height: 417px;
+    height: 450px;
+    border: #00c4a7 2px solid;
 }
 
 .p-float{
