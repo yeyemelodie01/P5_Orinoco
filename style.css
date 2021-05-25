@@ -184,20 +184,14 @@ a:hover{
 
 /* MAIN PRODUIT */
 .main-produit{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 1340px;
+    height: 860px;
 }
 
 .section-flex{
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    width: 86%;
     height: 771px;
     margin: 0 150px 80px 150px;
-    background: #fff;
 }
 
 .section_text-h2{

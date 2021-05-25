@@ -39,6 +39,7 @@ function renderProduct()
 
                 let divtext = document.createElement("div");
                     divtext.classList.add("section-text");
+                    divtext.classList.add("pl-6");
 
                 let titre = document.createElement("h1");
                     titre.classList.add("title");
@@ -100,16 +101,54 @@ function renderProduct()
                     quantite.appendChild(document.createTextNode("Quantité"));
                     divtext.appendChild(quantite);
 
+
                 let numero = document.createElement("div");
                     numero.classList.add("select");
                     numero.classList.add("is-primary");
                     numero.classList.add("mb-6");
                     divtext.appendChild(numero);
 
+                let selectnum = document.createElement("select");
+                    selectnum.classList.add("selectNumber");
+                    numero.appendChild(selectnum);
 
-                let sectionpro = document.getElementById("produits");
-                sectionpro.appendChild(divfigure);
-                sectionpro.appendChild(divtext);
+                let numquant = document.createElement("option");
+                numquant.appendChild(document.createTextNode("Choisi la quantité"));
+                selectnum.appendChild(numquant);
+
+                let myArray = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
+
+                for(let i = 0; i < myArray.length; i++) {
+                    numquant[numquant.length] = new Option(myArray[i], myArray[i]);
+                }
+
+                let buttonpPro = document.createElement("button");
+                    buttonpPro.classList.add("button");
+                    buttonpPro.classList.add("is-primary");
+                    buttonpPro.classList.add("ml-5");
+                    buttonpPro.appendChild(document.createTextNode("Ajouter au panier"));
+                    divtext.appendChild(buttonpPro);
+
+                let description = document.createElement("h3");
+                    description.classList.add("title");
+                    description.classList.add("is-3");
+                    description.classList.add("mb-3");
+                    description.appendChild(document.createTextNode("Description :"));
+                    divtext.appendChild(description);
+
+                let pProduit = document.createElement("p");
+                    pProduit.classList.add("subtitle");
+                    pProduit.classList.add("is-5");
+                    pProduit.classList.add("has-text-justified");
+                    pProduit.classList.add("mt-2");
+                    pProduit.appendChild(document.createTextNode(produit.description));
+                    divtext.appendChild(pProduit);
+
+
+
+                    let sectionpro = document.getElementById("produits");
+                        sectionpro.appendChild(divfigure);
+                        sectionpro.appendChild(divtext);
             })
     }
 }
