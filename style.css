@@ -256,12 +256,30 @@ a:hover{
 }
 
 .div_panier-content{
-    height: 450px;
+    width: 65%;
+    height: 510px;
     border: #00c4a7 2px solid;
+    border-radius: 20px;
+    float: left;
 }
 
 .p-float{
     float: left;
+}
+
+.section-panier_marginbottom{
+    margin-bottom: 70px;
+}
+
+.button-panier{
+    width: 200px;
+}
+
+.section-panier_total{
+    width: 30%;
+    height: 510px;
+    border-radius: 20px;
+    border: #00c4a7 2px solid;
 }
 
 /* FOOTER */
