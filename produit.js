@@ -91,13 +91,15 @@ function renderProduct()
 
                 let select = document.createElement("select");
                     divselect.appendChild(select);
+                let colors = produit.colors;
 
-                    /*for (let i = 0; i < produit.colors.length; ++i){
+                    for (let i = 0; i < colors.length; ++i){
+                        let opt = colors[i];
                         let option = document.createElement("option");
-                        option.appendChild(document.createTextNode(produit.colors[2]));
-                        select.appendChild(option);
-                    }*/
-
+                        option.text = opt;
+                        option.value = opt;
+                        select.add(option);
+                    }
 
                 let quantite = document.createElement("h3");
                     quantite.classList.add("title");
@@ -114,25 +116,17 @@ function renderProduct()
                     divtext.appendChild(numero);
 
                 let selectnum = document.createElement("select");
-                    selectnum.classList.add("selectNumber");
                     numero.appendChild(selectnum);
 
-                let numquant = document.createElement("option");
-                numquant.appendChild(document.createTextNode("Choisi la quantité"));
-                selectnum.appendChild(numquant);
+                let myNum = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
 
-                let myArray = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
-
-
-                selectnum = document.getElementsByClassName("selectNumber");
-
-// Optional: Clear all existing options first:
-                selectnum.innerHTML = "";
-// Populate list with options:
-                for(let i = 0; i < myArray.length; i++) {
-                    let opt = myArray[i];
-                    selectnum.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
-                }
+                    for(let i = 0; i < myNum.length; ++i){
+                        let num = myNum[i];
+                        let numquant = document.createElement("option");
+                        numquant.text = num;
+                        numquant.value = num;
+                        selectnum.add(numquant);
+                    }
 
                 let buttonpPro = document.createElement("button");
                     buttonpPro.classList.add("button");
