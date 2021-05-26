@@ -88,9 +88,9 @@ function renderProduct()
                 let select = document.createElement("select");
                     divselect.appendChild(select);
 
-                    for (let i = 0; i < 3; i++){
+                    for (let i = 0; i < produit.colors.length; ++i){
                         let option = document.createElement("option");
-                        option.appendChild(document.createTextNode(produit.colors));
+                        option.appendChild(document.createTextNode(produit.colors[2]));
                         select.appendChild(option);
                     }
 
@@ -117,9 +117,10 @@ function renderProduct()
                 selectnum.appendChild(numquant);
 
                 let myArray = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
+                let dropdown = document.getElementsByClassName("selectNumber");
 
                 for(let i = 0; i < myArray.length; i++) {
-                    numquant[numquant.length] = new Option(myArray[i], myArray[i]);
+                    dropdown[dropdown.length] = new Option(myArray[i], myArray[i]);
                 }
 
                 let buttonpPro = document.createElement("button");
