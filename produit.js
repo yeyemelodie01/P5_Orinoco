@@ -94,6 +94,7 @@ function renderProduct()
                         select.appendChild(option);
                     }
 
+
                 let quantite = document.createElement("h3");
                     quantite.classList.add("title");
                     quantite.classList.add("is-3");
@@ -117,10 +118,16 @@ function renderProduct()
                 selectnum.appendChild(numquant);
 
                 let myArray = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
-                let dropdown = document.getElementsByClassName("selectNumber");
 
+
+                selectnum = document.getElementsByClassName("selectNumber");
+
+// Optional: Clear all existing options first:
+                selectnum.innerHTML = "";
+// Populate list with options:
                 for(let i = 0; i < myArray.length; i++) {
-                    dropdown[dropdown.length] = new Option(myArray[i], myArray[i]);
+                    let opt = myArray[i];
+                    selectnum.innerHTML += "<option value=\"" + opt + "\">" + opt + "</option>";
                 }
 
                 let buttonpPro = document.createElement("button");
@@ -155,8 +162,8 @@ function renderProduct()
 }
 
 function $_GET(param) {
-    var vars = {};
-    window.location.href.replace( location.hash, '' ).replace(
+    let vars = {};
+    window.location.search.replace( location.hash, '' ).replace(
         /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
         function( m, key, value ) { // callback
             vars[key] = value !== undefined ? value : '';
