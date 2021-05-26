@@ -1,11 +1,15 @@
 window.onload = function() {
-    renderProduct();
+        renderProduct();
+
 };
 
 function renderProduct()
 {
-    let type =  $_GET('type');
-    let id = $_GET('id');
+    let id = localStorage.getItem('id');
+    console.log(id);
+
+    let type = localStorage.getItem('type');
+    console.log(type);
 
     let apiUrl = "";
     let authorizedType = [
@@ -18,12 +22,6 @@ function renderProduct()
         apiUrl = baseUrl+type+'/'+id;
     }
     console.log(apiUrl);
-
-    sessionStorage.setItem("type", type);
-    sessionStorage.setItem("id", id);
-
-    sessionStorage.type = type;
-    console.log(sessionStorage.type);
 
     if (apiUrl !== '') {
         fetch(apiUrl)
@@ -94,11 +92,11 @@ function renderProduct()
                 let select = document.createElement("select");
                     divselect.appendChild(select);
 
-                    for (let i = 0; i < produit.colors.length; ++i){
+                    /*for (let i = 0; i < produit.colors.length; ++i){
                         let option = document.createElement("option");
                         option.appendChild(document.createTextNode(produit.colors[2]));
                         select.appendChild(option);
-                    }
+                    }*/
 
 
                 let quantite = document.createElement("h3");
@@ -165,22 +163,6 @@ function renderProduct()
                         sectionpro.appendChild(divtext);
             })
     }
-}
-
-function $_GET(param) {
-    let vars = {};
-    window.location.search.replace( location.hash, '' ).replace(
-        /[?&]+([^=&]+)=?([^&]*)?/gi, // regexp
-        function( m, key, value ) { // callback
-            vars[key] = value !== undefined ? value : '';
-        }
-    );
-
-    if ( param ) {
-        return vars[param] ? vars[param] : null;
-    }
-    return vars;
-
 }
 
 

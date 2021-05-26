@@ -93,11 +93,16 @@ function renderItems(type) {
 
                     let a = document.createElement("a");
                     a.title = "en savoir plus";
-                    a.href = "produit.html?type="+type+"&id="+itemObject._id;
+                    a.href = "produit.html";
                     a.classList.add("mb-4");
                     a.classList.add("lien-font");
                     a.appendChild(document.createTextNode("En savoir plus..."));
                     cardContent.appendChild(a);
+
+                    a.addEventListener('click', function (){
+                        localStorage.setItem('id', itemObject._id);
+                        localStorage.setItem('type', type);
+                    })
 
                     let itemsCarousel = document.getElementById("carousel-"+type);
                     itemsCarousel.appendChild(item);
