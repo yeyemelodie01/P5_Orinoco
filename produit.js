@@ -19,12 +19,12 @@ function renderProduct()
     }
     console.log(apiUrl);
 
-    localStorage.setItem("type", type);
-    localStorage.setItem("id", id);
+    sessionStorage.setItem("type", type);
+    sessionStorage.setItem("id", id);
 
-    localStorage.type = type;
-    console.log(localStorage.type);
-    
+    sessionStorage.type = type;
+    console.log(sessionStorage.type);
+
     if (apiUrl !== '') {
         fetch(apiUrl)
             .then(function (resp) {
