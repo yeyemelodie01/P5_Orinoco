@@ -7,6 +7,9 @@ function renderProduct()
     let type =  $_GET('type');
     let id = $_GET('id');
 
+    localStorage.setItem("type", type);
+    localStorage.setItem("id", id);
+
     let apiUrl = "";
     let authorizedType = [
         'teddies',
