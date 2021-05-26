@@ -7,9 +7,6 @@ function renderProduct()
     let type =  $_GET('type');
     let id = $_GET('id');
 
-    localStorage.setItem("type", type);
-    localStorage.setItem("id", id);
-
     let apiUrl = "";
     let authorizedType = [
         'teddies',
@@ -22,6 +19,12 @@ function renderProduct()
     }
     console.log(apiUrl);
 
+    localStorage.setItem("type", type);
+    localStorage.setItem("id", id);
+
+    localStorage.type = type;
+    console.log(localStorage.type);
+    
     if (apiUrl !== '') {
         fetch(apiUrl)
             .then(function (resp) {
