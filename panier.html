@@ -41,56 +41,83 @@
         <section class="section_panier">
             <div class="is-flex is-justify-content-space-between">
                 <div class="div_panier-content pl-5">
-                    <h1 class="pt-5 pb-5">Mon panier (1 article)</h1>
-                    <img class="pr-5" src="images/teddy_1.jpg" alt="Robert">
-                    <div  class="is-size-4">
-                        <p>Robert</p>
-                        <div class="is-flex">
-                            <p>Couleur: Chocolate</p>
-                            <label for="quantite"></label>
-                            <select id="quantite">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                            </select>
-                        </div>
-                        <div class="is-flex section-panier_marginbottom">
-                            <p><i class="fas fa-trash-alt"></i>Supprimer</p>
-                            <p>29€</p>
+                    <h1 class="pt-5 pb-5 has-text-weight-bold">Mon panier (1 article)</h1>
+                    <div>
+                        <img class="pr-5" src="images/teddy_1.jpg" alt="Robert">
+                        <div  class="is-size-4">
+                            <p class="has-text-weight-bold is-size-3 mb-4">Robert</p>
+                            <div class="is-flex is-justify-content-space-between div_panier-width">
+                                <p class="mb-2">Couleur: Chocolate</p>
+                                <label for="quantite"></label>
+                                <select id="quantite">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                </select>
+                            </div>
+                            <div class="is-flex is-justify-content-space-between section-panier_marginbottom">
+                                <p class="is-size-5"><i class="fas fa-trash-alt mr-3"></i>Supprimer</p>
+                                <p class="has-text-primary has-text-weight-semibold div_panier-price">29€</p>
+                            </div>
                         </div>
                     </div>
+                    <div class="is-flex is-flex-align-items-center has-text-primary">
+                        <i class="fas fa-info info-circle"></i>
+                        <p>Les articles dans le panier ne sont pas réservés.</p>
+                    </div>
                 </div>
-                <div class="is-flex is-flex-direction-column section-panier_total">
-                    <p class="is-size-2 mb-5">Total</p>
-                    <p class="mb-3">Sous-Total</p>
-                    <p class="mb-3">Livraison</p>
-                    <p class="mb-3">Total (TVA incluse)</p>
-                    <span class="divider"></span>
+                <div class="is-flex is-flex-direction-column pl-5 pr-5 section-panier_total">
+                    <p class="is-size-2 pt-5 pb-5 has-text-weight-bold">Total</p>
+                    <span class="is-flex is-justify-content-space-between mb-4">
+                        <p>Sous-Total</p>
+                        <p>29€</p>
+                    </span>
+                    <span class="is-flex is-justify-content-space-between mb-3">
+                        <p>Livraison</p>
+                        <p>3,50€</p>
+                    </span>
+                    <span class="divider mb-3"></span>
+                    <span class="is-flex is-justify-content-space-between mb-3">
+                        <p class="has-text-weight-bold">Total (TVA incluse)</p>
+                        <p class="has-text-weight-bold">32,50€</p>
+                    </span>
                     <button class="button is-primary button-panier">Commander</button>
                 </div>
             </div>
             <div class="content-hidden">
-                <div class="pl-5">
-                    <h2 class="title is-2 is-flex is-justify-content-flex-start">Choix de livraison</h2>
-                </div>
-                <div class="pl-5">
+                <div class="pl-5 content-hidden_width">
                     <h2 class="title is-2 is-flex is-justify-content-flex-start">Mon adresse</h2>
-                    <div class="field">
-                        <label for="name" class="label">Nom</label>
+                    <div class="control mb-5">
+                        <label class="radio">
+                            <input type="radio" name="answer">
+                            Mme
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer">
+                            Mlle
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="answer">
+                            Mr
+                        </label>
+                    </div>
+                    <div class="field mb-5">
+                        <label for="name" class="label">Nom*</label>
                         <div class="control">
                             <input id="name" class="input" type="text" placeholder="Nom">
                         </div>
                     </div>
 
-                    <div class="field">
-                        <label for="username" class="label">Prénom</label>
+                    <div class="field mb-5">
+                        <label for="username" class="label">Prénom*</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="username" class="input is-success" type="text" placeholder="Prénom" value="">
                             <span class="icon is-small is-left">
@@ -102,14 +129,14 @@
                         </div>
                         <p class="help is-success">This username is available</p>
                     </div>
-                    <div class="field">
-                        <label for="telephone" class="label">Téléphone</label>
+                    <div class="field mb-5">
+                        <label for="telephone" class="label">Téléphone*</label>
                         <div class="control">
                             <input id="telephone" class="input" type="text" placeholder="Numéro de Téléphone">
                         </div>
                     </div>
 
-                    <div class="field">
+                    <div class="field mb-5">
                         <label for="email" class="label">Email</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="email" class="input is-danger" type="email" placeholder="Email input" value="hello@">
@@ -123,8 +150,8 @@
                         <p class="help is-danger">This email is invalid</p>
                     </div>
 
-                    <div class="field">
-                        <label for="adresse" class="label">Adresse</label>
+                    <div class="field mb-5">
+                        <label for="adresse" class="label">Adresse (numéros et rue)*</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="adresse" class="input is-success" type="text" placeholder="Adresse" value="">
                             <span class="icon is-small is-left">
@@ -135,8 +162,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="field">
-                        <label for="complementadresse" class="label">Complément d'adresse</label>
+                    <div class="field mb-5">
+                        <label for="complementadresse" class="label">Complément d'adresse (facultatif)</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="complementadresse" class="input is-success" type="text" placeholder="Complément d'adresse" value="">
                             <span class="icon is-small is-right">
@@ -144,7 +171,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="field">
+                    <div class="field mb-5">
                         <label for="codepostal" class="label">Code Postal</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="codepostal" class="input is-success" type="text" placeholder="Code Postal" value="">
@@ -156,7 +183,7 @@
                             </span>
                         </div>
                     </div>
-                    <div class="field">
+                    <div class="field mb-5">
                         <label for="ville" class="label">Ville</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="ville" class="input is-success" type="text" placeholder="Ville" value="">
@@ -170,14 +197,15 @@
                     </div>
                     <div class="control has-icons-left">
                         <div class="select">
-                            <select>
+                            <label for="pays"></label>
+                            <select id="pays">
                                 <option selected>Pays</option>
                                 <option>France</option>
                                 <option>Allemagne</option>
-                                <option>Allemagne</option>
-                                <option>Allemagne</option>
-                                <option>Allemagne</option>
-                                <option>Allemagne</option>
+                                <option>Royaume-Uni</option>
+                                <option>Espagne</option>
+                                <option>Italie</option>
+                                <option>Suisse</option>
                             </select>
                         </div>
                         <div class="icon is-small is-left">

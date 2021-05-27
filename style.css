@@ -238,8 +238,8 @@ a:hover{
 
 /* PANIER */
 .section_panier{
-    margin-right: 80px;
-    margin-left: 80px;
+    margin-right: 100px;
+    margin-left: 100px;
     height: 1518px;
 }
 
@@ -251,29 +251,61 @@ a:hover{
 
 .div_panier-content{
     width: 65%;
-    height: 510px;
+    height: 366px;
     border: #00c4a7 2px solid;
     border-radius: 20px;
     float: left;
 }
 
+#quantite{
+    position: relative;
+    bottom: 18px;
+}
+
+.div_panier-width{
+    width: 840px;
+}
+
+.div_panier-price{
+    position: relative;
+    bottom: 8px;
+}
 .p-float{
     float: left;
 }
 
+.info-circle{
+    border: 2px solid #00d1b2;
+    border-radius: 50%;
+    padding: 4px 7px;
+    margin-right: 6px;
+    font-size: 10px;
+}
+
 .section-panier_marginbottom{
     margin-bottom: 70px;
+    width: 840px;
 }
 
 .button-panier{
     width: 200px;
+    margin: 0 auto;
 }
 
 .section-panier_total{
-    width: 30%;
-    height: 510px;
+    width: 26%;
+    height: 300px;
     border-radius: 20px;
     border: #00c4a7 2px solid;
+    margin-right: 115px;
+}
+
+.divider{
+    border: 1px solid #00d1b2;
+}
+
+.content-hidden_width{
+    width: 50%;
 }
 
 /* FOOTER */
