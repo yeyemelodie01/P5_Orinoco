@@ -92,14 +92,15 @@ function renderProduct()
                 let select = document.createElement("select");
                     divselect.appendChild(select);
                 let colors = produit.colors;
-
-                    for (let i = 0; i < colors.length; ++i){
+                if (typeof colors != 'undefined'){
+                    for (let i = 0; i < colors.length; ++i) {
                         let opt = colors[i];
                         let option = document.createElement("option");
                         option.text = opt;
                         option.value = opt;
                         select.add(option);
                     }
+                }
 
                 let quantite = document.createElement("h3");
                     quantite.classList.add("title");
