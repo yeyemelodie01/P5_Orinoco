@@ -76,23 +76,23 @@ function renderProduct()
                         starIcon.appendChild(star);
                     }
 
-                let color = document.createElement("h3");
+                let colors = produit.colors;
+                if (typeof colors != 'undefined'){
+                    let color = document.createElement("h3");
                     color.classList.add("title");
                     color.classList.add("is-3");
                     color.classList.add("mb-3");
                     color.appendChild(document.createTextNode("Couleur"));
                     divtext.appendChild(color);
 
-                let divselect = document.createElement("div");
+                    let divselect = document.createElement("div");
                     divselect.classList.add("select");
                     divselect.classList.add("is-primary");
                     divselect.classList.add("mb-6");
                     divtext.appendChild(divselect);
-
-                let select = document.createElement("select");
+                    
+                    let select = document.createElement("select");
                     divselect.appendChild(select);
-                let colors = produit.colors;
-                if (typeof colors != 'undefined'){
                     for (let i = 0; i < colors.length; ++i) {
                         let opt = colors[i];
                         let option = document.createElement("option");
