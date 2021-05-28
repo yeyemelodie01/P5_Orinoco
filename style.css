@@ -1,4 +1,9 @@
 /* GENERAL */
+body{
+    width: 100%;
+    margin: 0 auto;
+}
+
 header{
     margin-top: 20px;
     margin-bottom: 40px;
@@ -126,8 +131,8 @@ a:hover{
 }
 
 .item-1{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
 }
 
 .card-content{
@@ -191,7 +196,7 @@ a:hover{
     display: flex;
     align-items: center;
     height: 771px;
-    margin: 0 150px 80px 150px;
+    margin: 0 145px 80px 50px;
 }
 
 .section_text-h2{
@@ -199,7 +204,7 @@ a:hover{
 }
 
 .figure_img{
-    width: 900px;
+    width: 730px;
     height: 772px;
 }
 

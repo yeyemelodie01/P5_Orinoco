@@ -90,7 +90,7 @@ function renderProduct()
                     divselect.classList.add("is-primary");
                     divselect.classList.add("mb-6");
                     divtext.appendChild(divselect);
-                    
+
                     let select = document.createElement("select");
                     divselect.appendChild(select);
                     for (let i = 0; i < colors.length; ++i) {
