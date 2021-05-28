@@ -240,7 +240,6 @@ a:hover{
 .section_panier{
     margin-right: 100px;
     margin-left: 100px;
-    height: 1518px;
 }
 
 .section_panier img{
@@ -306,6 +305,7 @@ a:hover{
 
 .content-hidden_width{
     width: 50%;
+    margin-bottom: 100px;
 }
 
 /* FOOTER */

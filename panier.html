@@ -47,7 +47,7 @@
                         <div  class="is-size-4">
                             <p class="has-text-weight-bold is-size-3 mb-4">Robert</p>
                             <div class="is-flex is-justify-content-space-between div_panier-width">
-                                <p class="mb-2">Couleur: Chocolate</p>
+                                <p class="mb-2">Couleur: Red</p>
                                 <label for="quantite"></label>
                                 <select id="quantite">
                                     <option>0</option>
@@ -92,7 +92,7 @@
                     <button class="button is-primary button-panier">Commander</button>
                 </div>
             </div>
-            <div class="content-hidden">
+            <div class="content-hidden is-flex is-flex-direction-column is-align-items-center">
                 <div class="pl-5 content-hidden_width">
                     <h2 class="title is-2 is-flex is-justify-content-flex-start">Mon adresse</h2>
                     <div class="control mb-5">
@@ -173,8 +173,8 @@
                             </span>
                         </div>
                     </div>
-                    <div>
-                        <div class="field mb-5">
+                    <div class="is-flex">
+                        <div class="field mb-5 mr-6">
                             <label for="codepostal" class="label">Code Postal</label>
                             <div class="control has-icons-left has-icons-right">
                                 <input id="codepostal" class="input is-success" type="text" placeholder="Code Postal" value="">
@@ -200,7 +200,7 @@
                         </div>
                     </div>
                     <div class="control has-icons-left">
-                        <div class="select">
+                        <div class="select mb-5">
                             <label for="pays">
                                 <select id="pays">
                                     <option selected>Pays</option>
@@ -217,30 +217,39 @@
                             <i class="fas fa-globe"></i>
                         </div>
                     </div>
+                    <div class="pl-5">
+                        <h2 class="title is-2 is-flex is-justify-content-flex-start">Procéder au paiement</h2>
+                        <div class="is-flex is-flex-direction-column">
+                            <h3 class="has-text-weight-bold mb-5">Veuillez saisir les coordonnées de votre carte</h3>
+                                <label for="carte" class="label has-text-weight-bold">Numéro de carte</label>
+                                    <input id="carte" class="mb-5" type="text" placeholder="0000 1111 2222 3333" value="">
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-visa"></i>
+                                <label for="date" class="label has-text-weight-bold">Date d'expiration</label>
+                                    <input id="date" class="mb-5" type="text" placeholder="MM/AA" value="">
 
+                                <label for="code" class="label has-text-weight-bold">Code de sécurité (Cvv)</label>
+                                    <input id="code" class="mb-5" type="text" placeholder="123" value="">
 
-                    <div class="field">
-                        <div class="control">
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                I agree to the terms and conditions
-                            </label>
+                        <div class="field mb-4">
+                            <div class="control">
+                                <label class="checkbox">
+                                    <input type="checkbox">
+                                    I agree to the terms and conditions
+                                </label>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="field is-grouped">
-                        <div class="control">
-                            <button class="button is-link">Submit</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-light">Cancel</button>
+                        <div class="field is-grouped">
+                            <div class="control">
+                                <button class="button is-primary">Submit</button>
+                            </div>
+                            <div class="control">
+                                <button class="button is-link is-light">Cancel</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="pl-5">
-                    <h2 class="title is-2 is-flex is-justify-content-flex-start">Procéder au paiement</h2>
-
-                </div>
+            </div>
             </div>
         </section>
     </main>
