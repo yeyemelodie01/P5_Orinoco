@@ -1,16 +1,11 @@
 window.onload = function() {
-        renderProduct();
-
+    renderProduct();
 };
 
 function renderProduct()
 {
     let id = localStorage.getItem('id');
-    console.log(id);
-
     let type = localStorage.getItem('type');
-    console.log(type);
-
     let apiUrl = "";
     let authorizedType = [
         'teddies',
@@ -21,15 +16,14 @@ function renderProduct()
     if (true === authorizedType.includes(type)) {
         apiUrl = baseUrl+type+'/'+id;
     }
-    console.log(apiUrl);
 
     if (apiUrl !== '') {
         fetch(apiUrl)
             .then(function (resp) {
                 return resp.json();
             })
-            .then(function (produit) {
-                console.log(produit);
+            .then(function (product) {
+                console.log(product);
                 let divfigure = document.createElement("div");
                     divfigure.classList.add("divfigure");
 
@@ -38,46 +32,47 @@ function renderProduct()
                     divfigure.appendChild(figureimg);
 
                 let imgpro = document.createElement("img");
-                    imgpro.src = produit.imageUrl;
+                    imgpro.src = product.imageUrl;
                     figureimg.appendChild(imgpro);
 
                 let divtext = document.createElement("div");
                     divtext.classList.add("section-text");
                     divtext.classList.add("pl-6");
 
-                let titre = document.createElement("h1");
-                    titre.classList.add("title");
-                    titre.classList.add("is-1");
-                    titre.classList.add("mb-5");
-                    titre.appendChild(document.createTextNode(produit.name));
-                    divtext.appendChild(titre);
+                let title = document.createElement("h1");
+                title.classList.add("title");
+                title.classList.add("is-1");
+                title.classList.add("mb-5");
+                title.appendChild(document.createTextNode(product.name));
+                divtext.appendChild(title);
 
-                let soustitre = document.createElement("h2");
-                    soustitre.classList.add("section_text-h2");
-                    soustitre.classList.add("title");
-                    soustitre.classList.add("is-2");
-                    soustitre.classList.add("is-flex");
-                    soustitre.classList.add("is-justify-content-flex-start");
-                    soustitre.classList.add("mb-5");
-                let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(produit.price/100);
-                    soustitre.appendChild(document.createTextNode(formattedPrice+' €'));
-                    divtext.appendChild(soustitre);
+                let subtitle = document.createElement("h2");
+                subtitle.classList.add("section_text-h2");
+                subtitle.classList.add("title");
+                subtitle.classList.add("is-2");
+                subtitle.classList.add("is-flex");
+                subtitle.classList.add("is-justify-content-flex-start");
+                subtitle.classList.add("mb-5");
+
+                let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(product.price/100);
+                subtitle.appendChild(document.createTextNode(formattedPrice+' €'));
+                divtext.appendChild(subtitle);
 
                 let starIcon = document.createElement("div");
                 starIcon.classList.add("icon-star");
-                starIcon.classList.add("icon-star-produit");
+                starIcon.classList.add("icon-star-product");
                 starIcon.classList.add("mb-5");
                 divtext.appendChild(starIcon);
 
-                    for (let i = 0; i < 5; i++) {
-                        let star = document.createElement("i");
-                        star.classList.add("fas");
-                        star.classList.add("fa-star");
-                        starIcon.appendChild(star);
-                    }
+                for (let i = 0; i < 5; i++) {
+                    let star = document.createElement("i");
+                    star.classList.add("fas");
+                    star.classList.add("fa-star");
+                    starIcon.appendChild(star);
+                }
 
-                let colors = produit.colors;
-                if (typeof colors != 'undefined'){
+                let colors = product.colors;
+                if (typeof colors != 'undefined') {
                     let color = document.createElement("h3");
                     color.classList.add("title");
                     color.classList.add("is-3");
@@ -85,81 +80,67 @@ function renderProduct()
                     color.appendChild(document.createTextNode("Couleur"));
                     divtext.appendChild(color);
 
-                    let divselect = document.createElement("div");
-                    divselect.classList.add("select");
-                    divselect.classList.add("is-primary");
-                    divselect.classList.add("mb-6");
-                    divtext.appendChild(divselect);
+                    let colorDiv = document.createElement("div");
+                    colorDiv.classList.add("select");
+                    colorDiv.classList.add("is-primary");
+                    colorDiv.classList.add("mb-6");
+                    divtext.appendChild(colorDiv);
 
-                    let select = document.createElement("select");
-                    divselect.appendChild(select);
+                    let colorSelect = document.createElement("select");
+                    colorSelect.id = 'colors';
+                    colorDiv.appendChild(colorSelect);
                     for (let i = 0; i < colors.length; ++i) {
-                        let opt = colors[i];
-                        let option = document.createElement("option");
-                        option.text = opt;
-                        option.value = opt;
-                        select.add(option);
+                        let selectOption = document.createElement("option");
+                        selectOption.text = colors[i];
+                        selectOption.value = colors[i];
+                        colorSelect.add(selectOption);
                     }
                 }
 
-                let quantite = document.createElement("h3");
-                    quantite.classList.add("title");
-                    quantite.classList.add("is-3");
-                    quantite.classList.add("mb-3");
-                    quantite.appendChild(document.createTextNode("Quantité"));
-                    divtext.appendChild(quantite);
+                let quantityTitle = document.createElement("h3");
+                quantityTitle.classList.add("title");
+                quantityTitle.classList.add("is-3");
+                quantityTitle.classList.add("mb-3");
+                quantityTitle.appendChild(document.createTextNode("Quantité"));
+                divtext.appendChild(quantityTitle);
+
+                let quantityDiv = document.createElement("div");
+                quantityDiv.classList.add("select");
+                quantityDiv.classList.add("is-primary");
+                quantityDiv.classList.add("mb-6");
+                divtext.appendChild(quantityDiv);
+
+                let quantitySelect = document.createElement("select");
+                quantitySelect.id = 'quantity';
+                quantityDiv.appendChild(quantitySelect);
+
+                let quantities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+                for (let i = 0; i < quantities.length; ++i) {
+                    let quantityOption = document.createElement("option");
+                    quantityOption.text = String(quantities[i]);
+                    quantityOption.value = String(quantities[i]);
+                    quantitySelect.add(quantityOption);
+                }
 
 
-                let numero = document.createElement("div");
-                    numero.classList.add("select");
-                    numero.classList.add("is-primary");
-                    numero.classList.add("mb-6");
-                    divtext.appendChild(numero);
+                let addToCartButton = document.createElement("button");
+                addToCartButton.classList.add("button");
+                addToCartButton.classList.add("is-primary");
+                addToCartButton.classList.add("ml-5");
+                addToCartButton.appendChild(document.createTextNode("Ajouter au panier"));
+                divtext.appendChild(addToCartButton);
 
-                let selectnum = document.createElement("select");
-                    selectnum.id = 'qt';
-                    numero.appendChild(selectnum);
 
-                let myNum = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
-
-                    for(let i = 0; i < myNum.length; ++i){
-                        let num = myNum[i];
-                        let numquant = document.createElement("option");
-                        numquant.text = num;
-                        numquant.value = num;
-                        selectnum.add(numquant);
+                addToCartButton.addEventListener('click', function (){
+                    if (document.getElementById('colors').length > 0) {
+                        localStorage.setItem('color', document.getElementById('colors').value);
                     }
-
-
-                let AddtoCart = document.createElement("button");
-                    AddtoCart.classList.add("button");
-                    AddtoCart.classList.add("is-primary");
-                    AddtoCart.classList.add("ml-5");
-                    AddtoCart.appendChild(document.createTextNode("Ajouter au panier"));
-                    divtext.appendChild(AddtoCart);
-
-
-                AddtoCart.addEventListener('click', function (){
-                    function getSelectedOption(selectnum){
-                        let opt;
-                        for(let i = 0, len = selectnum.options.length; i < len; i++){
-                            opt = selectnum.options[i];
-                            if(opt.selected === true ){
-                                break;
-                            }
-                        }
-                        return opt;
-                    }
-
-                    let opt = getSelectedOption(selectnum);
-                    console.log(opt.value);
-
-                    localStorage.setItem('id', produit._id);
+                    let itemQuantity = document.getElementById('quantity').value;
+                    localStorage.setItem('id', product._id);
                     localStorage.setItem('type', type);
-                    /*localStorage.setItem('color', opt.value);*/
-                    localStorage.setItem('quantité', opt.value);
-                    localStorage.setItem('price', formattedPrice+' €');
-                    localStorage.setItem('totalprice', formattedPrice * opt.value +'€');
+                    localStorage.setItem('quantity', itemQuantity);
+                    localStorage.setItem('price',String(product.price));
+                    localStorage.setItem('totalPrice', String(product.price * itemQuantity));
                 })
 
                 let description = document.createElement("h3");
@@ -174,12 +155,12 @@ function renderProduct()
                     text.classList.add("is-5");
                     text.classList.add("has-text-justified");
                     text.classList.add("mt-2");
-                    text.appendChild(document.createTextNode(produit.description));
+                    text.appendChild(document.createTextNode(product.description));
                     divtext.appendChild(text);
 
 
 
-                    let sectionpro = document.getElementById("produits");
+                    let sectionpro = document.getElementById("products");
                         sectionpro.appendChild(divfigure);
                         sectionpro.appendChild(divtext);
             })
@@ -196,7 +177,7 @@ function renderProduct()
       <div class="section_text">
         <h1 class="title is-1 mb-5">Robert</h1>
         <h2 class="section_text-h2 title is-2 is-flex is-justify-content-flex-start mb-5">29€</h2>
-        <div class="icon-star icon-star-produit mb-5">
+        <div class="icon-star icon-star-product mb-5">
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
