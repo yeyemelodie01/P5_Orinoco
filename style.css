@@ -195,8 +195,9 @@ a:hover{
 .section-flex{
     display: flex;
     align-items: center;
+    width: 57%;
     height: 771px;
-    margin: 0 145px 80px 50px;
+    margin: 0 auto;
 }
 
 .section_text-h2{
@@ -239,6 +240,10 @@ a:hover{
 .section_text h2{
     font-size: 40px;
     font-weight: bold;
+}
+
+.section_text p{
+    width: 400px;
 }
 
 /* PANIER */

@@ -117,6 +117,7 @@ function renderProduct()
                     divtext.appendChild(numero);
 
                 let selectnum = document.createElement("select");
+                    selectnum.id = 'qt';
                     numero.appendChild(selectnum);
 
                 let myNum = ["0", "1", "3", "4", "5", "6", "7", "8", "9", "10"];
@@ -129,12 +130,37 @@ function renderProduct()
                         selectnum.add(numquant);
                     }
 
-                let buttonpPro = document.createElement("button");
-                    buttonpPro.classList.add("button");
-                    buttonpPro.classList.add("is-primary");
-                    buttonpPro.classList.add("ml-5");
-                    buttonpPro.appendChild(document.createTextNode("Ajouter au panier"));
-                    divtext.appendChild(buttonpPro);
+
+                let AddtoCart = document.createElement("button");
+                    AddtoCart.classList.add("button");
+                    AddtoCart.classList.add("is-primary");
+                    AddtoCart.classList.add("ml-5");
+                    AddtoCart.appendChild(document.createTextNode("Ajouter au panier"));
+                    divtext.appendChild(AddtoCart);
+
+
+                AddtoCart.addEventListener('click', function (){
+                    function getSelectedOption(selectnum){
+                        let opt;
+                        for(let i = 0, len = selectnum.options.length; i < len; i++){
+                            opt = selectnum.options[i];
+                            if(opt.selected === true ){
+                                break;
+                            }
+                        }
+                        return opt;
+                    }
+
+                    let opt = getSelectedOption(selectnum);
+                    console.log(opt.value);
+
+                    localStorage.setItem('id', produit._id);
+                    localStorage.setItem('type', type);
+                    /*localStorage.setItem('color', opt.value);*/
+                    localStorage.setItem('quantité', opt.value);
+                    localStorage.setItem('price', formattedPrice+' €');
+                    localStorage.setItem('totalprice', formattedPrice * opt.value +'€');
+                })
 
                 let description = document.createElement("h3");
                     description.classList.add("title");
@@ -143,13 +169,13 @@ function renderProduct()
                     description.appendChild(document.createTextNode("Description :"));
                     divtext.appendChild(description);
 
-                let pProduit = document.createElement("p");
-                    pProduit.classList.add("subtitle");
-                    pProduit.classList.add("is-5");
-                    pProduit.classList.add("has-text-justified");
-                    pProduit.classList.add("mt-2");
-                    pProduit.appendChild(document.createTextNode(produit.description));
-                    divtext.appendChild(pProduit);
+                let text = document.createElement("p");
+                    text.classList.add("subtitle");
+                    text.classList.add("is-5");
+                    text.classList.add("has-text-justified");
+                    text.classList.add("mt-2");
+                    text.appendChild(document.createTextNode(produit.description));
+                    divtext.appendChild(text);
 
 
 
