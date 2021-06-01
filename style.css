@@ -189,14 +189,14 @@ a:hover{
 
 /* MAIN PRODUIT */
 .main-produit{
-    height: 860px;
+    height: 642px;
 }
 
 .section-flex{
     display: flex;
     align-items: center;
-    width: 57%;
-    height: 771px;
+    width: 90%;
+    height: 640px;
     margin: 0 auto;
 }
 
@@ -205,12 +205,12 @@ a:hover{
 }
 
 .figure_img{
-    width: 730px;
-    height: 772px;
+    width: 570px;
+    height: 640px;
 }
 
 .figure_img img{
-    height: 772px;
+    height: 640px;
     object-fit: cover;
 }
 
