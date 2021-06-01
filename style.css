@@ -90,7 +90,7 @@ a:hover{
 }
 
 .nav_size{
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .nav_size-panier{
@@ -173,7 +173,7 @@ a:hover{
 }
 
 .slider-item{
-    width: 460px !important;
+    width: 350px !important;
     display: flex;
     justify-content: center;
 }
