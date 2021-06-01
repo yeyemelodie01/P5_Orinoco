@@ -104,9 +104,9 @@ a:hover{
 .section_color{
     background: url("images/background.jpg");
     background-size: cover;
-    background-position: top -427px left 705px;
+    background-repeat: no-repeat;
     width: 100%;
-    height: 800px;
+    height: 650px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -114,7 +114,7 @@ a:hover{
 
 .titre{
     text-align: center;
-    font-size: 104px;
+    font-size: 80px;
     color: #368c7f;
     font-weight: bold;
 }
@@ -125,7 +125,7 @@ a:hover{
 }
 
 .section_position{
-    width: 1280px;
+    width: 82%;
     height: 502px;
     margin: 0 auto 90px;
 }
