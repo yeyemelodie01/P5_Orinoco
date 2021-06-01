@@ -3,11 +3,7 @@ window.onload = function() {
 };
 
 function renderShopping() {
-    let id = localStorage.getItem('id');
-    let type = localStorage.getItem('type');
-    let price = localStorage.getItem('price');
-    let quantity = localStorage.getItem('quantity');
-    let totalPrice = localStorage.getItem('totalPrice');
+    let panierStocker = JSON.parse(localStorage.getItem(panier));
     let productUrl = "";
     let authorizedType = [
         'teddies',
@@ -17,7 +13,7 @@ function renderShopping() {
 
     let baseUrl = "https://ab-p5-api.herokuapp.com/api/";
     if (true === authorizedType.includes(type)) {
-        productUrl = baseUrl+type+'/'+id+'/'+price+'/'+quantity+'/'+totalPrice;
+        productUrl = baseUrl+type+'/'+panierStocker;
     }
     console.log(productUrl);
     if (productUrl !== '') {
@@ -38,3 +34,4 @@ function renderShopping() {
             })
     }
 }
+console.log(renderShopping);

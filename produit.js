@@ -97,6 +97,58 @@ function renderProduct()
                     }
                 }
 
+                let varnishs = product.varnish;
+                if (typeof varnishs != 'undefined'){
+                    let vernis = document.createElement("h3");
+                    vernis.classList.add("title");
+                    vernis.classList.add("is-3");
+                    vernis.classList.add("mb-3");
+                    vernis.appendChild(document.createTextNode("Vernis"));
+                    divtext.appendChild(vernis);
+
+                    let vernisDiv = document.createElement("div");
+                    vernisDiv.classList.add("select");
+                    vernisDiv.classList.add("is-primary");
+                    vernisDiv.classList.add("mb-6");
+                    divtext.appendChild(vernisDiv);
+
+                    let vernisSelect = document.createElement("select");
+                    vernisSelect.id = 'vernis';
+                    vernisDiv.appendChild(vernisSelect);
+                    for (let i = 0; i < varnishs.length; ++i) {
+                        let vernisOption = document.createElement("option");
+                        vernisOption.text = varnishs[i];
+                        vernisOption.value = varnishs[i];
+                        vernisSelect.add(vernisOption);
+                    }
+                }
+
+                let lense = product.lenses;
+                if (typeof lense != 'undefined'){
+                    let lentilles = document.createElement("h3");
+                    lentilles.classList.add("title");
+                    lentilles.classList.add("is-3");
+                    lentilles.classList.add("mb-3");
+                    lentilles.appendChild(document.createTextNode("Lentilles"));
+                    divtext.appendChild(lentilles);
+
+                    let lentillesDiv = document.createElement("div");
+                    lentillesDiv.classList.add("select");
+                    lentillesDiv.classList.add("is-primary");
+                    lentillesDiv.classList.add("mb-6");
+                    divtext.appendChild(lentillesDiv);
+
+                    let lentillesSelect = document.createElement("select");
+                    lentillesSelect.id = 'lentilles';
+                    lentillesDiv.appendChild(lentillesSelect);
+                    for (let i = 0; i < lense.length; ++i) {
+                        let lentillesOption = document.createElement("option");
+                        lentillesOption.text = lense[i];
+                        lentillesOption.value = lense[i];
+                        lentillesSelect.add(lentillesOption);
+                    }
+                }
+
                 let quantityTitle = document.createElement("h3");
                 quantityTitle.classList.add("title");
                 quantityTitle.classList.add("is-3");
@@ -132,15 +184,23 @@ function renderProduct()
 
 
                 addToCartButton.addEventListener('click', function (){
-                    if (document.getElementById('colors').length > 0) {
-                        localStorage.setItem('color', document.getElementById('colors').value);
-                    }
                     let itemQuantity = document.getElementById('quantity').value;
-                    localStorage.setItem('id', product._id);
-                    localStorage.setItem('type', type);
+                    let panier = [
+                        {
+                            'id' : product._id,
+                            'type' : type,
+                            'color' : document.getElementById('colors').length > 0,
+                            'quantity' :itemQuantity,
+                            'price' : String(product.price),
+                            'totalPrice' : String(product.price * itemQuantity)
+                        }
+                    ]
+                    let stocker = JSON.stringify(panier);
+                    localStorage.setItem('panier', stocker);
+                    /*localStorage.setItem('type', type);
                     localStorage.setItem('quantity', itemQuantity);
                     localStorage.setItem('price',String(product.price));
-                    localStorage.setItem('totalPrice', String(product.price * itemQuantity));
+                    localStorage.setItem('totalPrice', String(product.price * itemQuantity));*/
                 })
 
                 let description = document.createElement("h3");
