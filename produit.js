@@ -183,25 +183,37 @@ function renderProduct()
                 divtext.appendChild(addToCartButton);
 
 
-                addToCartButton.addEventListener('click', function (){
+                addToCartButton.addEventListener('click', (event) =>{
+                    event.preventDefault();
+
                     let itemQuantity = document.getElementById('quantity').value;
-                    let panier = [
-                        {
+                    let panier =
+                        [{
                             'id' : product._id,
                             'type' : type,
-                            'color' : document.getElementById('colors').length > 0,
+                            'color' : product.colors || product.varnish || product.lenses,
                             'quantity' :itemQuantity,
                             'price' : String(product.price),
                             'totalPrice' : String(product.price * itemQuantity)
-                        }
-                    ]
-                    let stocker = JSON.stringify(panier);
-                    localStorage.setItem('panier', stocker);
+                        }]
+                        console.log(panier)
+
+                    let data = JSON.parse(localStorage.getItem("basket"))
+                    if(data) {
+                        data.push[panier];
+                        localStorage.setItem("basket", JSON.stringify([panier]));
+                        console.log(data);
+                    } else {
+                        let tab = [];
+                        tab.push[panier];
+                        localStorage.setItem("basket", JSON.stringify(tab));
+                    }
+
                     /*localStorage.setItem('type', type);
                     localStorage.setItem('quantity', itemQuantity);
                     localStorage.setItem('price',String(product.price));
                     localStorage.setItem('totalPrice', String(product.price * itemQuantity));*/
-                })
+                });
 
                 let description = document.createElement("h3");
                     description.classList.add("title");
