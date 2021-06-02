@@ -230,5 +230,5 @@ function addToBasket(itemToAdd)
 }
 
 function removeInBasket(itemToRemove){
-    
+        
 }
