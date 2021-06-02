@@ -37,6 +37,7 @@ function renderProduct()
                 let divtext = document.createElement("div");
                 divtext.classList.add("section-text");
                 divtext.classList.add("pl-6");
+                divtext.classList.add("pr-6");
 
                 let title = document.createElement("h1");
                 title.classList.add("title");
@@ -162,7 +163,6 @@ function renderProduct()
                 let text = document.createElement("p");
                 text.classList.add("subtitle");
                 text.classList.add("is-5");
-                text.classList.add("has-text-justified");
                 text.classList.add("mt-2");
                 text.appendChild(document.createTextNode(product.description));
                 divtext.appendChild(text);
@@ -230,5 +230,5 @@ function addToBasket(itemToAdd)
 }
 
 function removeInBasket(itemToRemove){
-        
+
 }
