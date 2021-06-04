@@ -112,6 +112,7 @@ function renderProduct()
                 }
 
                 let addToCartButton = document.createElement("button");
+                addToCartButton.id = 'button';
                 addToCartButton.classList.add("button");
                 addToCartButton.classList.add("is-primary");
                 addToCartButton.classList.add("ml-5");
@@ -230,5 +231,17 @@ function addToBasket(itemToAdd)
 }
 
 function removeInBasket(itemToRemove){
+    let remove = JSON.parse(localStorage.getItem("basket"))
+        for(let i = 0; i < remove.length; i++){
+            if(localStorage.getItem('basket') != null){
+                localStorage.removeItem('basket');
+            }
+        }
+        itemToRemove = JSON.stringify(remove);
+    localStorage.setItem("newBasket", itemToRemove);
+    console.log();
 
-}
+
+        /*localStorage.removeItem("basket", remove.id);*/
+
+    }
