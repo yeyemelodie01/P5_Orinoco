@@ -126,7 +126,7 @@ function renderProduct()
                     let itemQuantity = parseInt(document.getElementById('quantity').value);
                     let id = '';
                     if (product.colors) {
-                        id = 'color';
+                        id = 'colors';
                     }else if(product.varnish) {
                         id = 'varnish';
                     } else if(product.lenses) {
@@ -230,18 +230,15 @@ function addToBasket(itemToAdd)
     localStorage.setItem("basket", JSON.stringify(data));
 }
 
-function removeInBasket(itemToRemove){
-    let remove = JSON.parse(localStorage.getItem("basket"))
-        for(let i = 0; i < remove.length; i++){
-            if(localStorage.getItem('basket') != null){
-                localStorage.removeItem('basket');
-            }
+function removeInBasket(itemToRemove) {
+    let basket = JSON.parse(localStorage.getItem("basket"));
+    for (let i = 0; i < basket.length; i++) {
+        let currentItem = basket[i];
+        if (currentItem.id === itemToRemove.id && currentItem.type === itemToRemove.type && currentItem.detail === itemToRemove.detail) {
+            basket.splice(i, 1);
+            break;
         }
-        itemToRemove = JSON.stringify(remove);
-    localStorage.setItem("newBasket", itemToRemove);
-    console.log();
-
-
-        /*localStorage.removeItem("basket", remove.id);*/
-
     }
+
+    localStorage.setItem("basket", JSON.stringify(basket));
+}
