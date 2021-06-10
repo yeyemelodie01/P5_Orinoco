@@ -260,10 +260,14 @@ a:hover{
 
 .div_panier-content{
     width: 65%;
-    height: 366px;
+    /*height: 366px;*/
     border: #00c4a7 2px solid;
     border-radius: 20px;
     float: left;
+}
+
+.div_product{
+    height: 200px;
 }
 
 #quantite{

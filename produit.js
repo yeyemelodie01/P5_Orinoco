@@ -138,6 +138,8 @@ function renderProduct()
                         let itemToAddInBasket = {
                             'id': product._id,
                             'type': type,
+                            'name': product.name,
+                            'image': product.imageUrl,
                             'detail': detail,
                             'quantity': itemQuantity,
                             'price':  parseInt(product.price),
