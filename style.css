@@ -250,6 +250,7 @@ a:hover{
 .section_panier{
     margin-right: 100px;
     margin-left: 100px;
+    margin-bottom: 80px;
 }
 
 .section_panier img{
@@ -264,6 +265,10 @@ a:hover{
     border: #00c4a7 2px solid;
     border-radius: 20px;
     float: left;
+}
+
+.empty{
+    height: 295px;
 }
 
 .div_product{
@@ -290,9 +295,13 @@ a:hover{
 .info-circle{
     border: 2px solid #00d1b2;
     border-radius: 50%;
-    padding: 4px 7px;
+    padding: 4px 8px;
     margin-right: 6px;
     font-size: 10px;
+}
+
+.div_align{
+    order: 9;
 }
 
 .section-panier_marginbottom{
@@ -317,10 +326,28 @@ a:hover{
     border: 1px solid #00d1b2;
 }
 
+/*.content-hidden {
+    display: none;
+}
+*/
 .content-hidden_width{
     width: 34%;
     margin-bottom: 100px;
 }
+
+/* CONFIRMATION DE COMMANDE */
+
+#orderconfirm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: #00c4a7 2px solid;
+    width: 52%;
+    margin: 0 auto 50px;
+    padding: 130px 200px;
+    border-radius: 20px;
+}
+
 
 /* FOOTER */
 
