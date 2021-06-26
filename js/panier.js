@@ -145,17 +145,9 @@ function renderShopping() {
         pricesubTotal.appendChild(document.createTextNode(formatTotalprice + "€"));
 
         basketPrice.appendChild(pricesubTotal);
-        /*let deliveryPrice = 3.50;
-        let basketPrice = document.getElementById("basketSubTotal");
-            let nbr1 = parseFloat(formatTotalprice);
-            console.log(nbr1);
-            let nbr2 = parseFloat(deliveryPrice);
-            console.log(nbr2);
-            let sum = nbr1 + nbr2;
 
-            console.log(sum);*/
         let priceTotalTVA = document.createElement("p");
-        priceTotalTVA.appendChild(document.createTextNode(sum + "€"));
+        priceTotalTVA.appendChild(document.createTextNode( + "€"));
 
         let basketTVA = document.getElementById("totalTVA");
         basketTVA.appendChild(priceTotalTVA);

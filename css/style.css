@@ -102,7 +102,7 @@ a:hover{
     height: 400px;
 }
 .section_color{
-    background: url("images/background.jpg");
+    background: url("../images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
