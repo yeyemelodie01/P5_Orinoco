@@ -280,6 +280,10 @@ a:hover{
     bottom: 18px;
 }
 
+.text_width{
+    width: 140px;
+}
+
 .div_panier-width{
     width: 840px;
 }

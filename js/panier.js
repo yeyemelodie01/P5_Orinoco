@@ -88,7 +88,7 @@ function renderBasketItems() {
 
             let pQuantity = createDomElement({
                 tagName: 'p',
-                classList: ['mb-2'],
+                classList: ['mb-2', 'text_width'],
                 textNode: "Quantité : " + basketData[i].quantity,
             });
             appendElementTo(divWidth, pQuantity);
@@ -99,18 +99,24 @@ function renderBasketItems() {
             });
             appendElementTo(divSize, divFlexJustify);
 
-            let pSize = createDomElement({
-                tagName: 'p',
-                classList: ['is-size-5'],
-                textNode: "Supprimer",
+            let diviconText = createDomElement({
+                tagName: 'div',
+                classList: ['is-flex'],
             });
-            appendElementTo(divFlexJustify, pSize);
+            appendElementTo(divFlexJustify,diviconText);
 
             let deleteIcon = createDomElement({
                 tagName: 'i',
                 classList: ['fas', 'fa-trash-alt', 'mr-3'],
             });
-            appendElementTo(pSize, deleteIcon);
+            appendElementTo(diviconText, deleteIcon);
+
+            let pSize = createDomElement({
+                tagName: 'p',
+                classList: ['is-size-5'],
+                textNode: "Supprimer",
+            });
+            appendElementTo(diviconText, pSize);
 
             let formatPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(totalPrice/100);
             let pPrice = createDomElement({
