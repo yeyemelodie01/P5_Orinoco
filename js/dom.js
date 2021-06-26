@@ -1,10 +1,25 @@
 export function createDomElement(elementDetail)
 {
     let element = document.createElement(elementDetail.tagName);
-    for (let className in elementDetail.classList) {
-        addClassToElement(element, className);
+    if (elementDetail.classList !== undefined && elementDetail.classList.length > 0) {
+        for (let i = 0; i < elementDetail.classList.length; i++) {
+            addClassToElement(element, elementDetail.classList[i]);
+        }
     }
-    appendElementTo(document.getElementById(elementDetail.parentId), element);
+
+    if (elementDetail.src !== undefined) {
+        element.src = elementDetail.src;
+    }
+
+    if (elementDetail.textNode !== undefined) {
+        appendElementTo(element, null, elementDetail.textNode)
+    }
+
+    if (elementDetail.parentId !== undefined) {
+        appendElementTo(document.getElementById(elementDetail.parentId), element);
+    }
+
+    return element;
 }
 
 export function addClassToElement(element, className)
@@ -12,7 +27,13 @@ export function addClassToElement(element, className)
     element.classList.add(className);
 }
 
-export function appendElementTo(parent, child)
+export function appendElementTo(parent, child = null, textNode = '')
 {
-    parent.appendChild(child);
+    if (textNode !== '' && child === null) {
+        parent.appendChild(document.createTextNode(textNode))
+    }
+
+    if (child !== null) {
+        parent.appendChild(child);
+    }
 }
