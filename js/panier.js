@@ -90,7 +90,7 @@ function renderBasketItems() {
 
             let pQuantity = createDomElement({
                 tagName: 'p',
-                classList: ['mb-2', 'text_width'],
+                classList: ['mb-2'],
                 textNode: "Quantité : " + basketData[i].quantity,
             });
             appendElementTo(divWidth, pQuantity);
@@ -101,24 +101,18 @@ function renderBasketItems() {
             });
             appendElementTo(divSize, divFlexJustify);
 
-            let diviconText = createDomElement({
-                tagName: 'div',
-                classList: ['is-flex'],
-            });
-            appendElementTo(divFlexJustify,diviconText);
-
-            let deleteIcon = createDomElement({
-                tagName: 'i',
-                classList: ['fas', 'fa-trash-alt', 'mr-3'],
-            });
-            appendElementTo(diviconText, deleteIcon);
-
             let pSize = createDomElement({
                 tagName: 'p',
                 classList: ['is-size-5'],
                 textNode: "Supprimer",
             });
-            appendElementTo(diviconText, pSize);
+            appendElementTo(divFlexJustify, pSize);
+
+            let deleteIcon = createDomElement({
+                tagName: 'i',
+                classList: ['fas', 'fa-trash-alt', 'mr-3'],
+            });
+            appendElementTo(pSize, deleteIcon);
 
             let pPrice = createDomElement({
                 tagName: 'p',
@@ -134,8 +128,10 @@ function renderBasketItems() {
 
 function renderPrice() {
     let totalPrice = 0;
-    for(let i = 0; i < basketData.length; i++){
-        totalPrice += basketData[i].totalPrice;
+    if (basketData !== null) {
+        for (let i = 0; i < basketData.length; i++) {
+            totalPrice += basketData[i].totalPrice;
+        }
     }
 
     let subTotalPrice = createDomElement({
@@ -152,206 +148,104 @@ function renderPrice() {
     appendElementTo(document.getElementById("totalTVA"), totalPriceWithDelivery);
 }
 
-function renderForm() {
-    let divContent = document.getElementById('divContent');
+function createFormInput(form, input)
+{
+    let div = createDomElement({
+        tagName: 'div',
+        classList: ['field', 'mb-5'],
+    });
+    appendElementTo(form, div);
 
-    let hidden = document.createElement("div");
-    hidden.id = 'hiddenContent';
-    divContent.appendChild(hidden);
-    //hidden.classList.add("is-flex");
-    //hidden.classList.add("is-flex-direction-column");
-    //hidden.classList.add("s-align-items-center");
+    let label = createDomElement({
+        tagName: 'label',
+        classList: ['label'],
+        for: input.name,
+        textNode: input.label + ' *',
+    });
+    appendElementTo(div, label);
 
-    let divHidden = document.createElement("div");
-    divHidden.classList.add("pl-5");
-    divHidden.classList.add("content-hidden_width");
-    hidden.appendChild(divHidden);
+    let divControl = createDomElement({
+        tagName: 'div',
+        classList: ['control'],
+    });
+    appendElementTo(div, divControl);
 
-    let titleAdress = document.createElement("h2");
-    titleAdress.classList.add("title");
-    titleAdress.classList.add("is-2");
-    titleAdress.classList.add("is-flex");
-    titleAdress.classList.add("is-justify-content-flex-start");
-    titleAdress.appendChild(document.createTextNode("Mon adresse"));
-    divHidden.appendChild(titleAdress);
+    let inputElement = createDomElement({
+        tagName: 'input',
+        classList: ['input'],
+        id: input.name,
+        placeholder: (input.placeholder !== undefined) ? input.placeholder : input.label,
+        type: 'text',
+    });
+    appendElementTo(divControl, inputElement);
+}
 
-    let form = document.createElement("form");
-    divHidden.appendChild(form);
+function showOrderForm() {
+    let sectionContent = document.getElementById('divContent');
+    let hidden = createDomElement({
+        id: 'hiddenContent',
+        tagName: 'div',
+        classList: ['content-hidden', 'is-flex', 'is-justify-content-center'],
+    });
+    appendElementTo(sectionContent, hidden);
 
-    let divRadio = document.createElement("div");
-    divRadio.classList.add("control");
-    divRadio.classList.add("mb-5");
-    form.appendChild(divRadio);
+    let divHidden = createDomElement({
+        tagName: 'div',
+        classList: ['pl-5', 'content-hidden_width'],
+    });
+    appendElementTo(hidden, divHidden);
 
-    let labelMme = document.createElement("label");
-    labelMme.classList.add("radio");
-    labelMme.appendChild(document.createTextNode("Mme"));
-    divRadio.appendChild(labelMme);
+    let addressTitle = createDomElement({
+        tagName: 'h2',
+        classList: ['title', 'is-2', 'is-flex', 'is-justify-content-flex-start'],
+        textNode: 'Mon adresse',
+    });
+    appendElementTo(divHidden, addressTitle);
 
-    let inputMme = document.createElement("input");
-    inputMme.setAttribute('type', 'radio');
-    inputMme.setAttribute('name', 'answer');
-    inputMme.appendChild(document.createTextNode("Mme"));
-    labelMme.appendChild(inputMme);
+    let form = createDomElement({
+        tagName: 'form',
+    });
+    appendElementTo(divHidden, form);
 
-    let labelMlle = document.createElement("label");
-    labelMlle.classList.add("radio");
-    divRadio.appendChild(labelMlle);
+    let divRadio = createDomElement({
+        tagName: 'div',
+        classList: ['control', 'mb-5', 'is-flex'],
+    });
+    appendElementTo(form, divRadio);
 
-    let inputMlle = document.createElement("input");
-    inputMlle.setAttribute('type', 'radio');
-    inputMlle.setAttribute('name', 'answer');
-    inputMlle.appendChild(document.createTextNode("Mlle"));
-    labelMlle.appendChild(inputMlle);
+    let radios = ['Mme', 'Mlle', 'Mr'];
+    for (let i = 0; i < radios.length; i++) {
+        let divRadioflex = createDomElement({
+            tagName: 'div',
+            classList: ['is-flex'],
+        });
+        appendElementTo(divRadio,divRadioflex);
 
-    let labelMr = document.createElement("label");
-    labelMr.classList.add("radio");
-    divRadio.appendChild(labelMr);
+        let radioLabel = createDomElement({
+            tagName: 'label',
+            classList: ['radio'],
+            textNode: radios[i],
+        });
+        appendElementTo(divRadioflex, radioLabel);
 
-    let inputMr = document.createElement("input");
-    inputMr.setAttribute('type', 'radio');
-    inputMr.setAttribute('name', 'answer');
-    inputMr.innerHTML = "Mr";
-    labelMr.appendChild(inputMr);
+        let radioInput = createDomElement({
+            tagName: 'input',
+            classList: ['radio', 'radio-flex'],
+            name: radios[i],
+            value: radios[i],
+            type: 'radio',
+            textNode: radios[i],
+        });
+        appendElementTo(divRadioflex, radioInput);
+    }
 
-    let divName = document.createElement("div");
-    divName.classList.add("field");
-    divName.classList.add("mb-5");
-    form.appendChild(divName);
-
-    let labelName = document.createElement("label");
-    labelName.classList.add("label");
-    labelName.setAttribute('for', 'name');
-    labelName.appendChild(document.createTextNode("Nom*"));
-    divName.appendChild(labelName);
-
-    let divControl = document.createElement("div");
-    divControl.classList.add("control");
-    divName.appendChild(divControl);
-
-    let inputName = document.createElement("input");
-    inputName.classList.add("input");
-    inputName.id = 'name';
-    inputName.setAttribute('type', 'text');
-    inputName.setAttribute('placeholder', 'Nom');
-    divControl.appendChild(inputName);
-
-    let divUser = document.createElement("div");
-    divUser.classList.add("field");
-    divUser.classList.add("mb-5");
-    form.appendChild(divUser);
-
-    let labelUser = document.createElement("label");
-    labelUser.classList.add("label");
-    labelUser.setAttribute('for', 'username');
-    labelUser.appendChild(document.createTextNode("Prénom*"));
-    divUser.appendChild(labelUser);
-
-    let divcontrolIcon = document.createElement("div");
-    divcontrolIcon.classList.add("control");
-    divcontrolIcon.classList.add("has-icons-right");
-    divUser.appendChild(divcontrolIcon);
-
-    let inputUser = document.createElement("input");
-    inputUser.classList.add("input");
-    inputUser.classList.add("is-success");
-    inputUser.id = 'username';
-    inputUser.setAttribute('type', 'text');
-    inputUser.setAttribute('placeholder', 'Prénom');
-    inputUser.setAttribute('value', '');
-    divcontrolIcon.appendChild(inputUser);
-
-    let divPhone = document.createElement("div");
-    divPhone.classList.add("field");
-    divPhone.classList.add("mb-5");
-    form.appendChild(divPhone);
-
-    let labelPhone = document.createElement("label");
-    labelPhone.classList.add("label");
-    labelPhone.setAttribute('for', 'telephone');
-    labelPhone.appendChild(document.createTextNode("Téléphone*"));
-    divPhone.appendChild(labelPhone);
-
-    let divcontrolPhone = document.createElement("div");
-    divcontrolPhone.classList.add("control");
-    divPhone.appendChild(divcontrolPhone);
-
-    let inputPhone = document.createElement("input");
-    inputPhone.classList.add("input");
-    inputPhone.id = 'telephone';
-    inputPhone.setAttribute('type', 'text');
-    inputPhone.setAttribute('placeholder', 'Numéro de Téléphone');
-    divcontrolPhone.appendChild(inputPhone);
-
-    let divEmail = document.createElement("div");
-    divEmail.classList.add("field");
-    divEmail.classList.add("mb-5");
-    form.appendChild(divEmail);
-
-    let labelEmail = document.createElement("label");
-    labelEmail.classList.add("label");
-    labelEmail.setAttribute('for', 'email');
-    labelEmail.appendChild(document.createTextNode("Email"));
-    divEmail.appendChild(labelEmail);
-
-    let divcontrolEmail = document.createElement("div");
-    divcontrolEmail.classList.add("control");
-    divcontrolEmail.classList.add("has-icons-right");
-    divEmail.appendChild(divcontrolEmail);
-
-    let inputEmail = document.createElement("input");
-    inputEmail.classList.add("input");
-    inputEmail.id = 'email';
-    inputEmail.setAttribute('type', 'email');
-    inputEmail.setAttribute('placeholder', 'hello@outlook.com');
-    divcontrolEmail.appendChild(inputEmail);
-
-    let divAdress = document.createElement("div");
-    divAdress.classList.add("field");
-    divAdress.classList.add("mb-5");
-    form.appendChild(divAdress);
-
-    let labelAdress = document.createElement("label");
-    labelAdress.classList.add("label");
-    labelAdress.setAttribute('for', 'adresse');
-    labelAdress.appendChild(document.createTextNode("Adresse (numéros et rue)*"));
-    divAdress.appendChild(labelAdress);
-
-    let divcontrolAdress = document.createElement("div");
-    divcontrolAdress.classList.add("control");
-    divcontrolAdress.classList.add("has-icons-right");
-    divAdress.appendChild(divcontrolAdress);
-
-    let inputAdress = document.createElement("input");
-    inputAdress.classList.add("input");
-    inputAdress.classList.add("is-success");
-    inputAdress.id = 'adresse';
-    inputAdress.setAttribute('type', 'text');
-    inputAdress.setAttribute('placeholder', 'Adresse');
-    divcontrolAdress.appendChild(inputAdress);
-
-    let divAdditional = document.createElement("div");
-    divAdditional.classList.add("field");
-    divAdditional.classList.add("mb-5");
-    form.appendChild(divAdditional);
-
-    let labelAdditional = document.createElement("label");
-    labelAdditional.classList.add("label");
-    labelAdditional.setAttribute('for', 'complementadresse');
-    labelAdditional.appendChild(document.createTextNode("Complément d'adresse (facultatif)"));
-    divAdditional.appendChild(labelAdditional);
-
-    let divcontrolAdditional = document.createElement("div");
-    divcontrolAdditional.classList.add("control");
-    divAdditional.appendChild(divcontrolAdditional);
-
-    let inputAdditional = document.createElement("input");
-    inputAdditional.classList.add("input");
-    inputAdditional.id = 'complementadresse';
-    inputAdditional.setAttribute('type', 'text');
-    inputAdditional.setAttribute('placeholder', 'Complément d adresse');
-    divcontrolAdditional.appendChild(inputAdditional);
-
+    createFormInput(form, {name: 'lastName', label: 'Nom'});
+    createFormInput(form, {name: 'firstName', label: 'Prénom'});
+    createFormInput(form, {name: 'phoneNumber', label: 'Numéro de téléphone'});
+    createFormInput(form, {name: 'email', label: 'Email', placeholder: 'hello@outlook.com'});
+    createFormInput(form, {name: 'address', label: 'Adresse (numéros et rue)', placeholder: 'Adresse'});
+    createFormInput(form, {name: 'additionalAddress', label: 'Complément d\'adresse (facultatif)', placeholder: 'Complément d\'adresse'});
+    
     let divflexTown = document.createElement("div");
     divflexTown.classList.add("is-flex");
     form.appendChild(divflexTown);
@@ -407,6 +301,7 @@ function renderForm() {
 
     let divcontrolCheckbox = document.createElement("div");
     divcontrolCheckbox.classList.add("control");
+    divcontrolCheckbox.classList.add("is-flex");
     divCheckbox.appendChild(divcontrolCheckbox);
 
     let labelCheckbox = document.createElement("label");
@@ -415,8 +310,9 @@ function renderForm() {
     divcontrolCheckbox.appendChild(labelCheckbox);
 
     let inputCheckbox = document.createElement("input");
+    inputCheckbox.classList.add("inputCheckbox");
     inputCheckbox.setAttribute('type', 'checkbox');
-    labelCheckbox.appendChild(inputCheckbox);
+    divcontrolCheckbox.appendChild(inputCheckbox);
 
     let divButton = document.createElement("div");
     divButton.classList.add("field");
@@ -443,6 +339,13 @@ function renderForm() {
     buttonCancel.classList.add("is-light");
     buttonCancel.appendChild(document.createTextNode("Annuler"));
     divcontrolCancel.appendChild(buttonCancel);
+}
+
+function renderForm() {
+    let orderButton = document.getElementById("hiddenDisplay");
+    orderButton.onclick = function () {
+        showOrderForm();
+    };
 }
 
 function renderShopping() {

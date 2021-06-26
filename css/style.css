@@ -335,6 +335,16 @@ a:hover{
     margin-bottom: 100px;
 }
 
+.inputCheckbox{
+    order: -1;
+    margin-right: 6px;
+}
+
+.radio-flex{
+    order: -1;
+    margin-right: 2px;
+}
+
 /* CONFIRMATION DE COMMANDE */
 
 #orderconfirm{

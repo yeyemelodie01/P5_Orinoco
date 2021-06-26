@@ -7,6 +7,10 @@ export function createDomElement(elementDetail)
         }
     }
 
+    if (elementDetail.id !== undefined) {
+        element.id = elementDetail.id;
+    }
+
     if (elementDetail.src !== undefined) {
         element.src = elementDetail.src;
     }
@@ -17,6 +21,26 @@ export function createDomElement(elementDetail)
 
     if (elementDetail.parentId !== undefined) {
         appendElementTo(document.getElementById(elementDetail.parentId), element);
+    }
+
+    if (elementDetail.type !== undefined) {
+        element.setAttribute('type', elementDetail.type);
+    }
+
+    if (elementDetail.value !== undefined) {
+        element.setAttribute('value', elementDetail.value);
+    }
+
+    if (elementDetail.name !== undefined) {
+        element.setAttribute('name', elementDetail.name);
+    }
+
+    if (elementDetail.for !== undefined) {
+        element.setAttribute('for', elementDetail.for);
+    }
+
+    if (elementDetail.placeholder !== undefined) {
+        element.setAttribute('placeholder', elementDetail.placeholder);
     }
 
     return element;
