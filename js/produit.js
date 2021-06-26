@@ -23,6 +23,12 @@ function renderProduct()
                 return resp.json();
             })
             .then(function (product) {
+                let spanlenght = document.createElement("span");
+                spanlenght.appendChild(document.createTextNode(product.length));
+
+                let basketlenght = document.getElementById("basketlenght");
+                basketlenght.appendChild(spanlenght);
+
                 let divfigure = document.createElement("div");
                 divfigure.classList.add("divfigure");
 

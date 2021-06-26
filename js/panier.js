@@ -1,4 +1,5 @@
 window.onload = function() {
+    import {createDomElement} from './dom.js';
     renderShopping();
 };
 
@@ -8,6 +9,12 @@ function renderShopping() {
 
 
     if(data === null){
+        createDomElement({
+            tagName: 'h1',
+            classList:  ['is-flex', 'is-justify-content-center', 'is-align-items-center', 'empty'],
+            textNode: 'Le panier est vide',
+            parentId: 'basket'
+        });
         let empty = document.createElement("h1");
         empty.classList.add("is-flex");
         empty.classList.add("is-justify-content-center");
