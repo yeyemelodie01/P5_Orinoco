@@ -123,208 +123,43 @@ function renderShopping() {
             let productbasket = document.getElementById("basket");
             productbasket.appendChild(divContent);
 
-            // PARTIE PRIX TOTAL
-
-            let pricesubTotal = document.createElement("p");
-            pricesubTotal.appendChild(document.createTextNode(""));
-
-            let basketPrice = document.getElementById("basketSubTotal");
-            basketPrice.appendChild(pricesubTotal);
-                /*
-                <div>
-                        <img class="pr-5" src="images/teddy_1.jpg" alt="Robert">
-                        <div  class="is-size-4">
-                            <p class="has-text-weight-bold is-size-3 mb-4">Robert</p>
-                            <div class="is-flex is-justify-content-space-between div_panier-width">
-                                <p class="mb-2">Couleur: Red</p>
-                                <label for="quantite"></label>
-                                <select id="quantite">
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                    <option>10</option>
-                                </select>
-                            </div>
-                            <div class="is-flex is-justify-content-space-between section-panier_marginbottom">
-                                <p class="is-size-5"><i class="fas fa-trash-alt mr-3"></i>Supprimer</p>
-                                <p class="has-text-primary has-text-weight-semibold div_panier-price">29€</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="is-flex is-flex-align-items-center has-text-primary">
-                        <i class="fas fa-info info-circle"></i>
-                        <p>Les articles dans le panier ne sont pas réservés.</p>
-                    </div>
-                </div>
-
-                    <p class="is-size-2 pt-5 pb-5 has-text-weight-bold">Total</p>
-                    <span class="is-flex is-justify-content-space-between mb-4">
-                        <p>Sous-Total</p>
-                        <p>29€</p>
-                    </span>
-                    <span class="is-flex is-justify-content-space-between mb-3">
-                        <p>Livraison</p>
-                        <p>3,50€</p>
-                    </span>
-                    <span class="divider mb-3"></span>
-                    <span class="is-flex is-justify-content-space-between mb-3">
-                        <p class="has-text-weight-bold">Total (TVA incluse)</p>
-                        <p class="has-text-weight-bold">32,50€</p>
-                    </span>
-                    <button class="button is-primary button-panier">Commander</button>
-                </div>
-            </div>
-            <div class="content-hidden is-flex is-flex-direction-column is-align-items-center">
-                <div class="pl-5 content-hidden_width">
-                    <h2 class="title is-2 is-flex is-justify-content-flex-start">Mon adresse</h2>
-                    <div class="control mb-5">
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            Mme
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            Mlle
-                        </label>
-                        <label class="radio">
-                            <input type="radio" name="answer">
-                            Mr
-                        </label>
-                    </div>
-                    <div class="field mb-5">
-                        <label for="name" class="label">Nom*</label>
-                        <div class="control">
-                            <input id="name" class="input" type="text" placeholder="Nom">
-                        </div>
-                    </div>
-                    <div class="field mb-5">
-                        <label for="username" class="label">Prénom*</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input id="username" class="input is-success" type="text" placeholder="Prénom" value="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                        <p class="help is-success">This username is available</p>
-                    </div>
-                    <div class="field mb-5">
-                        <label for="telephone" class="label">Téléphone*</label>
-                        <div class="control">
-                            <input id="telephone" class="input" type="text" placeholder="Numéro de Téléphone">
-                        </div>
-                    </div>
-
-                    <div class="field mb-5">
-                        <label for="email" class="label">Email</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input id="email" class="input is-danger" type="email" placeholder="Email input" value="hello@">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-exclamation-triangle"></i>
-                            </span>
-                        </div>
-                        <p class="help is-danger">This email is invalid</p>
-                    </div>
-
-                    <div class="field mb-5">
-                        <label for="adresse" class="label">Adresse (numéros et rue)*</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input id="adresse" class="input is-success" type="text" placeholder="Adresse" value="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="field mb-5">
-                        <label for="complementadresse" class="label">Complément d'adresse (facultatif)</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input id="complementadresse" class="input is-success" type="text" placeholder="Complément d'adresse" value="">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </span>
-                            <span class="icon is-small is-right">
-                                <i class="fas fa-check"></i>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="is-flex">
-                        <div class="field mb-5 mr-6">
-                            <label for="codepostal" class="label">Code Postal</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input id="codepostal" class="input is-success" type="text" placeholder="Code Postal" value="">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-check"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field mb-5">
-                            <label for="ville" class="label">Ville</label>
-                            <div class="control has-icons-left has-icons-right">
-                                <input id="ville" class="input is-success" type="text" placeholder="Ville" value="">
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </span>
-                                <span class="icon is-small is-right">
-                                    <i class="fas fa-check"></i>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="control has-icons-left">
-                        <div class="select mb-5">
-                            <label for="pays">
-                                <select id="pays">
-                                    <option selected>Pays</option>
-                                    <option>France</option>
-                                    <option>Allemagne</option>
-                                    <option>Royaume-Uni</option>
-                                    <option>Espagne</option>
-                                    <option>Italie</option>
-                                    <option>Suisse</option>
-                                </select>
-                            </label>
-                        </div>
-                        <div class="icon is-small is-left">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                    </div>
-
-                        <div class="field mb-4">
-                            <div class="control">
-                                <label class="checkbox">
-                                    <input type="checkbox">
-                                    I agree to the terms and conditions
-                                </label>
-                            </div>
-                        </div>
-                        <div class="field is-grouped">
-                            <div class="control">
-                                <button class="button is-primary">Submit</button>
-                            </div>
-                            <div class="control">
-                                <button class="button is-link is-light">Cancel</button>
-                            </div>
-                        </div>
-                    </div>*/
         }
+        // PARTIE PRIX TOTAL
+
+        let calculPrice = [];
+
+        for(let i = 0; i < data.length; i++){
+            let Totalprice = data[i].totalPrice;
+            calculPrice.push(Totalprice);
+
+            console.log(calculPrice);
+        }
+
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        let calculTotalprice = calculPrice.reduce(reducer);
+        let basketPrice = document.getElementById("basketSubTotal");
+        console.log(calculTotalprice);
+        let formatTotalprice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2}).format(calculTotalprice/100);
+        console.log(formatTotalprice);
+        let pricesubTotal = document.createElement("p");
+        pricesubTotal.appendChild(document.createTextNode(formatTotalprice + "€"));
+
+        basketPrice.appendChild(pricesubTotal);
+        let deliveryPrice = 3.50;
+        //let basketPrice = document.getElementById("basketSubTotal");
+            let nbr1 = parseFloat(formatTotalprice);
+            console.log(nbr1);
+            let nbr2 = parseFloat(deliveryPrice);
+            console.log(nbr2);
+            let sum = nbr1 + nbr2;
+
+            console.log(sum);
+        let priceTotalTVA = document.createElement("p");
+        priceTotalTVA.appendChild(document.createTextNode(sum + "€"));
+
+        let basketTVA = document.getElementById("totalTVA");
+        basketTVA.appendChild(priceTotalTVA);
+
         let divContent = document.getElementById('divContent');
 
         let hidden = document.createElement("div");
@@ -349,6 +184,9 @@ function renderShopping() {
         titleAdress.classList.add("is-justify-content-flex-start");
         titleAdress.appendChild(document.createTextNode("Mon adresse"));
         divHidden.appendChild(titleAdress);
+
+        let form = document.createElement("form");
+        form.
 
         let divRadio = document.createElement("div");
         divRadio.classList.add("control");
@@ -572,31 +410,6 @@ function renderShopping() {
         inputTown.setAttribute('placeholder', 'Ville');
         divcontrolTown.appendChild(inputTown);
 
-        let divcontrolCountry = document.createElement("div");
-        divcontrolCountry.classList.add("control");
-        divHidden.appendChild(divcontrolCountry);
-
-        let divselectCountry = document.createElement("div");
-        divselectCountry.classList.add("select");
-        divselectCountry.classList.add("mb-5");
-        divcontrolCountry.appendChild(divselectCountry);
-
-        let labelCountry = document.createElement("label");
-        labelCountry.setAttribute('for', 'pays');
-        divselectCountry.appendChild(labelCountry);
-
-        let selectCountry = document.createElement("select");
-        selectCountry.id = 'pays';
-        divselectCountry.appendChild(selectCountry);
-
-        let countries = ["Pays", "France", "Allemagne", "Italie", "Espagne", "Portugal", "Suisse", "Belgique"];
-        for(let i = 0; i < countries.length; ++i){
-            let countryOption = document.createElement("option");
-            countryOption.text = String(countries[i]);
-            countryOption.value = String(countries[i]);
-            selectCountry.add(countryOption);
-        }
-
         let divCheckbox = document.createElement("div");
         divCheckbox.classList.add("field");
         divCheckbox.classList.add("mb-4");
@@ -643,13 +456,3 @@ function renderShopping() {
 
     }
 }
-
-/*       <div class="field is-grouped">
-                            <div class="control">
-                                <button class="button is-primary">Submit</button>
-                            </div>
-                            <div class="control">
-                                <button class="button is-link is-light">Cancel</button>
-                            </div>
-                        </div>
-*/
