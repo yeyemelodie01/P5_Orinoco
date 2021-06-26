@@ -330,10 +330,6 @@ a:hover{
     border: 1px solid #00d1b2;
 }
 
-.content-hidden {
-    display: none;
-}
-
 .content-hidden_width{
     width: 34%;
     margin-bottom: 100px;

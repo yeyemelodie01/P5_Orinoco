@@ -157,7 +157,6 @@ function renderForm() {
 
     let hidden = document.createElement("div");
     hidden.id = 'hiddenContent';
-    hidden.classList.add("content-hidden");
     divContent.appendChild(hidden);
     //hidden.classList.add("is-flex");
     //hidden.classList.add("is-flex-direction-column");
