@@ -145,15 +145,15 @@ function renderShopping() {
         pricesubTotal.appendChild(document.createTextNode(formatTotalprice + "€"));
 
         basketPrice.appendChild(pricesubTotal);
-        let deliveryPrice = 3.50;
-        //let basketPrice = document.getElementById("basketSubTotal");
+        /*let deliveryPrice = 3.50;
+        let basketPrice = document.getElementById("basketSubTotal");
             let nbr1 = parseFloat(formatTotalprice);
             console.log(nbr1);
             let nbr2 = parseFloat(deliveryPrice);
             console.log(nbr2);
             let sum = nbr1 + nbr2;
 
-            console.log(sum);
+            console.log(sum);*/
         let priceTotalTVA = document.createElement("p");
         priceTotalTVA.appendChild(document.createTextNode(sum + "€"));
 
@@ -166,8 +166,6 @@ function renderShopping() {
         hidden.id = 'hiddenContent';
         hidden.classList.add("content-hidden");
         divContent.appendChild(hidden);
-
-
         //hidden.classList.add("is-flex");
         //hidden.classList.add("is-flex-direction-column");
         //hidden.classList.add("s-align-items-center");
@@ -186,12 +184,12 @@ function renderShopping() {
         divHidden.appendChild(titleAdress);
 
         let form = document.createElement("form");
-        form.
+        divHidden.appendChild(form);
 
         let divRadio = document.createElement("div");
         divRadio.classList.add("control");
         divRadio.classList.add("mb-5");
-        divHidden.appendChild(divRadio);
+        form.appendChild(divRadio);
 
         let labelMme = document.createElement("label");
         labelMme.classList.add("radio");
@@ -227,7 +225,7 @@ function renderShopping() {
         let divName = document.createElement("div");
         divName.classList.add("field");
         divName.classList.add("mb-5");
-        divHidden.appendChild(divName);
+        form.appendChild(divName);
 
         let labelName = document.createElement("label");
         labelName.classList.add("label");
@@ -249,7 +247,7 @@ function renderShopping() {
         let divUser = document.createElement("div");
         divUser.classList.add("field");
         divUser.classList.add("mb-5");
-        divHidden.appendChild(divUser);
+        form.appendChild(divUser);
 
         let labelUser = document.createElement("label");
         labelUser.classList.add("label");
@@ -274,7 +272,7 @@ function renderShopping() {
         let divPhone = document.createElement("div");
         divPhone.classList.add("field");
         divPhone.classList.add("mb-5");
-        divHidden.appendChild(divPhone);
+        form.appendChild(divPhone);
 
         let labelPhone = document.createElement("label");
         labelPhone.classList.add("label");
@@ -296,7 +294,7 @@ function renderShopping() {
         let divEmail = document.createElement("div");
         divEmail.classList.add("field");
         divEmail.classList.add("mb-5");
-        divHidden.appendChild(divEmail);
+        form.appendChild(divEmail);
 
         let labelEmail = document.createElement("label");
         labelEmail.classList.add("label");
@@ -319,7 +317,7 @@ function renderShopping() {
         let divAdress = document.createElement("div");
         divAdress.classList.add("field");
         divAdress.classList.add("mb-5");
-        divHidden.appendChild(divAdress);
+        form.appendChild(divAdress);
 
         let labelAdress = document.createElement("label");
         labelAdress.classList.add("label");
@@ -343,7 +341,7 @@ function renderShopping() {
         let divAdditional = document.createElement("div");
         divAdditional.classList.add("field");
         divAdditional.classList.add("mb-5");
-        divHidden.appendChild(divAdditional);
+        form.appendChild(divAdditional);
 
         let labelAdditional = document.createElement("label");
         labelAdditional.classList.add("label");
@@ -364,7 +362,7 @@ function renderShopping() {
 
         let divflexTown = document.createElement("div");
         divflexTown.classList.add("is-flex");
-        divHidden.appendChild(divflexTown);
+        form.appendChild(divflexTown);
 
         let divPostcode = document.createElement("div");
         divPostcode.classList.add("field");
@@ -413,7 +411,7 @@ function renderShopping() {
         let divCheckbox = document.createElement("div");
         divCheckbox.classList.add("field");
         divCheckbox.classList.add("mb-4");
-        divHidden.appendChild(divCheckbox);
+        form.appendChild(divCheckbox);
 
         let divcontrolCheckbox = document.createElement("div");
         divcontrolCheckbox.classList.add("control");
@@ -431,7 +429,7 @@ function renderShopping() {
         let divButton = document.createElement("div");
         divButton.classList.add("field");
         divButton.classList.add("is-grouped");
-        divHidden.appendChild(divButton);
+        form.appendChild(divButton);
 
         let divcontrolSubmit = document.createElement("div");
         divcontrolSubmit.classList.add("control");
