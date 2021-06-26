@@ -1,3 +1,5 @@
+import {createDomElement, appendElementTo, formatPrice} from './functions.js';
+
 window.onload = function() {
     renderProduct();
 };
@@ -23,12 +25,6 @@ function renderProduct()
                 return resp.json();
             })
             .then(function (product) {
-                let spanlenght = document.createElement("span");
-                spanlenght.appendChild(document.createTextNode(product.length));
-
-                let basketlenght = document.getElementById("basketlenght");
-                basketlenght.appendChild(spanlenght);
-
                 let divfigure = document.createElement("div");
                 divfigure.classList.add("divfigure");
 
@@ -60,8 +56,7 @@ function renderProduct()
                 subtitle.classList.add("is-justify-content-flex-start");
                 subtitle.classList.add("mb-5");
 
-                let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(product.price/100);
-                subtitle.appendChild(document.createTextNode(formattedPrice+' €'));
+                subtitle.appendChild(document.createTextNode(formatPrice(product.price/100)));
                 divtext.appendChild(subtitle);
 
                 let starIcon = document.createElement("div");

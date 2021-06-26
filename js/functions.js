@@ -27,6 +27,10 @@ export function addClassToElement(element, className)
     element.classList.add(className);
 }
 
+export function formatPrice(price) {
+    return new Intl.NumberFormat('fr-FR', {style: 'currency',currency: 'EUR', minimumFractionDigits: 2}).format(price);
+}
+
 export function appendElementTo(parent, child = null, textNode = '')
 {
     if (textNode !== '' && child === null) {

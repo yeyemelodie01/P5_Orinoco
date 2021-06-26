@@ -1,6 +1,8 @@
-import {createDomElement, appendElementTo} from './dom.js';
+import {createDomElement, appendElementTo, formatPrice} from './functions.js';
 
 let basketData = JSON.parse(localStorage.getItem("basket"));
+let deliveryPrice = 350;
+
 window.onload = function() {
     renderShopping();
 };
@@ -118,11 +120,10 @@ function renderBasketItems() {
             });
             appendElementTo(diviconText, pSize);
 
-            let formatPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(totalPrice/100);
             let pPrice = createDomElement({
                 tagName: 'p',
                 classList: ['has-text-primary', 'has-text-weight-semibold', 'div_panier-price'],
-                textNode: formatPrice + '€',
+                textNode: formatPrice(totalPrice/100)
             });
 
             appendElementTo(divFlexJustify, pPrice);
@@ -137,18 +138,18 @@ function renderPrice() {
         totalPrice += basketData[i].totalPrice;
     }
 
-    let basketPrice = document.getElementById("basketSubTotal");
-    let formatTotalprice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2}).format(totalPrice/100);
-    let pricesubTotal = document.createElement("p");
-    pricesubTotal.appendChild(document.createTextNode(formatTotalprice + "€"));
+    let subTotalPrice = createDomElement({
+        tagName: 'p',
+        textNode: formatPrice(totalPrice/100),
+    });
+    appendElementTo(document.getElementById("basketSubTotal"), subTotalPrice);
 
-    basketPrice.appendChild(pricesubTotal);
+    let totalPriceWithDelivery = createDomElement({
+        tagName: 'p',
+        textNode: formatPrice((totalPrice + deliveryPrice)/100),
+    });
 
-    let priceTotalTVA = document.createElement("p");
-    priceTotalTVA.appendChild(document.createTextNode( + "€"));
-
-    let basketTVA = document.getElementById("totalTVA");
-    basketTVA.appendChild(priceTotalTVA);
+    appendElementTo(document.getElementById("totalTVA"), totalPriceWithDelivery);
 }
 
 function renderForm() {
