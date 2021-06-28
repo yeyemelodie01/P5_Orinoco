@@ -215,18 +215,18 @@ function showOrderForm() {
 
     let radios = ['Mme', 'Mlle', 'Mr'];
     for (let i = 0; i < radios.length; i++) {
-        let divRadioflex = createDomElement({
+        let radioFlex = createDomElement({
             tagName: 'div',
             classList: ['is-flex'],
         });
-        appendElementTo(divRadio,divRadioflex);
+        appendElementTo(divRadio,radioFlex);
 
         let radioLabel = createDomElement({
             tagName: 'label',
             classList: ['radio'],
             textNode: radios[i],
         });
-        appendElementTo(divRadioflex, radioLabel);
+        appendElementTo(radioFlex, radioLabel);
 
         let radioInput = createDomElement({
             tagName: 'input',
@@ -236,7 +236,7 @@ function showOrderForm() {
             type: 'radio',
             textNode: radios[i],
         });
-        appendElementTo(divRadioflex, radioInput);
+        appendElementTo(radioFlex, radioInput);
     }
 
     createFormInput(form, {name: 'lastName', label: 'Nom'});
@@ -246,17 +246,17 @@ function showOrderForm() {
     createFormInput(form, {name: 'address', label: 'Adresse (numéros et rue)', placeholder: 'Adresse'});
     createFormInput(form, {name: 'additionalAddress', label: 'Complément d\'adresse (facultatif)', placeholder: 'Complement d\'adresse'});
     
-    let divFlexTown = createDomElement({
+    let flexTown = createDomElement({
         tagName: 'div',
         classList: ['is-flex'],
     });
-    appendElementTo(form, divflexTown);
+    appendElementTo(form, flexTown);
 
     let divPostcode = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-5', 'mr-6'],
     });
-    appendElementTo(divflexTown, divPostcode);
+    appendElementTo(flexTown, divPostcode);
 
     let labelPostcode = createDomElement({
         tagName: 'label',
@@ -266,11 +266,11 @@ function showOrderForm() {
     });
     appendElementTo(divPostcode, labelPostcode);
 
-    let divControlPostcode = createDomElement({
+    let controlPostcode = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divPostcode, divControlPostcode);
+    appendElementTo(divPostcode, controlPostcode);
 
     let inputPostcode = createDomElement({
         tagName: 'input',
@@ -278,13 +278,13 @@ function showOrderForm() {
         type: 'text',
         placeholder: 'Code Postal',
     });
-    appendElementTo(divcontrolPostcode, inputPostcode);
+    appendElementTo(controlPostcode, inputPostcode);
 
     let divTown = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-5'],
     });
-    appendElementTo(divflexTown, divTown);
+    appendElementTo(flexTown, divTown);
 
     let labelTown = createDomElement({
         tagName: 'label',
@@ -347,12 +347,12 @@ function showOrderForm() {
     });
     appendElementTo(divButton, controlSubmit);
 
-    let buttonSubmit = createDomElement({
+    let orderButtonSubmit = createDomElement({
         tagName: 'button',
         classList: ['button', 'is-primary'],
         textNode: 'Envoyer',
     });
-    appendElementTo(controlSubmit, buttonSubmit);
+    appendElementTo(controlSubmit, orderButtonSubmit);
 
     let controlCancel = createDomElement({
         tagName: 'div',
@@ -360,12 +360,12 @@ function showOrderForm() {
     });
     appendElementTo(divButton, controlCancel);
 
-    let buttonCancel = createDomElement({
+    let orderButtonCancel = createDomElement({
         tagName: 'button',
         classList: ['button', 'is-link', 'is-light'],
         textNode: 'Annuler',
     });
-    appendElementTo(controlCancel, buttonCancel);
+    appendElementTo(controlCancel, orderButtonCancel);
 }
 
 function renderForm() {
