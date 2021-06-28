@@ -164,20 +164,20 @@ function createFormInput(form, input)
     });
     appendElementTo(div, label);
 
-    let divControl = createDomElement({
+    let controlDiv = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(div, divControl);
+    appendElementTo(div, controlDiv);
 
-    let inputElement = createDomElement({
+    let elementInput = createDomElement({
         tagName: 'input',
         classList: ['input'],
         id: input.name,
         placeholder: (input.placeholder !== undefined) ? input.placeholder : input.label,
         type: 'text',
     });
-    appendElementTo(divControl, inputElement);
+    appendElementTo(controlDiv, elementInput);
 }
 
 function showOrderForm() {
@@ -189,29 +189,29 @@ function showOrderForm() {
     });
     appendElementTo(sectionContent, hidden);
 
-    let divHidden = createDomElement({
+    let hiddenDiv = createDomElement({
         tagName: 'div',
         classList: ['pl-5', 'content-hidden_width'],
     });
-    appendElementTo(hidden, divHidden);
+    appendElementTo(hidden, hiddenDiv);
 
     let addressTitle = createDomElement({
         tagName: 'h2',
         classList: ['title', 'is-2', 'is-flex', 'is-justify-content-flex-start'],
         textNode: 'Mon adresse',
     });
-    appendElementTo(divHidden, addressTitle);
+    appendElementTo(hiddenDiv, addressTitle);
 
     let form = createDomElement({
         tagName: 'form',
     });
-    appendElementTo(divHidden, form);
+    appendElementTo(hiddenDiv, form);
 
-    let divRadio = createDomElement({
+    let radioDiv = createDomElement({
         tagName: 'div',
         classList: ['control', 'mb-5', 'is-flex'],
     });
-    appendElementTo(form, divRadio);
+    appendElementTo(form, radioDiv);
 
     let radios = ['Mme', 'Mlle', 'Mr'];
     for (let i = 0; i < radios.length; i++) {
@@ -219,7 +219,7 @@ function showOrderForm() {
             tagName: 'div',
             classList: ['is-flex'],
         });
-        appendElementTo(divRadio,radioFlex);
+        appendElementTo(radioDiv,radioFlex);
 
         let radioLabel = createDomElement({
             tagName: 'label',
@@ -246,17 +246,17 @@ function showOrderForm() {
     createFormInput(form, {name: 'address', label: 'Adresse (numéros et rue)', placeholder: 'Adresse'});
     createFormInput(form, {name: 'additionalAddress', label: 'Complément d\'adresse (facultatif)', placeholder: 'Complement d\'adresse'});
     
-    let flexTown = createDomElement({
+    let townFlex = createDomElement({
         tagName: 'div',
         classList: ['is-flex'],
     });
-    appendElementTo(form, flexTown);
+    appendElementTo(form, townFlex);
 
     let postcodeDiv = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-5', 'mr-6'],
     });
-    appendElementTo(flexTown, postcodeDiv);
+    appendElementTo(townFlex, postcodeDiv);
 
     let postcodeLabel = createDomElement({
         tagName: 'label',
@@ -284,7 +284,7 @@ function showOrderForm() {
         tagName: 'div',
         classList: ['field', 'mb-5'],
     });
-    appendElementTo(flexTown, townDiv);
+    appendElementTo(townFlex, townDiv);
 
     let townLabel = createDomElement({
         tagName: 'label',
@@ -354,7 +354,7 @@ function showOrderForm() {
     });
     appendElementTo(submitControl, submitButton);
 
-    let controlCancel = createDomElement({
+    let cancelControl = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
