@@ -322,41 +322,51 @@ function showOrderForm() {
     });
     appendElementTo(divCheckbox, divcontrolCheckbox);
 
-    let labelCheckbox = document.createElement("label");
-    labelCheckbox.classList.add("checkbox");
-    labelCheckbox.appendChild(document.createTextNode("J'accepte les termes et conditions"));
-    divcontrolCheckbox.appendChild(labelCheckbox);
+    let labelCheckbox = createDomElement({
+        tagName: 'label',
+        classList: ['checkbox'],
+        textNode: 'J\'accepte les termes et conditions',
+    });
+    appendElementTo(divcontrolCheckbox, labelCheckbox);
 
-    let inputCheckbox = document.createElement("input");
-    inputCheckbox.classList.add("inputCheckbox");
-    inputCheckbox.setAttribute('type', 'checkbox');
-    divcontrolCheckbox.appendChild(inputCheckbox);
+    let inputCheckbox = createDomElement({
+        tagName: 'input',
+        classList: ['inputCheckbox'],
+        type: 'checkbox',
+    });
+    appendElementTo(divcontrolCheckbox, inputCheckbox);
 
-    let divButton = document.createElement("div");
-    divButton.classList.add("field");
-    divButton.classList.add("is-grouped");
-    form.appendChild(divButton);
+    let divButton = createDomElement({
+        tagName: 'div',
+        classList: ['field', 'is-grouped'],
+    });
+    appendElementTo(form, divButton);
 
-    let divcontrolSubmit = document.createElement("div");
-    divcontrolSubmit.classList.add("control");
-    divButton.appendChild(divcontrolSubmit);
+    let divcontrolSubmit = createDomElement({
+        tagName: 'div',
+        classList: ['control'],
+    });
+    appendElementTo(divButton, divcontrolSubmit);
 
-    let buttonSubmit = document.createElement("button");
-    buttonSubmit.classList.add("button");
-    buttonSubmit.classList.add("is-primary");
-    buttonSubmit.appendChild(document.createTextNode("Envoyer"));
-    divcontrolSubmit.appendChild(buttonSubmit);
+    let buttonSubmit = createDomElement({
+        tagName: 'button',
+        classList: ['button', 'is-primary'],
+        textNode: 'Envoyer',
+    });
+    appendElementTo(divcontrolSubmit, buttonSubmit);
 
-    let divcontrolCancel = document.createElement("div");
-    divcontrolCancel.classList.add("control");
-    divButton.appendChild(divcontrolCancel);
+    let divcontrolCancel = createDomElement({
+        tagName: 'div',
+        classList: ['control'],
+    });
+    appendElementTo(divButton, divcontrolCancel);
 
-    let buttonCancel = document.createElement("button");
-    buttonCancel.classList.add("button");
-    buttonCancel.classList.add("is-link");
-    buttonCancel.classList.add("is-light");
-    buttonCancel.appendChild(document.createTextNode("Annuler"));
-    divcontrolCancel.appendChild(buttonCancel);
+    let buttonCancel = createDomElement({
+        tagName: 'button',
+        classList: ['button', 'is-link', 'is-light'],
+        textNode: 'Annuler',
+    });
+    appendElementTo(divcontrolCancel, buttonCancel);
 }
 
 function renderForm() {
