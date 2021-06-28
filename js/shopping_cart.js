@@ -252,120 +252,120 @@ function showOrderForm() {
     });
     appendElementTo(form, flexTown);
 
-    let divPostcode = createDomElement({
+    let postcodeDiv = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-5', 'mr-6'],
     });
-    appendElementTo(flexTown, divPostcode);
+    appendElementTo(flexTown, postcodeDiv);
 
-    let labelPostcode = createDomElement({
+    let postcodeLabel = createDomElement({
         tagName: 'label',
         classList: ['label'],
         for: 'postcode',
         textNode: 'Code Postal',
     });
-    appendElementTo(divPostcode, labelPostcode);
+    appendElementTo(postcodeDiv, postcodeLabel);
 
-    let controlPostcode = createDomElement({
+    let postcodeControl = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divPostcode, controlPostcode);
+    appendElementTo(postcodeDiv, postcodeControl);
 
-    let inputPostcode = createDomElement({
+    let postcodeInput = createDomElement({
         tagName: 'input',
         classList: ['input'],
         type: 'text',
         placeholder: 'Code Postal',
     });
-    appendElementTo(controlPostcode, inputPostcode);
+    appendElementTo(postcodeControl, postcodeInput);
 
-    let divTown = createDomElement({
+    let townDiv = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-5'],
     });
-    appendElementTo(flexTown, divTown);
+    appendElementTo(flexTown, townDiv);
 
-    let labelTown = createDomElement({
+    let townLabel = createDomElement({
         tagName: 'label',
         classList: ['label'],
         for: 'ville',
         textNode: 'Ville',
     });
-    appendElementTo(divTown, labelTown);
+    appendElementTo(townDiv, townLabel);
 
-    let controlTown = createDomElement({
+    let townControl = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divTown, controlTown);
+    appendElementTo(townDiv, townControl);
 
-    let inputTown = createDomElement({
+    let townInput = createDomElement({
         tagName: 'input',
         classList: ['input'],
         id: 'ville',
         type: 'text',
         placeholder: 'Ville',
     });
-    appendElementTo(controlTown, inputTown);
+    appendElementTo(townControl, townInput);
 
-    let divCheckbox = createDomElement({
+    let checkboxDiv = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-4'],
     });
-    appendElementTo(form, divCheckbox);
+    appendElementTo(form, checkboxDiv);
 
-    let controlCheckbox = createDomElement({
+    let checkboxControl = createDomElement({
         tagName: 'div',
         classList: ['control', 'is-flex'],
     });
-    appendElementTo(divCheckbox, controlCheckbox);
+    appendElementTo(checkboxDiv, checkboxControl);
 
-    let labelCheckbox = createDomElement({
+    let checkboxLabel = createDomElement({
         tagName: 'label',
         classList: ['checkbox'],
         textNode: 'J\'accepte les termes et conditions',
     });
-    appendElementTo(controlCheckbox, labelCheckbox);
+    appendElementTo(checkboxControl, checkboxLabel);
 
-    let inputCheckbox = createDomElement({
+    let checkboxInput = createDomElement({
         tagName: 'input',
-        classList: ['inputCheckbox'],
+        classList: ['checkboxInput'],
         type: 'checkbox',
     });
-    appendElementTo(controlCheckbox, inputCheckbox);
+    appendElementTo(checkboxControl, checkboxInput);
 
-    let divButton = createDomElement({
+    let buttonDiv = createDomElement({
         tagName: 'div',
         classList: ['field', 'is-grouped'],
     });
-    appendElementTo(form, divButton);
+    appendElementTo(form, buttonDiv);
 
-    let controlSubmit = createDomElement({
+    let submitControl = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divButton, controlSubmit);
+    appendElementTo(buttonDiv, submitControl);
 
-    let orderButtonSubmit = createDomElement({
+    let submitButton = createDomElement({
         tagName: 'button',
         classList: ['button', 'is-primary'],
         textNode: 'Envoyer',
     });
-    appendElementTo(controlSubmit, orderButtonSubmit);
+    appendElementTo(submitControl, submitButton);
 
     let controlCancel = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divButton, controlCancel);
+    appendElementTo(buttonDiv, cancelControl);
 
-    let orderButtonCancel = createDomElement({
+    let cancelButton = createDomElement({
         tagName: 'button',
         classList: ['button', 'is-link', 'is-light'],
         textNode: 'Annuler',
     });
-    appendElementTo(controlCancel, orderButtonCancel);
+    appendElementTo(cancelControl, cancelButton);
 }
 
 function renderForm() {
