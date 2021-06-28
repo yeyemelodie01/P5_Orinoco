@@ -93,7 +93,7 @@ function renderItems(type) {
 
                     let a = document.createElement("a");
                     a.title = "en savoir plus";
-                    a.href = "produit.html";
+                    a.href = "product_page.html";
                     a.classList.add("mb-4");
                     a.classList.add("lien-font");
                     a.appendChild(document.createTextNode("En savoir plus..."));

@@ -244,9 +244,9 @@ function showOrderForm() {
     createFormInput(form, {name: 'phoneNumber', label: 'Numéro de téléphone'});
     createFormInput(form, {name: 'email', label: 'Email', placeholder: 'hello@outlook.com'});
     createFormInput(form, {name: 'address', label: 'Adresse (numéros et rue)', placeholder: 'Adresse'});
-    createFormInput(form, {name: 'additionalAddress', label: 'Complément d\'adresse (facultatif)', placeholder: 'Complément d\'adresse'});
+    createFormInput(form, {name: 'additionalAddress', label: 'Complément d\'adresse (facultatif)', placeholder: 'Complement d\'adresse'});
     
-    let divflexTown = createDomElement({
+    let divFlexTown = createDomElement({
         tagName: 'div',
         classList: ['is-flex'],
     });
@@ -261,17 +261,16 @@ function showOrderForm() {
     let labelPostcode = createDomElement({
         tagName: 'label',
         classList: ['label'],
-        for: 'codepostal',
+        for: 'postcode',
         textNode: 'Code Postal',
     });
     appendElementTo(divPostcode, labelPostcode);
-    labelPostcode.setAttribute('for', 'codepostal');
 
-    let divcontrolPostcode = createDomElement({
+    let divControlPostcode = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divPostcode, divcontrolPostcode);
+    appendElementTo(divPostcode, divControlPostcode);
 
     let inputPostcode = createDomElement({
         tagName: 'input',
@@ -295,11 +294,11 @@ function showOrderForm() {
     });
     appendElementTo(divTown, labelTown);
 
-    let divcontrolTown = createDomElement({
+    let controlTown = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divTown, divcontrolTown);
+    appendElementTo(divTown, controlTown);
 
     let inputTown = createDomElement({
         tagName: 'input',
@@ -308,7 +307,7 @@ function showOrderForm() {
         type: 'text',
         placeholder: 'Ville',
     });
-    appendElementTo(divcontrolTown, inputTown);
+    appendElementTo(controlTown, inputTown);
 
     let divCheckbox = createDomElement({
         tagName: 'div',
@@ -316,25 +315,25 @@ function showOrderForm() {
     });
     appendElementTo(form, divCheckbox);
 
-    let divcontrolCheckbox = createDomElement({
+    let controlCheckbox = createDomElement({
         tagName: 'div',
         classList: ['control', 'is-flex'],
     });
-    appendElementTo(divCheckbox, divcontrolCheckbox);
+    appendElementTo(divCheckbox, controlCheckbox);
 
     let labelCheckbox = createDomElement({
         tagName: 'label',
         classList: ['checkbox'],
         textNode: 'J\'accepte les termes et conditions',
     });
-    appendElementTo(divcontrolCheckbox, labelCheckbox);
+    appendElementTo(controlCheckbox, labelCheckbox);
 
     let inputCheckbox = createDomElement({
         tagName: 'input',
         classList: ['inputCheckbox'],
         type: 'checkbox',
     });
-    appendElementTo(divcontrolCheckbox, inputCheckbox);
+    appendElementTo(controlCheckbox, inputCheckbox);
 
     let divButton = createDomElement({
         tagName: 'div',
@@ -342,31 +341,31 @@ function showOrderForm() {
     });
     appendElementTo(form, divButton);
 
-    let divcontrolSubmit = createDomElement({
+    let controlSubmit = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divButton, divcontrolSubmit);
+    appendElementTo(divButton, controlSubmit);
 
     let buttonSubmit = createDomElement({
         tagName: 'button',
         classList: ['button', 'is-primary'],
         textNode: 'Envoyer',
     });
-    appendElementTo(divcontrolSubmit, buttonSubmit);
+    appendElementTo(controlSubmit, buttonSubmit);
 
-    let divcontrolCancel = createDomElement({
+    let controlCancel = createDomElement({
         tagName: 'div',
         classList: ['control'],
     });
-    appendElementTo(divButton, divcontrolCancel);
+    appendElementTo(divButton, controlCancel);
 
     let buttonCancel = createDomElement({
         tagName: 'button',
         classList: ['button', 'is-link', 'is-light'],
         textNode: 'Annuler',
     });
-    appendElementTo(divcontrolCancel, buttonCancel);
+    appendElementTo(controlCancel, buttonCancel);
 }
 
 function renderForm() {
