@@ -114,7 +114,7 @@ function renderItems(type) {
                         tagName: 'a',
                         classList: ['mb-4', 'lien-font'],
                         title: 'en savoir plus',
-                        href: product_page.html,
+                        href: 'product_page.html',
                         textNode: 'En savoir plus...',
                     });
                     appendElementTo(cardContent, a);
