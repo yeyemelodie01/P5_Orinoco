@@ -13,7 +13,7 @@ function checkIfEmptyBasket() {
             tagName: 'h1',
             classList: ['is-flex', 'is-justify-content-center', 'is-align-items-center', 'empty'],
             textNode: 'Le panier est vide',
-            parentId: 'basket'
+            parentId: 'basket',
         });
     }
 }
@@ -25,6 +25,7 @@ function renderBasketItems() {
             classList: ['pt-5', 'pb-5', 'has-text-weight-bold'],
             textNode: "Mon panier (" + basketData.length + " article"+ (basketData.length > 1 ? 's': '') +")",
         });
+
 
         let divAlignCenter = createDomElement({
             tagName: 'div',
@@ -117,7 +118,7 @@ function renderBasketItems() {
             let pPrice = createDomElement({
                 tagName: 'p',
                 classList: ['has-text-primary', 'has-text-weight-semibold', 'div_panier-price'],
-                textNode: formatPrice(totalPrice/100)
+                textNode: formatPrice(totalPrice/100),
             });
 
             appendElementTo(divFlexJustify, pPrice);

@@ -1,3 +1,5 @@
+import {createDomElement, appendElementTo, formatPrice} from './functions.js';
+
 window.onload = function() {
     let items = [
         'teddies',
@@ -29,75 +31,93 @@ function renderItems(type) {
             .then(function (items){
                 let itemPos = 1;
                 for (let itemObject of items){
-                    let item = document.createElement("div");
-                    item.classList.add("item-"+itemPos);
+                    let item = createDomElement({
+                        tagName: 'div',
+                        classList: ['item-'+itemPos],
+                    })
+                    appendElementTo(document.getElementById("carousel-teddies"), item);
 
-                    let card = document.createElement("div");
-                    card.classList.add("card");
-                    item.appendChild(card);
+                    let card = createDomElement({
+                        tagName: 'div',
+                        classList: ['card'],
+                    });
+                    appendElementTo(item, card);
 
-                    let cardImg = document.createElement("div");
-                    cardImg.classList.add("card-image");
-                    card.appendChild(cardImg);
+                    let cardImg = createDomElement({
+                        tagName: 'div',
+                        classList: ['card-image'],
+                    });
+                    appendElementTo(card, cardImg);
 
-                    let figure = document.createElement("figure");
-                    figure.classList.add("is-4by3");
-                    figure.classList.add("image");
-                    cardImg.appendChild(figure);
+                    let figure = createDomElement({
+                        tagName: 'figure',
+                        classList: ['is-4by3', 'image'],
+                    });
+                    appendElementTo(cardImg, figure);
 
-                    let img = document.createElement("img");
-                    img.src = itemObject.imageUrl;
-                    figure.appendChild(img);
+                    let img = createDomElement({
+                        tagName: 'img',
+                        src: itemObject.imageUrl,
+                    });
+                    appendElementTo(figure, img);
 
-                    let cardContent = document.createElement("div");
-                    cardContent.classList.add("card-content");
-                    cardContent.classList.add("has-text-centered");
-                    cardContent.classList.add("is-flex");
-                    cardContent.classList.add("is-flex-direction-column");
-                    card.appendChild(cardContent);
+                    let cardContent = createDomElement({
+                        tagName: 'div',
+                        classList: ['card-content', 'has-text-centered', 'is-flex', 'is-flex-direction-column'],
+                    });
+                    appendElementTo(card, cardContent);
 
-                    let media = document.createElement("div");
-                    media.classList.add("media");
-                    cardContent.appendChild(media);
+                    let media = createDomElement({
+                        tagName: 'div',
+                        classList: ['media'],
+                    });
+                    appendElementTo(cardContent, media);
 
-                    let mediaContent = document.createElement("div");
-                    mediaContent.classList.add("media-content");
-                    media.appendChild(mediaContent);
+                    let mediaContent = createDomElement({
+                        tagName: 'div',
+                        classList: ['media-content'],
+                    });
+                    appendElementTo(media, mediaContent);
 
-                    let norbert = document.createElement("p");
-                    norbert.classList.add("title");
-                    norbert.classList.add("is-4");
-                    norbert.classList.add("mb-4");
-                    norbert.appendChild(document.createTextNode(itemObject.name));
-                    mediaContent.appendChild(norbert);
+                    let objectName = createDomElement({
+                        tagName: 'p',
+                        classList: ['title', 'is-4', 'mb-4'],
+                        textNode: itemObject.name,
+                    });
+                    appendElementTo(mediaContent, objectName);
 
-                    let price = document.createElement("p");
-                    price.classList.add("subtitle");
-                    price.classList.add("is-6");
-                    price.classList.add("mb-4");
-                    price.classList.add("mt-4");
-                    let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(itemObject.price/100);
-                    price.appendChild(document.createTextNode(formattedPrice+' €'));
-                    mediaContent.appendChild(price);
+                    let price = createDomElement({
+                        tagName: 'p',
+                        classList: ['subtitle', 'is-6', 'mb-4', 'mt-4'],
+                        textNode: formatPrice(itemObject.price/100),
+                    });
+                    appendElementTo(mediaContent, price);
+                    //let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(itemObject.price/100);
+                    //price.appendChild(document.createTextNode(formattedPrice+' €'));
+                    //mediaContent.appendChild(price);
 
-                    let starIcon = document.createElement("div");
-                    starIcon.classList.add("icon-star");
-                    mediaContent.appendChild(starIcon);
+                    let starIcon = createDomElement({
+                        tagName: 'div',
+                        classList: ['icon-star'],
+                    });
+                    appendElementTo(mediaContent, starIcon);
 
                     for (let i = 0; i < 5; i++) {
-                        let icon = document.createElement("i");
-                        icon.classList.add("fas");
-                        icon.classList.add("fa-star");
-                        starIcon.appendChild(icon);
+                        let icon = createDomElement({
+                            tagName: 'i',
+                            classList: ['fas', 'fa-star'],
+                        });
+                        appendElementTo(starIcon, icon);
                     }
 
-                    let a = document.createElement("a");
-                    a.title = "en savoir plus";
-                    a.href = "product_page.html";
-                    a.classList.add("mb-4");
-                    a.classList.add("lien-font");
-                    a.appendChild(document.createTextNode("En savoir plus..."));
-                    cardContent.appendChild(a);
+                    let a = createDomElement({
+                        tagName: 'a',
+                        classList: ['mb-4', 'lien-font'],
+                        title: 'en savoir plus',
+                        href: product_page.html,
+                        textNode: 'En savoir plus...',
+                    });
+                    appendElementTo(cardContent, a);
 
                     a.addEventListener('click', function (){
                         localStorage.setItem('id', itemObject._id);

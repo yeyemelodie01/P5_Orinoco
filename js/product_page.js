@@ -25,101 +25,111 @@ function renderProduct()
                 return resp.json();
             })
             .then(function (product) {
-                let divfigure = document.createElement("div");
-                divfigure.classList.add("divfigure");
 
-                let figureimg = document.createElement("figure");
-                figureimg.classList.add("figure_img");
-                divfigure.appendChild(figureimg);
+                let figureDiv = createDomElement({
+                    tagName: 'div',
+                    classList: ['figureDiv'],
+                });
+                appendElementTo(document.getElementById("products"), figureDiv);
 
-                let imgpro = document.createElement("img");
-                imgpro.src = product.imageUrl;
-                figureimg.appendChild(imgpro);
+                let figureImg = createDomElement({
+                    tagName: 'figure',
+                    classList: ['figure_img'],
+                });
+                appendElementTo(figureDiv, figureImg);
 
-                let divtext = document.createElement("div");
-                divtext.classList.add("section-text");
-                divtext.classList.add("pl-6");
-                divtext.classList.add("pr-6");
+                let productImg = createDomElement({
+                    tagName: 'img',
+                    src: product.imageUrl,
+                });
+                appendElementTo(figureImg, productImg);
 
-                let title = document.createElement("h1");
-                title.classList.add("title");
-                title.classList.add("is-1");
-                title.classList.add("mb-5");
-                title.appendChild(document.createTextNode(product.name));
-                divtext.appendChild(title);
+                let textDiv = createDomElement({
+                    tagName: 'div',
+                    classList: ['section-text', 'pl-6', 'pr-6'],
+                });
+                appendElementTo(document.getElementById("products"), textDiv);
 
-                let subtitle = document.createElement("h2");
-                subtitle.classList.add("section_text-h2");
-                subtitle.classList.add("title");
-                subtitle.classList.add("is-2");
-                subtitle.classList.add("is-flex");
-                subtitle.classList.add("is-justify-content-flex-start");
-                subtitle.classList.add("mb-5");
+                let title = createDomElement({
+                    tagName: 'h1',
+                    classList: ['title', 'is-1', 'mb-5'],
+                    textNode: product.name,
+                });
+                appendElementTo(textDiv, title);
 
-                subtitle.appendChild(document.createTextNode(formatPrice(product.price/100)));
-                divtext.appendChild(subtitle);
+                let subtitle = createDomElement({
+                    tagName: 'h2',
+                    classList: ['section_text-h2', 'title', 'is-2', 'is-flex', 'is-justify-content-flex-start', 'mb-5'],
+                    textNode: formatPrice(product.price/100),
+                });
+                appendElementTo(textDiv, subtitle);
 
-                let starIcon = document.createElement("div");
-                starIcon.classList.add("icon-star");
-                starIcon.classList.add("icon-star-product");
-                starIcon.classList.add("mb-5");
-                divtext.appendChild(starIcon);
+
+                let starIcon = createDomElement({
+                    tagName: 'div',
+                    classList: ['icon-star', 'icon-star-product', 'mb-5'],
+                });
+                appendElementTo(textDiv, starIcon);
 
                 for (let i = 0; i < 5; i++) {
-                    let star = document.createElement("i");
-                    star.classList.add("fas");
-                    star.classList.add("fa-star");
-                    starIcon.appendChild(star);
+                    let star = createDomElement({
+                        tagName: 'i',
+                        classList: ['fas', 'fa-star'],
+                    });
+                    appendElementTo(starIcon, star);
                 }
 
                 let colors = product.colors;
                 if (typeof colors != 'undefined'){
-                    createDetailByType(colors, divtext, 'Couleurs', 'colors');
+                    createDetailByType(colors, textDiv, 'Couleurs', 'colors');
                 }
 
                 let varnish = product.varnish;
                 if (typeof varnish != 'undefined'){
-                    createDetailByType(varnish, divtext, 'Vernis', 'varnish');
+                    createDetailByType(varnish, textDiv, 'Vernis', 'varnish');
                 }
 
                 let lenses = product.lenses;
                 if (typeof lenses != 'undefined'){
-                    createDetailByType(lenses, divtext, 'Lentilles', 'lenses');
+                    createDetailByType(lenses, textDiv, 'Lentilles', 'lenses');
                 }
 
-                let quantityTitle = document.createElement("h3");
-                quantityTitle.classList.add("title");
-                quantityTitle.classList.add("is-3");
-                quantityTitle.classList.add("mb-3");
-                quantityTitle.appendChild(document.createTextNode("Quantité"));
-                divtext.appendChild(quantityTitle);
+                let quantityTitle = createDomElement({
+                    tagName: 'h3',
+                    classList: ['title', 'is-3', 'mb-3'],
+                    textNode: 'Quantité',
+                });
+                appendElementTo(textDiv, quantityTitle);
 
-                let quantityDiv = document.createElement("div");
-                quantityDiv.classList.add("select");
-                quantityDiv.classList.add("is-primary");
-                quantityDiv.classList.add("mb-6");
-                divtext.appendChild(quantityDiv);
+                let quantityDiv = createDomElement({
+                    tagName: 'div',
+                    classList: ['select', 'is-primary', 'mb-6'],
+                });
+                appendElementTo(textDiv, quantityDiv);
 
-                let quantitySelect = document.createElement("select");
-                quantitySelect.id = 'quantity';
-                quantityDiv.appendChild(quantitySelect);
+                let quantitySelect = createDomElement({
+                    tagName: 'select',
+                    id: 'quantity',
+                });
+                appendElementTo(quantityDiv, quantitySelect);
 
                 let quantities = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
                 for (let i = 0; i < quantities.length; ++i) {
-                    let quantityOption = document.createElement("option");
-                    quantityOption.text = String(quantities[i]);
-                    quantityOption.value = String(quantities[i]);
+                    let quantityOption = createDomElement({
+                        tagName: 'option',
+                        text: quantities[i],
+                        value: quantities[i],
+                    });
                     quantitySelect.add(quantityOption);
                 }
 
-                let addToCartButton = document.createElement("button");
-                addToCartButton.id = 'button';
-                addToCartButton.classList.add("button");
-                addToCartButton.classList.add("is-primary");
-                addToCartButton.classList.add("ml-5");
-                addToCartButton.appendChild(document.createTextNode("Ajouter au panier"));
-                divtext.appendChild(addToCartButton);
-
+                let addToCartButton = createDomElement({
+                    tagName: 'button',
+                    id: 'button',
+                    classList:['button', 'is-primary', 'ml-5'],
+                    textNode: 'Ajouter au panier',
+                });
+                appendElementTo(textDiv, addToCartButton);
 
                 addToCartButton.addEventListener('click', (event) =>{
                     event.preventDefault();
@@ -157,50 +167,51 @@ function renderProduct()
                     }
                 });
 
-                let description = document.createElement("h3");
-                description.classList.add("title");
-                description.classList.add("is-3");
-                description.classList.add("mb-3");
-                description.appendChild(document.createTextNode("Description :"));
-                divtext.appendChild(description);
+                let description = createDomElement({
+                    tagName: 'h3',
+                    classList: ['title', 'is-3', 'mb-3'],
+                    textNode: 'Description :',
+                });
+                appendElementTo(textDiv, description);
 
-                let text = document.createElement("p");
-                text.classList.add("subtitle");
-                text.classList.add("is-5");
-                text.classList.add("mt-2");
-                text.appendChild(document.createTextNode(product.description));
-                divtext.appendChild(text);
-
-                let sectionpro = document.getElementById("products");
-                sectionpro.appendChild(divfigure);
-                sectionpro.appendChild(divtext);
+                let text = createDomElement({
+                    tagName: 'p',
+                    classList: ['subtitle', 'is-5', 'mt-2'],
+                    textNode: product.description,
+                });
+                appendElementTo(textDiv, text);
             })
     }
 }
 
 function createDetailByType(item, parentDiv, title, id)
 {
-    let itemTitle = document.createElement("h3");
-    itemTitle.classList.add("title");
-    itemTitle.classList.add("is-3");
-    itemTitle.classList.add("mb-3");
-    itemTitle.appendChild(document.createTextNode(title));
-    parentDiv.appendChild(itemTitle);
+    let itemTitle = createDomElement({
+       tagName: 'h3',
+       classList: ['title', 'is-3', 'mb-3'],
+        textNode: 'title',
+    });
+    appendElementTo(parentDiv, itemTitle);
 
-    let itemDiv = document.createElement("div");
-    itemDiv.classList.add("select");
-    itemDiv.classList.add("is-primary");
-    itemDiv.classList.add("mb-6");
-    parentDiv.appendChild(itemDiv);
+    let itemDiv = createDomElement({
+        tagName: 'div',
+        classList: ['select', 'is-primary', 'mb-6']
+    });
+    appendElementTo(parentDiv, itemDiv);
 
-    let itemSelect = document.createElement("select");
-    itemSelect.id = id;
-    itemDiv.appendChild(itemSelect);
+    let itemSelect = createDomElement({
+        tagName: 'select',
+        id: id,
+    });
+    appendElementTo(itemDiv, itemSelect);
+
     for (let i = 0; i < item.length; ++i) {
-        let itemOption = document.createElement("option");
-        itemOption.text = item[i];
-        itemOption.value = item[i];
-        itemSelect.add(itemOption);
+        let itemOption = createDomElement({
+            tagName: 'option',
+            text: item[i],
+            value: item[i],
+        });
+        appendElementTo(itemSelect, itemOption);
     }
 }
 
