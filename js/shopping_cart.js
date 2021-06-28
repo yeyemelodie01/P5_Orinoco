@@ -246,63 +246,81 @@ function showOrderForm() {
     createFormInput(form, {name: 'address', label: 'Adresse (numéros et rue)', placeholder: 'Adresse'});
     createFormInput(form, {name: 'additionalAddress', label: 'Complément d\'adresse (facultatif)', placeholder: 'Complément d\'adresse'});
     
-    let divflexTown = document.createElement("div");
-    divflexTown.classList.add("is-flex");
-    form.appendChild(divflexTown);
+    let divflexTown = createDomElement({
+        tagName: 'div',
+        classList: ['is-flex'],
+    });
+    appendElementTo(form, divflexTown);
 
-    let divPostcode = document.createElement("div");
-    divPostcode.classList.add("field");
-    divPostcode.classList.add("mb-5");
-    divPostcode.classList.add("mr-6");
-    divflexTown.appendChild(divPostcode);
+    let divPostcode = createDomElement({
+        tagName: 'div',
+        classList: ['field', 'mb-5', 'mr-6'],
+    });
+    appendElementTo(divflexTown, divPostcode);
 
-    let labelPostcode = document.createElement("label");
-    labelPostcode.classList.add("label");
+    let labelPostcode = createDomElement({
+        tagName: 'label',
+        classList: ['label'],
+        for: 'codepostal',
+        textNode: 'Code Postal',
+    });
+    appendElementTo(divPostcode, labelPostcode);
     labelPostcode.setAttribute('for', 'codepostal');
-    labelPostcode.appendChild(document.createTextNode("Code Postal"));
-    divPostcode.appendChild(labelPostcode);
 
-    let divcontrolPostcode = document.createElement("div");
-    divcontrolPostcode.classList.add("control");
-    divPostcode.appendChild(divcontrolPostcode);
+    let divcontrolPostcode = createDomElement({
+        tagName: 'div',
+        classList: ['control'],
+    });
+    appendElementTo(divPostcode, divcontrolPostcode);
 
-    let inputPostcode = document.createElement("input");
-    inputPostcode.classList.add("input");
-    inputPostcode.setAttribute('type', 'text');
-    inputPostcode.setAttribute('placeholder', 'Code Postal');
-    divcontrolPostcode.appendChild(inputPostcode);
+    let inputPostcode = createDomElement({
+        tagName: 'input',
+        classList: ['input'],
+        type: 'text',
+        placeholder: 'Code Postal',
+    });
+    appendElementTo(divcontrolPostcode, inputPostcode);
 
-    let divTown = document.createElement("div");
-    divTown.classList.add("field");
-    divTown.classList.add("mb-5");
-    divflexTown.appendChild(divTown);
+    let divTown = createDomElement({
+        tagName: 'div',
+        classList: ['field', 'mb-5'],
+    });
+    appendElementTo(divflexTown, divTown);
 
-    let labelTown = document.createElement("label");
-    labelTown.classList.add("label");
-    labelTown.setAttribute('for', 'ville');
-    labelTown.appendChild(document.createTextNode("Ville"));
-    divTown.appendChild(labelTown);
+    let labelTown = createDomElement({
+        tagName: 'label',
+        classList: ['label'],
+        for: 'ville',
+        textNode: 'Ville',
+    });
+    appendElementTo(divTown, labelTown);
 
-    let divcontrolTown = document.createElement("div");
-    divcontrolTown.classList.add("control");
-    divTown.appendChild(divcontrolTown);
+    let divcontrolTown = createDomElement({
+        tagName: 'div',
+        classList: ['control'],
+    });
+    appendElementTo(divTown, divcontrolTown);
 
-    let inputTown = document.createElement("input");
-    inputTown.classList.add("input");
-    inputTown.id = 'ville';
-    inputTown.setAttribute('type', 'text');
-    inputTown.setAttribute('placeholder', 'Ville');
-    divcontrolTown.appendChild(inputTown);
+    let inputTown = createDomElement({
+        tagName: 'input',
+        classList: ['input'],
+        id: 'ville',
+        type: 'text',
+        placeholder: 'Ville',
+    });
+    appendElementTo(divcontrolTown, inputTown);
 
-    let divCheckbox = document.createElement("div");
-    divCheckbox.classList.add("field");
-    divCheckbox.classList.add("mb-4");
-    form.appendChild(divCheckbox);
+    let divCheckbox = createDomElement({
+        tagName: 'div',
+        classList: ['field', 'mb-4'],
+    });
+    appendElementTo(form, divCheckbox);
 
-    let divcontrolCheckbox = document.createElement("div");
-    divcontrolCheckbox.classList.add("control");
-    divcontrolCheckbox.classList.add("is-flex");
-    divCheckbox.appendChild(divcontrolCheckbox);
+    let divcontrolCheckbox = createDomElement({
+        tagName: 'div',
+        classList: ['control', 'is-flex'],
+    });
+    appendElementTo(divCheckbox, divcontrolCheckbox);
 
     let labelCheckbox = document.createElement("label");
     labelCheckbox.classList.add("checkbox");
