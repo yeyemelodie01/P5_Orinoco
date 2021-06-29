@@ -371,6 +371,7 @@ function showOrderForm() {
     appendElementTo(cancelControl, cancelButton);
 
     let btnSubmit = document.getElementById("submitButton");
+    let datafo
 
     btnSubmit.addEventListener('click', ()=>{
         localStorage.setItem("ville", document.querySelector("#ville").value);
