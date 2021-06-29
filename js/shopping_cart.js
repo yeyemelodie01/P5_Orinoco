@@ -71,6 +71,7 @@ function renderBasketItems() {
 
             let pProduct = createDomElement({
                 tagName: 'p',
+                id: 'productName',
                 classList: ['has-text-weight-bold', 'is-size-3', 'mb-4'],
                 textNode: basketData[i].name,
             });
@@ -84,13 +85,14 @@ function renderBasketItems() {
 
             let pColor = createDomElement({
                 tagName: 'p',
-                classList: ['mb-2', 'is-justify-content-space-between', 'div_panier-width'],
+                classList: ['mb-2', 'is-justify-content-space-between'],
                 textNode: "Couleur : " + basketData[i].detail,
             });
             appendElementTo(divWidth, pColor);
 
             let pQuantity = createDomElement({
                 tagName: 'p',
+                id: 'quantity',
                 classList: ['mb-2'],
                 textNode: "Quantité : " + basketData[i].quantity,
             });
@@ -102,18 +104,24 @@ function renderBasketItems() {
             });
             appendElementTo(divSize, divFlexJustify);
 
-            let pSize = createDomElement({
-                tagName: 'p',
-                classList: ['is-size-5'],
-                textNode: "Supprimer",
+            let divDeleteIcon = createDomElement({
+                tagName: 'div',
+                classList: ['is-flex'],
             });
-            appendElementTo(divFlexJustify, pSize);
+            appendElementTo(divFlexJustify, divDeleteIcon);
 
             let deleteIcon = createDomElement({
                 tagName: 'i',
                 classList: ['fas', 'fa-trash-alt', 'mr-3'],
             });
-            appendElementTo(pSize, deleteIcon);
+            appendElementTo(divDeleteIcon, deleteIcon);
+
+            let pSize = createDomElement({
+                tagName: 'p',
+                classList: ['is-size-5'],
+                textNode: "Supprimer",
+            });
+            appendElementTo(divDeleteIcon, pSize);
 
             let pPrice = createDomElement({
                 tagName: 'p',
@@ -123,6 +131,11 @@ function renderBasketItems() {
 
             appendElementTo(divFlexJustify, pPrice);
             appendElementTo(basket, divContent);
+            let submitProduct = {
+                'id': document.querySelector('#productName').value,
+                'quantité': document.querySelector('#quantity').value,
+
+            }
         }
     }
 }
@@ -148,7 +161,11 @@ function renderPrice() {
     });
 
     appendElementTo(document.getElementById("totalTVA"), totalPriceWithDelivery);
+    let submitPrice = document.querySelector("#totalPrice").value;
+    console.log(submitPrice);
 }
+
+
 
 function createFormInput(form, input)
 {
@@ -233,8 +250,8 @@ function showOrderForm() {
         let radioInput = createDomElement({
             tagName: 'input',
             classList: ['radio', 'radio-flex'],
-            id: 'radioInput'[i],
-            name: radios[i],
+            id: 'radioInput',
+            name: 'radioInput',
             value: radios[i],
             type: 'radio',
             textNode: radios[i],
@@ -373,19 +390,37 @@ function showOrderForm() {
     appendElementTo(cancelControl, cancelButton);
 
     let btnSubmit = document.getElementById("submitButton");
-    //let dataform = JSON.parse(localStorage.getItem("form"));
+    btnSubmit.addEventListener('click', (e)=>{
+        let element = document.getElementsByName('radioInput');
+        let civility = '';
+        for(let i = 0; i < element.length; i++) {
+            if(element[i].checked) {
+                civility = element[i].value;
+            }
+        }
+        //btnSubmit.href = 'order_confirmation.html';
+        let dataform = {
+            'civilite': civility,
+            'firstname': document.querySelector('#lastName').value,
+            'lastName': document.querySelector("#firstName").value,
+            'telephone': document.querySelector("#phoneNumber").value,
+            'email': document.querySelector("#email").value,
+            'adress': document.querySelector("#address").value,
+            'codepostal': document.querySelector("#postCode").value,
+            'city': document.querySelector("#ville").value,
+        };
 
-    btnSubmit.addEventListener('click', ()=>{
-        //localStorage.setItem("nbrproduct", document.querySelector("#postCode").value);
-        //localStorage.setItem("totaltva", document.querySelector("#totalPrice").value);
-        localStorage.setItem("radio", document.querySelector("#radioInput").value);
-        localStorage.setItem("nom", document.querySelector('#lastName').value);
-        localStorage.setItem("prenom", document.querySelector("#firstName").value);
+        localStorage.setItem("form", JSON.stringify(dataform))
+
+
+        /*localStorage.setItem("civilite", civility);
+        localStorage.setItem("firstName", );
+        localStorage.setItem("lastName", document.querySelector("#firstName").value);
         localStorage.setItem("telephone", document.querySelector("#phoneNumber").value);
         localStorage.setItem("email", document.querySelector("#email").value);
-        localStorage.setItem("adresse", document.querySelector("#address").value);
+        localStorage.setItem("adress", document.querySelector("#address").value);
         localStorage.setItem("codepostal", document.querySelector("#postCode").value);
-        localStorage.setItem("ville", document.querySelector("#ville").value);
+        localStorage.setItem("city", document.querySelector("#ville").value);*/
     })
 }
 
@@ -393,6 +428,7 @@ function renderForm() {
     let orderButton = document.getElementById("hiddenDisplay");
     orderButton.onclick = function () {
         showOrderForm();
+
     };
 }
 

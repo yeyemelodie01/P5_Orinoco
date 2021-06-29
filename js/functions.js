@@ -23,6 +23,10 @@ export function createDomElement(elementDetail)
         element.text = elementDetail.text;
     }
 
+    if (elementDetail.onclick !== undefined) {
+        element.onclick = elementDetail.onclick;
+    }
+
     if (elementDetail.textNode !== undefined) {
         appendElementTo(element, null, elementDetail.textNode)
     }

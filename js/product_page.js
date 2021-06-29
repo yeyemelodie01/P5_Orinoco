@@ -156,6 +156,7 @@ function renderProduct()
                             'price':  parseInt(product.price),
                             'totalPrice': parseInt(product.price * itemQuantity)
                         };
+                        alert("produit ajouté au panier");
                         addToBasket(itemToAddInBasket)
                     } else if (itemQuantity === 0 ) {
                         let itemToRemove = {
@@ -164,7 +165,9 @@ function renderProduct()
                             'detail': detail,
                         }
                         removeInBasket(itemToRemove)
+                        alert("produit retiré du panier");
                     }
+
                 });
 
                 let description = createDomElement({
@@ -241,6 +244,7 @@ function addToBasket(itemToAdd) {
     }
 
     localStorage.setItem("basket", JSON.stringify(data));
+
 }
 
 function removeInBasket(itemToRemove) {
