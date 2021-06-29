@@ -245,7 +245,7 @@ a:hover{
 .section_panier{
     margin-right: 100px;
     margin-left: 100px;
-    margin-bottom: 80px;
+    margin-bottom: 50px;
 }
 
 .section_panier img{
@@ -327,10 +327,9 @@ a:hover{
 
 .content-hidden_width{
     width: 34%;
-    margin-bottom: 100px;
 }
 
-.inputCheckbox{
+.checkboxInput{
     order: -1;
     margin-right: 6px;
 }
