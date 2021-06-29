@@ -215,8 +215,7 @@ function createDetailByType(item, parentDiv, title, id)
     }
 }
 
-function addToBasket(itemToAdd)
-{
+function addToBasket(itemToAdd) {
     let data = JSON.parse(localStorage.getItem("basket"))
     if(!data) {
         data = [];

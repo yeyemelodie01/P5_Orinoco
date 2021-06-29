@@ -276,6 +276,7 @@ function showOrderForm() {
     let postcodeInput = createDomElement({
         tagName: 'input',
         classList: ['input'],
+        id: 'postCode',
         type: 'text',
         placeholder: 'Code Postal',
     });
@@ -350,7 +351,8 @@ function showOrderForm() {
 
     let submitButton = createDomElement({
         tagName: 'button',
-        classList: ['button', 'is-primary'],
+        id:'submitButton',
+        classList: ['button', 'is-primary', 'submitButton'],
         textNode: 'Envoyer',
     });
     appendElementTo(submitControl, submitButton);
@@ -367,6 +369,13 @@ function showOrderForm() {
         textNode: 'Annuler',
     });
     appendElementTo(cancelControl, cancelButton);
+
+    let btnSubmit = document.getElementById("submitButton");
+
+    btnSubmit.addEventListener('click', ()=>{
+        localStorage.setItem("ville", document.querySelector("#ville").value);
+        console.log(document.querySelector("#ville").value);
+    })
 }
 
 function renderForm() {
@@ -375,6 +384,8 @@ function renderForm() {
         showOrderForm();
     };
 }
+
+
 
 function renderShopping() {
     checkIfEmptyBasket();

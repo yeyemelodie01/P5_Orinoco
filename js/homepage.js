@@ -92,9 +92,6 @@ function renderItems(type) {
                         textNode: formatPrice(itemObject.price/100),
                     });
                     appendElementTo(mediaContent, price);
-                    //let formattedPrice = new Intl.NumberFormat('fr-FR', { maximumSignificantDigits: 2 }).format(itemObject.price/100);
-                    //price.appendChild(document.createTextNode(formattedPrice+' €'));
-                    //mediaContent.appendChild(price);
 
                     let starIcon = createDomElement({
                         tagName: 'div',
