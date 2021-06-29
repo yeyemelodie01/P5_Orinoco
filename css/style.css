@@ -460,5 +460,10 @@ footer span i:hover{
         text-align: center;
     }
 
+    .section-panier_total{
+        width: 94%;
+        margin-right: 0;
+    }
+
 
 }
