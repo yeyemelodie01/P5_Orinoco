@@ -371,10 +371,10 @@ function showOrderForm() {
     appendElementTo(cancelControl, cancelButton);
 
     let btnSubmit = document.getElementById("submitButton");
-    let datafo
+    let dataform = JSON.parse(localStorage.getItem("form"));
 
     btnSubmit.addEventListener('click', ()=>{
-        localStorage.setItem("ville", document.querySelector("#ville").value);
+        localStorage.setItem("form", JSON.stringify(dataform));
         console.log(document.querySelector("#ville").value);
     })
 }
