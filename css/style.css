@@ -380,9 +380,15 @@ footer span i:hover{
     header{
         margin-bottom: 0;
     }
+
+    .navbar-brand{
+        align-items: center;
+    }
+
     .section_color{
         padding: 0 22px 0 22px;
     }
+
     .titre{
         font-size: 60px;
     }
@@ -392,8 +398,8 @@ footer span i:hover{
     }
 
     .section_position{
-        width: 111%;
-        margin-left: -25px;
+        width: 92%;
+        margin-left: -12px;
     }
 
     /* PAGE PRODUIT */
@@ -420,6 +426,12 @@ footer span i:hover{
 
     .figure_img img{
         height: 369px;
+    }
+
+    .section_text{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
 }
