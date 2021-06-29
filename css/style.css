@@ -439,4 +439,26 @@ footer span i:hover{
         margin-bottom: 15px;
     }
 
+    /* PAGE PANIER */
+
+    .section_panier{
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    main .divContent-justify{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div_panier-content{
+        width: 94%;
+        margin-bottom: 22px;
+    }
+
+    #basket h1{
+        text-align: center;
+    }
+
+
 }
