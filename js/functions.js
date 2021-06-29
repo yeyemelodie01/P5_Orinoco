@@ -15,6 +15,14 @@ export function createDomElement(elementDetail)
         element.src = elementDetail.src;
     }
 
+    if (elementDetail.href !== undefined) {
+        element.href = elementDetail.href;
+    }
+
+    if (elementDetail.text !== undefined) {
+        element.text = elementDetail.text;
+    }
+
     if (elementDetail.textNode !== undefined) {
         appendElementTo(element, null, elementDetail.textNode)
     }

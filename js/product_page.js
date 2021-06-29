@@ -189,7 +189,7 @@ function createDetailByType(item, parentDiv, title, id)
     let itemTitle = createDomElement({
        tagName: 'h3',
        classList: ['title', 'is-3', 'mb-3'],
-        textNode: 'title',
+        textNode: title,
     });
     appendElementTo(parentDiv, itemTitle);
 
