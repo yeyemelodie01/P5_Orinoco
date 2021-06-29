@@ -143,6 +143,7 @@ function renderPrice() {
 
     let totalPriceWithDelivery = createDomElement({
         tagName: 'p',
+        id: 'totalPrice',
         textNode: formatPrice((totalPrice + deliveryPrice)/100),
     });
 
@@ -232,6 +233,7 @@ function showOrderForm() {
         let radioInput = createDomElement({
             tagName: 'input',
             classList: ['radio', 'radio-flex'],
+            id: 'radioInput'[i],
             name: radios[i],
             value: radios[i],
             type: 'radio',
@@ -371,11 +373,19 @@ function showOrderForm() {
     appendElementTo(cancelControl, cancelButton);
 
     let btnSubmit = document.getElementById("submitButton");
-    let dataform = JSON.parse(localStorage.getItem("form"));
+    //let dataform = JSON.parse(localStorage.getItem("form"));
 
     btnSubmit.addEventListener('click', ()=>{
-        localStorage.setItem("form", JSON.stringify(dataform));
-        console.log(document.querySelector("#ville").value);
+        //localStorage.setItem("nbrproduct", document.querySelector("#postCode").value);
+        //localStorage.setItem("totaltva", document.querySelector("#totalPrice").value);
+        localStorage.setItem("radio", document.querySelector("#radioInput").value);
+        localStorage.setItem("nom", document.querySelector('#lastName').value);
+        localStorage.setItem("prenom", document.querySelector("#firstName").value);
+        localStorage.setItem("telephone", document.querySelector("#phoneNumber").value);
+        localStorage.setItem("email", document.querySelector("#email").value);
+        localStorage.setItem("adresse", document.querySelector("#address").value);
+        localStorage.setItem("codepostal", document.querySelector("#postCode").value);
+        localStorage.setItem("ville", document.querySelector("#ville").value);
     })
 }
 
@@ -385,8 +395,6 @@ function renderForm() {
         showOrderForm();
     };
 }
-
-
 
 function renderShopping() {
     checkIfEmptyBasket();
