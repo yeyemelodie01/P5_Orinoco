@@ -79,7 +79,7 @@ function renderBasketItems() {
 
             let divWidth = createDomElement({
                 tagName: 'div',
-                classList: ['is-flex', 'is-justify-content-space-between'],
+                classList: ['is-flex', 'is-justify-content-space-between', 'divWidth'],
             });
             appendElementTo(divSize, divWidth);
 
@@ -106,7 +106,7 @@ function renderBasketItems() {
 
             let divDeleteIcon = createDomElement({
                 tagName: 'div',
-                classList: ['is-flex'],
+                classList: ['is-flex', 'is-align-items-center'],
             });
             appendElementTo(divFlexJustify, divDeleteIcon);
 

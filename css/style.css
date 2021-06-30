@@ -474,6 +474,26 @@ footer span i:hover{
         object-fit: cover;
     }
 
+    .divSize p{
+        font-size: 20px;
+    }
+
+    .divWidth{
+        flex-direction: column;
+    }
+
+    .divWidth p{
+        margin-bottom: 0;
+    }
+
+    .section-panier_marginbottom{
+        flex-direction: column;
+    }
+
+    .div_panier-price{
+        order: -1;
+    }
+
     .div_panier-width{
         width: 0;
         flex-direction: column;
