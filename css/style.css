@@ -260,6 +260,7 @@ a:hover{
     border: #00c4a7 2px solid;
     border-radius: 20px;
     float: left;
+    padding-left: 20px;
 }
 
 .empty{
