@@ -458,11 +458,37 @@ footer span i:hover{
 
     #basket h1{
         text-align: center;
+        font-size: 28px;
     }
 
     .section-panier_total{
         width: 94%;
         margin-right: 0;
+    }
+
+    .section_panier img{
+        width: 140px;
+        height: 115px;
+        object-fit: cover;
+    }
+
+    .div_panier-width{
+        width: 0;
+        flex-direction: column;
+        font-size: 15px;
+    }
+
+    .div_align{
+        font-size: 14px;
+    }
+
+    .div_panier-width p{
+        width: 120px;
+    }
+
+    .content-hidden_width{
+        width: 94%;
+        padding-left: 0;
     }
 
 
