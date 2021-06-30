@@ -209,7 +209,7 @@ function showOrderForm() {
 
     let hiddenDiv = createDomElement({
         tagName: 'div',
-        classList: ['pl-5', 'content-hidden_width'],
+        classList: ['content-hidden_width'],
     });
     appendElementTo(hidden, hiddenDiv);
 
