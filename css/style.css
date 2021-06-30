@@ -474,7 +474,7 @@ footer span i:hover{
         object-fit: cover;
     }
 
-    .divSize p{
+    #productName{
         font-size: 20px !important;
     }
 
@@ -483,6 +483,7 @@ footer span i:hover{
     }
 
     .divWidth p{
+        font-size: 14px;
         margin-bottom: 0 !important;
     }
 
@@ -493,6 +494,7 @@ footer span i:hover{
 
     .div_panier-price{
         order: -1;
+        position: inherit;
     }
 
     .div_panier-width{
