@@ -398,8 +398,7 @@ function showOrderForm() {
                 civility = element[i].value;
             }
         }
-        //btnSubmit.href = 'order_confirmation.html';
-        let dataform = {
+        let dataform = [
             'civilite': civility,
             'firstname': document.querySelector('#lastName').value,
             'lastName': document.querySelector("#firstName").value,
@@ -408,19 +407,9 @@ function showOrderForm() {
             'adress': document.querySelector("#address").value,
             'codepostal': document.querySelector("#postCode").value,
             'city': document.querySelector("#ville").value,
-        };
+        ];
 
         localStorage.setItem("form", JSON.stringify(dataform))
-
-
-        /*localStorage.setItem("civilite", civility);
-        localStorage.setItem("firstName", );
-        localStorage.setItem("lastName", document.querySelector("#firstName").value);
-        localStorage.setItem("telephone", document.querySelector("#phoneNumber").value);
-        localStorage.setItem("email", document.querySelector("#email").value);
-        localStorage.setItem("adress", document.querySelector("#address").value);
-        localStorage.setItem("codepostal", document.querySelector("#postCode").value);
-        localStorage.setItem("city", document.querySelector("#ville").value);*/
     })
 }
 
