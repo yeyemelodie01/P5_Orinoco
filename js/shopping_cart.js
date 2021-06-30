@@ -65,7 +65,7 @@ function renderBasketItems() {
 
             let divSize = createDomElement({
                 tagName: 'div',
-                classList: ['is-size-4'],
+                classList: ['divSize'],
             });
             appendElementTo(divContent, divSize);
 
