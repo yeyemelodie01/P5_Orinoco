@@ -402,6 +402,10 @@ footer span i:hover{
         margin-left: -12px;
     }
 
+    .slider-item{
+        width: 255px !important;
+    }
+
     /* PAGE PRODUIT */
     .main-produit{
         height: auto;
@@ -437,6 +441,10 @@ footer span i:hover{
 
     .main-produit button{
         margin-bottom: 15px;
+    }
+
+    .subtitle{
+        padding-left: 35px;
     }
 
     /* PAGE PANIER */
