@@ -79,7 +79,7 @@ function renderBasketItems() {
 
             let divWidth = createDomElement({
                 tagName: 'div',
-                classList: ['is-flex', 'is-justify-content-space-between', 'div_panier-width'],
+                classList: ['is-flex', 'is-justify-content-space-between'],
             });
             appendElementTo(divSize, divWidth);
 

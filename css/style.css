@@ -305,7 +305,6 @@ a:hover{
 
 .section-panier_marginbottom{
     margin-bottom: 70px;
-    width: 840px;
 }
 
 .button-panier{
@@ -464,6 +463,7 @@ footer span i:hover{
     .section-panier_total{
         width: 94%;
         margin-right: 0;
+        padding-left: 20px;
     }
 
     .section_panier img{
@@ -479,7 +479,7 @@ footer span i:hover{
     }
 
     .div_align{
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .div_panier-width p{
