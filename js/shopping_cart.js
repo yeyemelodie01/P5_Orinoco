@@ -85,7 +85,7 @@ function renderBasketItems() {
 
             let pColor = createDomElement({
                 tagName: 'p',
-                classList: ['mb-2', 'is-justify-content-space-between'],
+                classList: ['is-justify-content-space-between'],
                 textNode: "Couleur : " + basketData[i].detail,
             });
             appendElementTo(divWidth, pColor);
@@ -93,7 +93,6 @@ function renderBasketItems() {
             let pQuantity = createDomElement({
                 tagName: 'p',
                 id: 'quantity',
-                classList: ['mb-2'],
                 textNode: "Quantité : " + basketData[i].quantity,
             });
             appendElementTo(divWidth, pQuantity);
@@ -416,20 +415,30 @@ function showOrderForm() {
 function renderForm() {
     let orderButton = document.getElementById("hiddenDisplay");
     orderButton.onclick = function () {
-        showOrderForm();
+        if (document.querySelector('form') === null ) {
+            showOrderForm();
+        }
     };
 }
 
 function checkFormFields(form) {
     let textInputs = form.querySelectorAll("input[type='text']");
     for (let i = 0; i < textInputs.length; i++) {
-        if (textInputs[i].value.trim() === '') {
-            addClassToElement(textInputs[i], 'is-danger');
-        }
+        if (textInputs[i].getAttribute('id') !== 'additionalAddress') {
+            if (textInputs[i].value.trim() === '') {
+                addDangerClass(textInputs[i]);
+            }
 
-        textInputs[i].onkeyup = function() {
-            checkFieldValue(this);
+            textInputs[i].onkeyup = function () {
+                checkFieldValue(this);
+            }
         }
+    }
+
+    let btnSubmit = document.getElementById("submitButton");
+    btnSubmit.disabled = false;
+    if (form.querySelectorAll('.is-danger').length > 0) {
+        btnSubmit.disabled = true;
     }
 }
 
@@ -438,16 +447,62 @@ function checkFieldValue(field) {
     if (field.getAttribute('id') === 'email') {
         let emailRegex = /\S+@\S+\.\S+/;
         if (emailRegex.test(field.value) === false) {
-            removeClassToElement(field, 'is-success');
-            addClassToElement(field, 'is-danger');
+            addDangerClass(field);
         } else {
-            removeClassToElement(field, 'is-danger');
-            addClassToElement(field, 'is-success');
+            addSuccessClass(field);
+        }
+    }
+
+    if (field.getAttribute('id') === 'postCode') {
+        if (field.value.length > 5 || field.value.length < 5) {
+            addDangerClass(field);
+        }
+
+        if (field.value.length === 5) {
+            let postCodeRegex = /\d{5}/;
+            if (postCodeRegex.test(field.value) === false) {
+                addDangerClass(field);
+            } else {
+                addSuccessClass(field);
+            }
+        }
+    }
+
+    if (field.getAttribute('id') === 'phoneNumber') {
+        if (field.value.length > 10 || field.value.length < 10) {
+            addDangerClass(field);
+        }
+
+        if (field.value.length === 10) {
+            let phoneNumberRegex = /\d{10}/;
+            if (phoneNumberRegex.test(field.value) === false) {
+                addDangerClass(field);
+            } else {
+                addSuccessClass(field);
+            }
+        }
+    }
+
+    if (['lastName', 'firstName', 'address', 'ville'].includes(field.getAttribute('id'))) {
+        if (field.value.trim() === '' || field.value.length < 1) {
+            addDangerClass(field);
+        }
+
+        if (field.value.length > 1) {
+            addSuccessClass(field);
         }
     }
 }
 
+function addSuccessClass(field) {
+    removeClassToElement(field, 'is-danger');
+    addClassToElement(field, 'is-success');
+}
 
+function addDangerClass(field) {
+    removeClassToElement(field, 'is-success');
+    addClassToElement(field, 'is-danger');
+}
 
 function renderShopping() {
     checkIfEmptyBasket();
