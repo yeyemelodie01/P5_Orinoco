@@ -372,7 +372,21 @@ footer span i:hover{
 
 /* RESPONSIVE TABLETTE */
 @media screen and (min-width: 768px) and (max-width: 1024px){
+    .section_position{
+        width: 75%;
+    }
 
+    /* PAGE PRODUIT */
+    .figureDiv{
+        width: 345px;
+    }
+
+    .figure_img img{
+        width: 345px;
+        height: 380px;
+    }
+
+    /* PAGE PANIER */
 }
 
 /* RESPONSIVE MOBILE */

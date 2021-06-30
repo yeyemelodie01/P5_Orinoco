@@ -52,14 +52,14 @@ function renderProduct()
 
                 let title = createDomElement({
                     tagName: 'h1',
-                    classList: ['title', 'is-1', 'mb-5'],
+                    classList: ['mb-5'],
                     textNode: product.name,
                 });
                 appendElementTo(textDiv, title);
 
                 let subtitle = createDomElement({
                     tagName: 'h2',
-                    classList: ['section_text-h2', 'title', 'is-2', 'is-flex', 'is-justify-content-flex-start', 'mb-5'],
+                    classList: ['section_text-h2','is-flex', 'is-justify-content-flex-start', 'mb-5'],
                     textNode: formatPrice(product.price/100),
                 });
                 appendElementTo(textDiv, subtitle);
@@ -96,7 +96,7 @@ function renderProduct()
 
                 let quantityTitle = createDomElement({
                     tagName: 'h3',
-                    classList: ['title', 'is-3', 'mb-3'],
+                    classList: ['mb-3'],
                     textNode: 'Quantité',
                 });
                 appendElementTo(textDiv, quantityTitle);
@@ -191,7 +191,7 @@ function createDetailByType(item, parentDiv, title, id)
 {
     let itemTitle = createDomElement({
        tagName: 'h3',
-       classList: ['title', 'is-3', 'mb-3'],
+       classList: ['mb-3'],
         textNode: title,
     });
     appendElementTo(parentDiv, itemTitle);
