@@ -431,6 +431,9 @@ function checkFormFields(form) {
 
             textInputs[i].onkeyup = function () {
                 checkFieldValue(this);
+                if (form.querySelectorAll('.is-danger').length === 0) {
+                    btnSubmit.disabled = false;
+                }
             }
         }
     }
