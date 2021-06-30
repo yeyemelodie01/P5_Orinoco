@@ -1,5 +1,4 @@
-export function createDomElement(elementDetail)
-{
+export function createDomElement(elementDetail) {
     let element = document.createElement(elementDetail.tagName);
     if (elementDetail.classList !== undefined && elementDetail.classList.length > 0) {
         for (let i = 0; i < elementDetail.classList.length; i++) {
@@ -58,17 +57,19 @@ export function createDomElement(elementDetail)
     return element;
 }
 
-export function addClassToElement(element, className)
-{
+export function addClassToElement(element, className) {
     element.classList.add(className);
+}
+
+export function removeClassToElement(element, className) {
+    element.classList.remove(className);
 }
 
 export function formatPrice(price) {
     return new Intl.NumberFormat('fr-FR', {style: 'currency',currency: 'EUR', minimumFractionDigits: 2}).format(price);
 }
 
-export function appendElementTo(parent, child = null, textNode = '')
-{
+export function appendElementTo(parent, child = null, textNode = '') {
     if (textNode !== '' && child === null) {
         parent.appendChild(document.createTextNode(textNode))
     }

@@ -1,4 +1,4 @@
-import {createDomElement, appendElementTo, formatPrice} from './functions.js';
+import {createDomElement, appendElementTo, addClassToElement, formatPrice, removeClassToElement} from './functions.js';
 
 let basketData = JSON.parse(localStorage.getItem("basket"));
 let deliveryPrice = 350;
@@ -161,8 +161,7 @@ function renderPrice() {
     });
 
     appendElementTo(document.getElementById("totalTVA"), totalPriceWithDelivery);
-    let submitPrice = document.querySelector("#totalPrice").value;
-    console.log(submitPrice);
+    console.log(formatPrice((totalPrice + deliveryPrice)/100));
 }
 
 
@@ -398,28 +397,57 @@ function showOrderForm() {
                 civility = element[i].value;
             }
         }
-        let dataform = [
+        let formData = {
             'civilite': civility,
-            'firstname': document.querySelector('#lastName').value,
+            'firstName': document.querySelector("#lastName").value,
             'lastName': document.querySelector("#firstName").value,
             'telephone': document.querySelector("#phoneNumber").value,
             'email': document.querySelector("#email").value,
             'adress': document.querySelector("#address").value,
             'codepostal': document.querySelector("#postCode").value,
-            'city': document.querySelector("#ville").value,
-        ];
+            'city': document.querySelector("#ville").value
+        };
 
-        localStorage.setItem("form", JSON.stringify(dataform))
+        localStorage.setItem("form", JSON.stringify(formData))
     })
+    checkFormFields(form);
 }
 
 function renderForm() {
     let orderButton = document.getElementById("hiddenDisplay");
     orderButton.onclick = function () {
         showOrderForm();
-
     };
 }
+
+function checkFormFields(form) {
+    let textInputs = form.querySelectorAll("input[type='text']");
+    for (let i = 0; i < textInputs.length; i++) {
+        if (textInputs[i].value.trim() === '') {
+            addClassToElement(textInputs[i], 'is-danger');
+        }
+
+        textInputs[i].onkeyup = function() {
+            checkFieldValue(this);
+        }
+    }
+}
+
+function checkFieldValue(field) {
+    console.log(field.getAttribute('id'))
+    if (field.getAttribute('id') === 'email') {
+        let emailRegex = /\S+@\S+\.\S+/;
+        if (emailRegex.test(field.value) === false) {
+            removeClassToElement(field, 'is-success');
+            addClassToElement(field, 'is-danger');
+        } else {
+            removeClassToElement(field, 'is-danger');
+            addClassToElement(field, 'is-success');
+        }
+    }
+}
+
+
 
 function renderShopping() {
     checkIfEmptyBasket();
