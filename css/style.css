@@ -377,13 +377,35 @@ footer span i:hover{
     }
 
     /* PAGE PRODUIT */
-    .figureDiv{
+    .main-produit{
+        height: auto;
+    }
+    .section-flex{
+        align-items: flex-start;
+    }
+    .figure_img{
         width: 345px;
+        height: 380px;
     }
 
     .figure_img img{
         width: 345px;
         height: 380px;
+    }
+
+    .section-text h1{
+        font-weight: bold;
+    }
+
+    .section-text h3{
+        font-weight: bold;
+        font-size: 19px;
+    }
+
+    .section_text-h2 {
+        font-size: 22px;
+        font-weight: bold;
+        margin-top: 0;
     }
 
     /* PAGE PANIER */

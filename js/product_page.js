@@ -172,7 +172,7 @@ function renderProduct()
 
                 let description = createDomElement({
                     tagName: 'h3',
-                    classList: ['title', 'is-3', 'mb-3'],
+                    classList: ['mb-3'],
                     textNode: 'Description :',
                 });
                 appendElementTo(textDiv, description);
