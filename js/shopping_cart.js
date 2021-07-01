@@ -397,10 +397,10 @@ function showOrderForm() {
             'civilite': civility,
             'firstName': document.querySelector("#lastName").value,
             'lastName': document.querySelector("#firstName").value,
-            'telephone': document.querySelector("#phoneNumber").value,
+            'phonenumber': document.querySelector("#phoneNumber").value,
             'email': document.querySelector("#email").value,
             'adress': document.querySelector("#address").value,
-            'codepostal': document.querySelector("#postCode").value,
+            'postcode': document.querySelector("#postCode").value,
             'city': document.querySelector("#ville").value,
             'shopping_cart': {
                 'totalPrice': totalPrice,
