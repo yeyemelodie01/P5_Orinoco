@@ -195,8 +195,20 @@ a:hover{
     margin: 0 auto;
 }
 
+.section-text h1{
+    font-weight: bold;
+}
+
 .section_text-h2{
-    margin-bottom: 12px;
+    margin-top: 0;
+    font-size: 30px;
+    font-weight: bold;
+    color: #00c4a7;
+}
+
+.section-text h3{
+    font-weight: bold;
+    font-size: 22px;
 }
 
 .figure_img{
@@ -528,7 +540,7 @@ footer span i:hover{
 
     #productName{
         font-size: 20px !important;
-        margin-bottom: 0px !important;
+        margin-bottom: 0 !important;
     }
 
     .divWidth{
