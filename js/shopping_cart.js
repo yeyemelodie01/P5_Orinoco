@@ -130,20 +130,17 @@ function renderBasketItems() {
 
             appendElementTo(divFlexJustify, pPrice);
             appendElementTo(basket, divContent);
-            let submitProduct = {
-                'id': document.querySelector('#productName').value,
-                'quantité': document.querySelector('#quantity').value,
-
-            }
         }
     }
 }
-
+let totalPrice = 0;
+let productIds = [];
 function renderPrice() {
-    let totalPrice = 0;
+
     if (basketData !== null) {
         for (let i = 0; i < basketData.length; i++) {
             totalPrice += basketData[i].totalPrice;
+            productIds.push(basketData[i].id)
         }
     }
 
@@ -404,11 +401,19 @@ function showOrderForm() {
             'email': document.querySelector("#email").value,
             'adress': document.querySelector("#address").value,
             'codepostal': document.querySelector("#postCode").value,
-            'city': document.querySelector("#ville").value
+            'city': document.querySelector("#ville").value,
+            'shopping_cart': {
+                'totalPrice': totalPrice,
+                'products': productIds,
+            }
         };
 
-        localStorage.setItem("form", JSON.stringify(formData))
+        localStorage.setItem("form", JSON.stringify(formData));
+        e.preventDefault();
+        document.location.href="order_confirmation.html";
     })
+    fetch("http://localhost:3000/api/")
+
     checkFormFields(form);
 }
 
@@ -422,6 +427,10 @@ function renderForm() {
 }
 
 function checkFormFields(form) {
+    let btnSubmit = document.getElementById("submitButton");
+    btnSubmit.disabled = true;
+
+    let checkboxConditions = form.querySelector('.checkboxInput');
     let textInputs = form.querySelectorAll("input[type='text']");
     for (let i = 0; i < textInputs.length; i++) {
         if (textInputs[i].getAttribute('id') !== 'additionalAddress') {
@@ -431,22 +440,23 @@ function checkFormFields(form) {
 
             textInputs[i].onkeyup = function () {
                 checkFieldValue(this);
-                if (form.querySelectorAll('.is-danger').length === 0) {
+                btnSubmit.disabled = true;
+                if (form.querySelectorAll('.is-danger').length === 0 && checkboxConditions.checked === true && checkRadioField(form) === true) {
                     btnSubmit.disabled = false;
                 }
             }
         }
     }
 
-    let btnSubmit = document.getElementById("submitButton");
-    btnSubmit.disabled = false;
-    if (form.querySelectorAll('.is-danger').length > 0) {
+    checkboxConditions.onchange = function () {
         btnSubmit.disabled = true;
+        if (form.querySelectorAll('.is-danger').length === 0 && this.checked === true && checkRadioField(form) === true) {
+            btnSubmit.disabled = false;
+        }
     }
 }
 
 function checkFieldValue(field) {
-    console.log(field.getAttribute('id'))
     if (field.getAttribute('id') === 'email') {
         let emailRegex = /\S+@\S+\.\S+/;
         if (emailRegex.test(field.value) === false) {
@@ -495,6 +505,18 @@ function checkFieldValue(field) {
             addSuccessClass(field);
         }
     }
+}
+
+function checkRadioField(form) {
+    let radioInputs = form.querySelectorAll("input[type='radio']");
+    let radioChecked = false;
+    for (let i = 0; i < radioInputs.length; i++) {
+        if (radioInputs[i].checked === true) {
+            radioChecked = true;
+        }
+    }
+
+    return radioChecked;
 }
 
 function addSuccessClass(field) {
