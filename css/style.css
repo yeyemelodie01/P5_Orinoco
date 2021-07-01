@@ -271,6 +271,11 @@ a:hover{
     margin-right: 25px;
 }
 
+.divWidth{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
 #quantite{
     position: relative;
     bottom: 18px;
@@ -285,8 +290,7 @@ a:hover{
 }
 
 .div_panier-price{
-    position: relative;
-    bottom: 8px;
+    font-weight: bold;
 }
 .p-float{
     float: left;
