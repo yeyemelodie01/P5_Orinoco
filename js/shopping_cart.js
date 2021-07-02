@@ -386,35 +386,87 @@ function showOrderForm() {
 
     let btnSubmit = document.getElementById("submitButton");
     btnSubmit.addEventListener('click', (e)=>{
-        let element = document.getElementsByName('radioInput');
-        let civility = '';
-        for(let i = 0; i < element.length; i++) {
-            if(element[i].checked) {
-                civility = element[i].value;
+
+        e.preventDefault();
+        order();
+    })
+    checkFormFields(form);
+}
+
+function buildFormData() {
+    let element = document.getElementsByName('radioInput');
+    let civility = '';
+    for(let i = 0; i < element.length; i++) {
+        if(element[i].checked) {
+            civility = element[i].value;
+        }
+    }
+    let formData = {};
+    formData.contact = {
+        // 'civility': civility,
+        'firstName': document.querySelector("#lastName").value,
+        'lastName': document.querySelector("#firstName").value,
+        // 'telephone': document.querySelector("#phoneNumber").value,
+        'email': document.querySelector("#email").value,
+        'address': document.querySelector("#address").value,
+        // 'postCode': document.querySelector("#postCode").value,
+        'city': document.querySelector("#ville").value,
+    };
+
+    return formData;
+}
+
+function buildProductsDataForOrderRequest() {
+    let products = [];
+    for (let i = 0; i < basketData.length; i++) {
+        if (products[basketData[i].type] === undefined) {
+            products[basketData[i].type] = [];
+        }
+        products[basketData[i].type].push(basketData[i].id)
+    }
+    return products;
+}
+
+function order() {
+    let authorizedType = [
+        'teddies',
+        'furniture',
+        'cameras',
+    ];
+
+    if (basketData !== null) {
+        let formData = buildFormData();
+        let products = buildProductsDataForOrderRequest();
+
+        let baseUrl = "https://ab-p5-api.herokuapp.com/api/";
+        for (let i = 0; i < authorizedType.length; i++) {
+            if (products[authorizedType[i]] !== undefined) {
+                let apiUrl = baseUrl+authorizedType[i]+'/order';
+                formData.products = products[authorizedType[i]];
+                fetch(apiUrl, {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {
+                        'Accept': '*/*',
+                        'Content-Type': 'application/json; charset=utf-8'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                    .then(function (response) {
+                        return response.json();
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                        if (response.status === 201) {
+                            // document.location.href = 'order_confirmation.html';
+
+                        }
+                    })
+                    .catch(err => console.log(err));
             }
         }
-        let formData = {
-            'civilite': civility,
-            'firstName': document.querySelector("#lastName").value,
-            'lastName': document.querySelector("#firstName").value,
-            'phonenumber': document.querySelector("#phoneNumber").value,
-            'email': document.querySelector("#email").value,
-            'adress': document.querySelector("#address").value,
-            'postcode': document.querySelector("#postCode").value,
-            'city': document.querySelector("#ville").value,
-            'shopping_cart': {
-                'totalPrice': totalPrice,
-                'products': productIds,
-            }
-        };
+    }
 
-        localStorage.setItem("form", JSON.stringify(formData));
-        e.preventDefault();
-        document.location.href="order_confirmation.html";
-    })
-    fetch("http://localhost:3000/api/")
-
-    checkFormFields(form);
 }
 
 function renderForm() {

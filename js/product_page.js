@@ -103,7 +103,7 @@ function renderProduct()
 
                 let quantityDiv = createDomElement({
                     tagName: 'div',
-                    classList: ['select', 'is-primary', 'mb-6'],
+                    classList: ['select', 'is-primary', 'mb-5'],
                 });
                 appendElementTo(textDiv, quantityDiv);
 
@@ -198,7 +198,7 @@ function createDetailByType(item, parentDiv, title, id)
 
     let itemDiv = createDomElement({
         tagName: 'div',
-        classList: ['select', 'is-primary', 'mb-6']
+        classList: ['select', 'is-primary', 'mb-5']
     });
     appendElementTo(parentDiv, itemDiv);
 
