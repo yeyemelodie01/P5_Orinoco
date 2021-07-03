@@ -443,23 +443,23 @@ function order() {
             if (products[authorizedType[i]] !== undefined) {
                 let apiUrl = baseUrl+authorizedType[i]+'/order';
                 formData.products = products[authorizedType[i]];
-                fetch(apiUrl, {
+                fetch(apiUrl,{
                     method: 'POST',
                     mode: 'cors',
                     headers: {
                         'Accept': '*/*',
                         'Content-Type': 'application/json; charset=utf-8'
                     },
-                    body: JSON.stringify(formData)
+                    body: JSON.stringify(formData),
                 })
                     .then(function (response) {
                         return response.json();
                     })
                     .then(function (response) {
                         console.log(response);
-                        if (response.status === 201) {
-                            // document.location.href = 'order_confirmation.html';
-
+                        if (response.orderId) {
+                            localStorage.setItem("orderconfirm", JSON.stringify(formData));
+                            document.location.href = 'order_confirmation.html';
                         }
                     })
                     .catch(err => console.log(err));
