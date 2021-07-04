@@ -15,6 +15,6 @@ function renderConfirm() {
                     textNode: "Merci pour votre commande n°"+ orderId +" , avec un montant de "+ totalPrice +" a bien été enregistré.",
                 });
 
-                let confirmDiv = document.getElementsByClassName("orderconfirm-div");
+                let confirmDiv = document.getElementById("orderconfirm-div");
                 appendElementTo(confirmDiv, productNumber);
 }
