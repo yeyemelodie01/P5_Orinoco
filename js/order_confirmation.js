@@ -12,10 +12,9 @@ function renderConfirm() {
 
                 let productNumber = createDomElement({
                     tagName: 'p',
-                    classList: 'textProduct',
                     textNode: "Merci pour votre commande n°"+ orderId +" , avec un montant de "+ totalPrice +" a bien été enregistré.",
                 });
 
-                let confirmMain = document.getElementById("orderconfirm");
-                appendElementTo(confirmMain, productNumber);
+                let confirmDiv = document.getElementsByClassName("orderconfirm-div");
+                appendElementTo(confirmDiv, productNumber);
 }

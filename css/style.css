@@ -593,5 +593,17 @@ footer span i:hover{
         padding-left: 0;
     }
 
+    /* PAGE CONFIRMATION DE COMMANDE */
+    #orderconfirm{
+        width: 50%;
+        padding: 60px 150px;
+    }
 
+    #orderconfirm h1{
+
+    }
+
+    #orderconfirm p{
+
+    }
 }

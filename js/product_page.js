@@ -186,8 +186,7 @@ function renderProduct() {
     }
 }
 
-function createDetailByType(item, parentDiv, title, id)
-{
+function createDetailByType(item, parentDiv, title, id) {
     let itemTitle = createDomElement({
        tagName: 'h3',
        classList: ['mb-3'],

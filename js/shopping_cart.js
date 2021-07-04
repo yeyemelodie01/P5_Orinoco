@@ -161,8 +161,7 @@ function renderPrice() {
 
 
 
-function createFormInput(form, input)
-{
+function createFormInput(form, input) {
     let div = createDomElement({
         tagName: 'div',
         classList: ['field', 'mb-5'],
