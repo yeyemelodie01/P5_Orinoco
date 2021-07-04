@@ -595,15 +595,17 @@ footer span i:hover{
 
     /* PAGE CONFIRMATION DE COMMANDE */
     #orderconfirm{
-        width: 50%;
-        padding: 60px 150px;
+        width: 95%;
+        padding: 36px 0;
+        margin-bottom: 12px;
     }
 
-    #orderconfirm h1{
-
+    #orderconfirm-div{
+        width: 265px;
     }
 
-    #orderconfirm p{
-
+    #orderconfirm-div h1{
+        font-size: 18px;
+        font-weight: bold;
     }
 }
