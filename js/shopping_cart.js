@@ -26,7 +26,6 @@ function renderBasketItems() {
             textNode: "Mon panier (" + basketData.length + " article"+ (basketData.length > 1 ? 's': '') +")",
         });
 
-
         let divAlignCenter = createDomElement({
             tagName: 'div',
             classList: ['is-flex', 'is-flex-align-items-center', 'has-text-primary', 'mb-4', 'div_align'],
@@ -157,7 +156,7 @@ function renderPrice() {
     });
 
     appendElementTo(document.getElementById("totalTVA"), totalPriceWithDelivery);
-    console.log(formatPrice((totalPrice + deliveryPrice)/100));
+    localStorage.setItem('totalPrice', formatPrice((totalPrice + deliveryPrice)/100));
 }
 
 
@@ -424,6 +423,7 @@ function buildProductsDataForOrderRequest() {
         }
         products[basketData[i].type].push(basketData[i].id)
     }
+
     return products;
 }
 
@@ -456,9 +456,8 @@ function order() {
                         return response.json();
                     })
                     .then(function (response) {
-                        console.log(response);
                         if (response.orderId) {
-                            localStorage.setItem("orderconfirm", JSON.stringify(formData));
+                            setLocaleStorageInfo(response, formData);
                             document.location.href = 'order_confirmation.html';
                         }
                     })
@@ -466,7 +465,11 @@ function order() {
             }
         }
     }
+}
 
+function setLocaleStorageInfo(response, formData) {
+    localStorage.setItem("orderId", JSON.stringify(response.orderId));
+    localStorage.setItem("contact", JSON.stringify(formData.contact));
 }
 
 function renderForm() {
