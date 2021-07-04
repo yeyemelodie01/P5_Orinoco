@@ -4,8 +4,7 @@ window.onload = function() {
     renderProduct();
 };
 
-function renderProduct()
-{
+function renderProduct() {
     let id = localStorage.getItem('id');
     let type = localStorage.getItem('type');
     let apiUrl = "";
