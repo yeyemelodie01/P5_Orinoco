@@ -21,6 +21,9 @@ export function createDomElement(elementDetail) {
     if (elementDetail.text !== undefined) {
         element.text = elementDetail.text;
     }
+    if (elementDetail.innerHTML !== undefined) {
+        element.innerHTML = elementDetail.innerHTML;
+    }
 
     if (elementDetail.onclick !== undefined) {
         element.onclick = elementDetail.onclick;
