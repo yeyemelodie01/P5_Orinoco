@@ -10,11 +10,11 @@ function renderConfirm() {
     let totalPrice = localStorage.getItem('totalPrice');
     console.log(orderId, contact, totalPrice);
 
-                let productNumber = createDomElement({
-                    tagName: 'p',
-                    textNode: "Merci pour votre commande n°"+ orderId +" , avec un montant de "+ totalPrice +" a bien été enregistré.",
-                });
+    let productNumber = createDomElement({
+        tagName: 'p',
+        textNode: "Merci pour votre commande, celle-ci porte le n°"+ orderId +". Le montant de "+ totalPrice +" sera débité a l'expédition des produits.",
+    });
 
-                let confirmDiv = document.getElementById("orderconfirm-div");
-                appendElementTo(confirmDiv, productNumber);
+    let confirmDiv = document.getElementById("orderconfirm-div");
+    appendElementTo(confirmDiv, productNumber);
 }

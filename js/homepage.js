@@ -34,7 +34,7 @@ function renderItems(type) {
                     let item = createDomElement({
                         tagName: 'div',
                         classList: ['item-'+itemPos],
-                    })
+                    });
                     appendElementTo(document.getElementById("carousel-teddies"), item);
 
                     let card = createDomElement({
