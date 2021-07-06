@@ -608,4 +608,8 @@ footer span i:hover{
         font-size: 18px;
         font-weight: bold;
     }
+
+    #orderconfirm-div p{
+        font-size: 13px;
+    }
 }
