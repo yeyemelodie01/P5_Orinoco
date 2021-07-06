@@ -14,7 +14,7 @@ function renderConfirm() {
 
     let productOrderId = createDomElement({
         tagName: 'p',
-        innerHTML: "Merci pour votre commande, celle-ci porte le <strong> n°orderId </strong>.",
+        innerHTML: "Merci pour votre commande, celle-ci porte le <strong> n°"+orderId+" </strong>.",
     });
 
     let br = createDomElement({
