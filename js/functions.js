@@ -31,10 +31,10 @@ export function createDomElement(elementDetail) { // utilisation de l'export ave
     }
 
     if (elementDetail.textNode !== undefined) { // si elementDetail.textNode est strictement différent de indéfinie alors il utilise la variable element.textNode
-        appendElementTo(element, null, elementDetail.textNode) // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
+        appendElementTo(element, null, elementDetail.textNode) // element est parent de la valeur contenue dans elementDetail.textNode
     }
 
-    if (elementDetail.parentId !== undefined) { // 
+    if (elementDetail.parentId !== undefined) { //
         appendElementTo(document.getElementById(elementDetail.parentId), element); // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
     }
 
