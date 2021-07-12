@@ -1,41 +1,41 @@
-export function createDomElement(elementDetail) { /* utilisation de l'export avec la fonction nommée createDomElement et son parametre elementDetail*/
-    let element = document.createElement(elementDetail.tagName); /* creation de la variable element qui permet de créer dans le DOM un élément html*/
-    if (elementDetail.classList !== undefined && elementDetail.classList.length > 0) { /* on utilise la condition if Si elementDetail.classList est strictement différent de indéfinie et que elementDetail.classList.length est plus grand que zero*/
-        for (let i = 0; i < elementDetail.classList.length; i++) { /* utilisation de la boucle for avec trois expression */
-            addClassToElement(element, elementDetail.classList[i]); /* instruction a utiliser dans la boucle*/
+export function createDomElement(elementDetail) { // utilisation de l'export avec la fonction nommée createDomElement et son parametre elementDetail
+    let element = document.createElement(elementDetail.tagName); // creation de la variable element qui permet de créer dans le DOM un élément html
+    if (elementDetail.classList !== undefined && elementDetail.classList.length > 0) { //on utilise la condition if Si elementDetail.classList est strictement différent de indéfinie et que elementDetail.classList.length est plus grand que zero
+        for (let i = 0; i < elementDetail.classList.length; i++) { // utilisation de la boucle for avec entre parenthèse l'initialisation de l'itérateur i qui a pour valeur 0 , ensuite la terminaison i plus petit que elementDetail.classList.length (longueur du tableau ou collection) pour finir on incrémente i++ qui rajoute 1 a la valeur de i a chaque boucle
+            addClassToElement(element, elementDetail.classList[i]); // instruction a utiliser dans la boucle. ajoute a element la class contenue dans elementDetail.classList[i]
         }
     }
 
-    if (elementDetail.id !== undefined) { /* condition if. si element Detail.id est strictement  différent de indéfinie*/
-        element.id = elementDetail.id; // création de la variable element.id qui affichera elementDetail.id
+    if (elementDetail.id !== undefined) { // condition if. si element Detail.id est strictement  différent de indéfinie*/
+        element.id = elementDetail.id; // création de l'attribut id pour element avec la valeur contenu dans  elementDetail.id
     }
 
     if (elementDetail.src !== undefined) { // si elementDetail.src est strictement différent de indéfinie alors il utilise la variable element.src
-        element.src = elementDetail.src;
+        element.src = elementDetail.src; // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
     }
 
     if (elementDetail.href !== undefined) { // si elementDetail.href est strictement différent de indéfinie alors il utilise la variable element.href
-        element.href = elementDetail.href;
+        element.href = elementDetail.href; // création de l'attibut href pour element avec la valeur contenue dans elementDetail.href
     }
 
     if (elementDetail.text !== undefined) { // si elementDetail.text est strictement différent de indéfinie alors il utilise la variable element.text
-        element.text = elementDetail.text;
+        element.text = elementDetail.text; // création de l'attibut text pour element avec la valeur contenue dans elementDetail.text
     }
 
     if (elementDetail.innerHTML !== undefined) { // si elementDetail.innerHTML est strictement différent de indéfinie alors il utilise la variable element.innerHTML
-        element.innerHTML = elementDetail.innerHTML;
+        element.innerHTML = elementDetail.innerHTML; // création de l'attibut innerHTML pour element avec la valeur contenue dans elementDetail.innerHTML
     }
 
     if (elementDetail.onclick !== undefined) { // si elementDetail.onclick est strictement différent de indéfinie alors il utilise la variable element.onclick
-        element.onclick = elementDetail.onclick;
+        element.onclick = elementDetail.onclick; // création de l'attibut onclick pour element avec la valeur contenue dans elementDetail.onclick
     }
 
-    if (elementDetail.textNode !== undefined) { // si elementDetail.src est strictement différent de indéfinie alors il utilise la variable element.src
-        appendElementTo(element, null, elementDetail.textNode)
+    if (elementDetail.textNode !== undefined) { // si elementDetail.textNode est strictement différent de indéfinie alors il utilise la variable element.textNode
+        appendElementTo(element, null, elementDetail.textNode) // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
     }
 
-    if (elementDetail.parentId !== undefined) {
-        appendElementTo(document.getElementById(elementDetail.parentId), element);
+    if (elementDetail.parentId !== undefined) { // 
+        appendElementTo(document.getElementById(elementDetail.parentId), element); // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
     }
 
     if (elementDetail.type !== undefined) {
