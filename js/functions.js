@@ -10,27 +10,27 @@ export function createDomElement(elementDetail) { /* utilisation de l'export ave
         element.id = elementDetail.id; // création de la variable element.id qui affichera elementDetail.id
     }
 
-    if (elementDetail.src !== undefined) {
+    if (elementDetail.src !== undefined) { // si elementDetail.src est strictement différent de indéfinie alors il utilise la variable element.src
         element.src = elementDetail.src;
     }
 
-    if (elementDetail.href !== undefined) {
+    if (elementDetail.href !== undefined) { // si elementDetail.href est strictement différent de indéfinie alors il utilise la variable element.href
         element.href = elementDetail.href;
     }
 
-    if (elementDetail.text !== undefined) {
+    if (elementDetail.text !== undefined) { // si elementDetail.text est strictement différent de indéfinie alors il utilise la variable element.text
         element.text = elementDetail.text;
     }
 
-    if (elementDetail.innerHTML !== undefined) {
+    if (elementDetail.innerHTML !== undefined) { // si elementDetail.innerHTML est strictement différent de indéfinie alors il utilise la variable element.innerHTML
         element.innerHTML = elementDetail.innerHTML;
     }
 
-    if (elementDetail.onclick !== undefined) {
+    if (elementDetail.onclick !== undefined) { // si elementDetail.onclick est strictement différent de indéfinie alors il utilise la variable element.onclick
         element.onclick = elementDetail.onclick;
     }
 
-    if (elementDetail.textNode !== undefined) {
+    if (elementDetail.textNode !== undefined) { // si elementDetail.src est strictement différent de indéfinie alors il utilise la variable element.src
         appendElementTo(element, null, elementDetail.textNode)
     }
 
