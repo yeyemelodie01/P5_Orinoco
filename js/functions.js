@@ -10,32 +10,32 @@ export function createDomElement(elementDetail) { // utilisation de l'export ave
         element.id = elementDetail.id; // création de l'attribut id pour element avec la valeur contenu dans  elementDetail.id
     }
 
-    if (elementDetail.src !== undefined) { // si elementDetail.src est strictement différent de indéfinie alors il utilise la variable element.src
+    if (elementDetail.src !== undefined) { // si elementDetail.src est strictement différent de indéfinie
         element.src = elementDetail.src; // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
     }
 
-    if (elementDetail.href !== undefined) { // si elementDetail.href est strictement différent de indéfinie alors il utilise la variable element.href
+    if (elementDetail.href !== undefined) { // si elementDetail.href est strictement différent de indéfinie
         element.href = elementDetail.href; // création de l'attibut href pour element avec la valeur contenue dans elementDetail.href
     }
 
-    if (elementDetail.text !== undefined) { // si elementDetail.text est strictement différent de indéfinie alors il utilise la variable element.text
+    if (elementDetail.text !== undefined) { // si elementDetail.text est strictement différent de indéfinie
         element.text = elementDetail.text; // création de l'attibut text pour element avec la valeur contenue dans elementDetail.text
     }
 
-    if (elementDetail.innerHTML !== undefined) { // si elementDetail.innerHTML est strictement différent de indéfinie alors il utilise la variable element.innerHTML
+    if (elementDetail.innerHTML !== undefined) { // si elementDetail.innerHTML est strictement différent de indéfinie
         element.innerHTML = elementDetail.innerHTML; // création de l'attibut innerHTML pour element avec la valeur contenue dans elementDetail.innerHTML
     }
 
-    if (elementDetail.onclick !== undefined) { // si elementDetail.onclick est strictement différent de indéfinie alors il utilise la variable element.onclick
+    if (elementDetail.onclick !== undefined) { // si elementDetail.onclick est strictement différent de indéfinie
         element.onclick = elementDetail.onclick; // création de l'attibut onclick pour element avec la valeur contenue dans elementDetail.onclick
     }
 
-    if (elementDetail.textNode !== undefined) { // si elementDetail.textNode est strictement différent de indéfinie alors il utilise la variable element.textNode
+    if (elementDetail.textNode !== undefined) { // si elementDetail.textNode est strictement différent de indéfinie
         appendElementTo(element, null, elementDetail.textNode) // element est parent de la valeur contenue dans elementDetail.textNode
     }
 
-    if (elementDetail.parentId !== undefined) { //
-        appendElementTo(document.getElementById(elementDetail.parentId), element); // création de l'attibut src pour element avec la valeur contenue dans elementDetail.src
+    if (elementDetail.parentId !== undefined) { // si elementdetail.parentid est strictement différent de indéfinie
+        appendElementTo(document.getElementById(elementDetail.parentId), element); // on récupère la valeur de l'id contenue dans elementDetail.parentId qui sera parent de element
     }
 
     if (elementDetail.type !== undefined) {
