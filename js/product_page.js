@@ -240,9 +240,7 @@ function addToBasket(itemToAdd) {
     if (allReadyInBasket === false) {
         data.push(itemToAdd)
     }
-
     localStorage.setItem("basket", JSON.stringify(data));
-
 }
 
 function removeInBasket(itemToRemove) {

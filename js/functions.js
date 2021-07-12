@@ -1,13 +1,13 @@
-export function createDomElement(elementDetail) {
-    let element = document.createElement(elementDetail.tagName);
-    if (elementDetail.classList !== undefined && elementDetail.classList.length > 0) {
-        for (let i = 0; i < elementDetail.classList.length; i++) {
-            addClassToElement(element, elementDetail.classList[i]);
+export function createDomElement(elementDetail) { /* utilisation de l'export avec la fonction nommée createDomElement et son parametre elementDetail*/
+    let element = document.createElement(elementDetail.tagName); /* creation de la variable element qui permet de créer dans le DOM un élément html*/
+    if (elementDetail.classList !== undefined && elementDetail.classList.length > 0) { /* on utilise la condition if Si elementDetail.classList est strictement différent de indéfinie et que elementDetail.classList.length est plus grand que zero*/
+        for (let i = 0; i < elementDetail.classList.length; i++) { /* utilisation de la boucle for avec trois expression */
+            addClassToElement(element, elementDetail.classList[i]); /* instruction a utiliser dans la boucle*/
         }
     }
 
-    if (elementDetail.id !== undefined) {
-        element.id = elementDetail.id;
+    if (elementDetail.id !== undefined) { /* condition if. si element Detail.id est strictement  différent de indéfinie*/
+        element.id = elementDetail.id; // création de la variable element.id qui affichera elementDetail.id
     }
 
     if (elementDetail.src !== undefined) {
@@ -21,6 +21,7 @@ export function createDomElement(elementDetail) {
     if (elementDetail.text !== undefined) {
         element.text = elementDetail.text;
     }
+
     if (elementDetail.innerHTML !== undefined) {
         element.innerHTML = elementDetail.innerHTML;
     }
