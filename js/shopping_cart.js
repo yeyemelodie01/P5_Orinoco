@@ -456,8 +456,8 @@ function order() { // fonction nommé order avec parametre vide
                     })
                     .then(function (response) {
                         if (response.orderId) {
-                            setLocaleStorageInfo(response, formData);
-                            document.location.href = 'order_confirmation.html';
+                            setLocaleStorageInfo(response, formData); 
+                            document.location.href = 'order_confirmation.html'; // redirection vers la page order_confirmation.html
                         }
                     })
                     .catch(err => console.log(err)); // permet la gestion des erreurs
