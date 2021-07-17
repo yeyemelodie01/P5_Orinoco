@@ -452,11 +452,11 @@ function order() { // fonction nommé order avec parametre vide
                     body: JSON.stringify(formData),
                 })
                     .then(function (response) { // permet la gestion des données
-                        return response.json();
+                        return response.json(); retourne une reponse JSON
                     })
                     .then(function (response) {
                         if (response.orderId) {
-                            setLocaleStorageInfo(response, formData); 
+                            setLocaleStorageInfo(response, formData); //utilisation de la fonction setLocalStorage avec ces paramettre reponse et formData
                             document.location.href = 'order_confirmation.html'; // redirection vers la page order_confirmation.html
                         }
                     })
