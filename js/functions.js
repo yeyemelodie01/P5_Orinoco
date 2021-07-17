@@ -34,15 +34,15 @@ export function createDomElement(elementDetail) { // utilisation de l'export ave
         appendElementTo(element, null, elementDetail.textNode) // element est parent de la valeur contenue dans elementDetail.textNode
     }
 
-    if (elementDetail.parentId !== undefined) { // si elementdetail.parentid est strictement différent de indéfinie
+    if (elementDetail.parentId !== undefined) { // si elementdetail.parentId est strictement différent de indéfinie
         appendElementTo(document.getElementById(elementDetail.parentId), element); // on récupère la valeur de l'id contenue dans elementDetail.parentId qui sera parent de element
     }
 
-    if (elementDetail.type !== undefined) {
-        element.setAttribute('type', elementDetail.type);
+    if (elementDetail.type !== undefined) { // si elementdetail.parentid est strictement différent de indéfinie
+        element.setAttribute('type', elementDetail.type); // on definie l'attribut type a
     }
 
-    if (elementDetail.value !== undefined) {
+    if (elementDetail.value !== undefined) { // si elementdetail.parentid est strictement différent de indéfinie
         element.setAttribute('value', elementDetail.value);
     }
 
@@ -58,23 +58,23 @@ export function createDomElement(elementDetail) { // utilisation de l'export ave
         element.setAttribute('placeholder', elementDetail.placeholder);
     }
 
-    return element;
+    return element; // retourne la variable element
 }
 
 export function addClassToElement(element, className) {
-    element.classList.add(className);
+    element.classList.add(className); // ajoute a element
 }
 
 export function removeClassToElement(element, className) {
-    element.classList.remove(className);
+    element.classList.remove(className); // retire a element la class className
 }
 
 export function formatPrice(price) {
-    return new Intl.NumberFormat('fr-FR', {style: 'currency',currency: 'EUR', minimumFractionDigits: 2}).format(price);
+    return new Intl.NumberFormat('fr-FR', {style: 'currency',currency: 'EUR', minimumFractionDigits: 2}).format(price); // on retourne un objet format international 2 chiffre après la virgule
 }
 
-export function appendElementTo(parent, child = null, textNode = '') {
-    if (textNode !== '' && child === null) {
+export function appendElementTo(parent, child = null, textNode = '') { // par defaut child est null , par défaut c'est vide
+    if (textNode !== '' && child === null) { // si textNode 
         parent.appendChild(document.createTextNode(textNode))
     }
 

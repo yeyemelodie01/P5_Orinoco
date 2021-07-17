@@ -426,24 +426,24 @@ function buildProductsDataForOrderRequest() {
     return products;
 }
 
-function order() {
-    let authorizedType = [
+function order() { // fonction nommé order avec parametre vide
+    let authorizedType = [ // creation de la variable autorizedType qui a pour valeur un array contenant les types des produits
         'teddies',
         'furniture',
         'cameras',
     ];
 
-    if (basketData !== null) {
-        let formData = buildFormData();
-        let products = buildProductsDataForOrderRequest();
+    if (basketData !== null) { // condition if. Si basketData est strictement différent de null alors
+        let formData = buildFormData(); // creation de la variable formData qui a pour valeur la fonction buildFormData
+        let products = buildProductsDataForOrderRequest(); //creation de la variable products qui a pour valeur buildproductDataForOrderRequest
 
-        let baseUrl = "https://ab-p5-api.herokuapp.com/api/";
-        for (let i = 0; i < authorizedType.length; i++) {
-            if (products[authorizedType[i]] !== undefined) {
-                let apiUrl = baseUrl+authorizedType[i]+'/order';
-                formData.products = products[authorizedType[i]];
-                fetch(apiUrl,{
-                    method: 'POST',
+        let baseUrl = "https://ab-p5-api.herokuapp.com/api/"; // creation de la variable baseUrl qui a pour valeur le lien vers l'API
+        for (let i = 0; i < authorizedType.length; i++) { // utilisation de la boucle for avec entre parenthèse l'initialisation de l'itérateur i qui a pour valeur 0 , ensuite la terminaison i plus petit que authorizedType.length (longueur du tableau ou collection) pour finir on incrémente i++ qui rajoute 1 a la valeur de i a chaque boucle
+            if (products[authorizedType[i]] !== undefined) { //condition if. si products [authorizedType[i]] est strictement différent de indefinie
+                let apiUrl = baseUrl+authorizedType[i]+'/order';// creation de la variable apiurl qui a pour valeur l'url de l'API plus le type du produit + son
+                formData.products = products[authorizedType[i]]; //creation de l'attribut products pour formData avec la valeur contenue dans products[authorizedType[i]]
+                fetch(apiUrl,{ //utilisation de l'API fetch qui a pour parametre l'url de l'API ici avec la variable apiUrl
+                    method: 'POST', //type de la requête ici POST
                     mode: 'cors',
                     headers: {
                         'Accept': '*/*',
@@ -451,7 +451,7 @@ function order() {
                     },
                     body: JSON.stringify(formData),
                 })
-                    .then(function (response) {
+                    .then(function (response) { // permet la gestion des données
                         return response.json();
                     })
                     .then(function (response) {
@@ -460,7 +460,7 @@ function order() {
                             document.location.href = 'order_confirmation.html';
                         }
                     })
-                    .catch(err => console.log(err));
+                    .catch(err => console.log(err)); // permet la gestion des erreurs
             }
         }
     }
