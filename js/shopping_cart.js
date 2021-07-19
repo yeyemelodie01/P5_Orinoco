@@ -433,17 +433,17 @@ function order() { // fonction nommé order avec parametre vide
         'cameras',
     ];
 
-    if (basketData !== null) { // condition if. Si basketData est strictement différent de null alors
-        let formData = buildFormData(); // creation de la variable formData qui a pour valeur la fonction buildFormData
-        let products = buildProductsDataForOrderRequest(); //creation de la variable products qui a pour valeur buildproductDataForOrderRequest
+    if (basketData !== null) {
+        let formData = buildFormData();
+        let products = buildProductsDataForOrderRequest();
 
-        let baseUrl = "https://ab-p5-api.herokuapp.com/api/"; // creation de la variable baseUrl qui a pour valeur le lien vers l'API
-        for (let i = 0; i < authorizedType.length; i++) { // utilisation de la boucle for avec entre parenthèse l'initialisation de l'itérateur i qui a pour valeur 0 , ensuite la terminaison i plus petit que authorizedType.length (longueur du tableau ou collection) pour finir on incrémente i++ qui rajoute 1 a la valeur de i a chaque boucle
-            if (products[authorizedType[i]] !== undefined) { //condition if. si products [authorizedType[i]] est strictement différent de indefinie
-                let apiUrl = baseUrl+authorizedType[i]+'/order';// creation de la variable apiurl qui a pour valeur l'url de l'API plus le type du produit + son
-                formData.products = products[authorizedType[i]]; //creation de l'attribut products pour formData avec la valeur contenue dans products[authorizedType[i]]
-                fetch(apiUrl,{ //utilisation de l'API fetch qui a pour parametre l'url de l'API ici avec la variable apiUrl
-                    method: 'POST', //type de la requête ici POST
+        let baseUrl = "https://ab-p5-api.herokuapp.com/api/";
+        for (let i = 0; i < authorizedType.length; i++) {
+            if (products[authorizedType[i]] !== undefined) {
+                let apiUrl = baseUrl+authorizedType[i]+'/order';
+                formData.products = products[authorizedType[i]];
+                fetch(apiUrl,{
+                    method: 'POST',
                     mode: 'cors',
                     headers: {
                         'Accept': '*/*',
@@ -451,16 +451,16 @@ function order() { // fonction nommé order avec parametre vide
                     },
                     body: JSON.stringify(formData),
                 })
-                    .then(function (response) { // permet la gestion des données
-                        return response.json(); retourne une reponse JSON
+                    .then(function (response) {
+                        return response.json();
                     })
                     .then(function (response) {
                         if (response.orderId) {
-                            setLocaleStorageInfo(response, formData); //utilisation de la fonction setLocalStorage avec ces paramettre reponse et formData
-                            document.location.href = 'order_confirmation.html'; // redirection vers la page order_confirmation.html
+                            setLocaleStorageInfo(response, formData);
+                            document.location.href = 'order_confirmation.html';
                         }
                     })
-                    .catch(err => console.log(err)); // permet la gestion des erreurs
+                    .catch(err => console.log(err));
             }
         }
     }
